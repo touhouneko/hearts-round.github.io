@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import './style.css';
 
-const labels = ['home', 'discography', 'gallery', 'works', 'about', 'contact'];
+const labels = ['', 'discography', 'gallery', 'works', 'about', 'contact'];
 const paths = labels.map(l => `/${l}`);
 
 function navItem(label: string, idx: number) {
@@ -14,7 +14,7 @@ function navItem(label: string, idx: number) {
         activeClassName='active'
         to={paths[idx]}
       >
-        { label }
+        { label === '' ? 'home' : label }
       </NavLink>
     </li>
   );

@@ -14,9 +14,7 @@ export default class App extends React.Component {
     return [
       <Nav key="nav"/>,
       <Switch key="body">
-        <Redirect exact from='/' to='/home' />
-
-        <Route exact path='/home' component={Home} />
+        <Route exact path='/' component={Home} />
         <Route exact path='/discography' component={Discography} />
       </Switch>,
       <Footer key="footer" />

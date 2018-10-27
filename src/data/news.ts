@@ -3,11 +3,13 @@ import NewsModel, { INews } from '@/models/news';
 import MultiLanguageText from '@/models/text';
 
 function verifyInput(raw: IRawNews): boolean {
-  const dateRegex = /^\d{4}年\d{1,2}月\d{1,2}日$/;
-  return dateRegex.test(raw.date) &&
-  typeof raw.title_chs === 'string' && raw.title_chs.length > 0 &&
-  typeof raw.title_cht === 'string' && raw.title_cht.length > 0 &&
-  typeof raw.title_jp === 'string' && raw.title_jp.length > 0;
+  return true;
+  // const dateRegex = /^\d{4}年\d{1,2}月\d{1,2}日$/;
+  // return dateRegex.test(raw.date) &&
+  // return typeof raw.date === 'string' && raw.date.length > 0 &&
+  // typeof raw.title_chs === 'string' && raw.title_chs.length > 0 &&
+  // typeof raw.title_cht === 'string' && raw.title_cht.length > 0 &&
+  // typeof raw.title_jp === 'string' && raw.title_jp.length > 0;
 }
 
 function parseOne(raw: IRawNews): INews {

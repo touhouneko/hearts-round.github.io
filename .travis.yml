@@ -17,4 +17,4 @@ jobs:
     - stage: build
       script: npm run build
     - stage: deploy
-      script: npm run deploy
+      script: ./deploy.sh

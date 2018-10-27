@@ -3,18 +3,31 @@ import { NavLink } from 'react-router-dom';
 
 import './style.css';
 
-const labels = ['', 'discography', 'gallery', 'works', 'about', 'contact'];
-const paths = labels.map(l => `/${l}`);
+interface IRoute {
+  label: string;
+  exact: boolean;
+  path: string;
+}
 
-function navItem(label: string, idx: number) {
+const routes: IRoute[] = [
+  { label: 'home', exact: true, path: '/' },
+  { label: 'discography', exact: false, path: '/discography' },
+  { label: 'gallery', exact: false, path: '/gallery' },
+  { label: 'works', exact: false, path: '/works' },
+  { label: 'about', exact: false, path: '/about' },
+  { label: 'contact', exact: true, path: '/contact' },
+]
+
+function navItem(route: IRoute, idx: number) {
   return (
-    <li className='nav__item' key={label}>
+    <li className='nav__item' key={route.label}>
       <NavLink
         className='nav__item-text'
         activeClassName='active'
-        to={paths[idx]}
+        to={route.path}
+        exact={route.exact}
       >
-        { label === '' ? 'home' : label }
+        { route.label }
       </NavLink>
     </li>
   );
@@ -27,7 +40,7 @@ const Header = () => (
         <img className="logo" />
       </div>
       <ul className="nav__list">
-        {labels.map(navItem)}
+        {routes.map(navItem)}
       </ul>
     </nav>
   </header>

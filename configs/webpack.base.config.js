@@ -16,6 +16,7 @@ module.exports = {
   },
   output: {
     filename: "[name].bundle.js",
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
   },
@@ -33,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        loader: "style-loader!css-loader",
+        use: ["style-loader", "css-loader", "postcss-loader"]
       },
       {
         test: /\.csv$/,

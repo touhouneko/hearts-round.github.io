@@ -22,3 +22,5 @@ deploy:
   keep-history: true
   local-dir: ./dist
   target-branch: master
+  on:
+    branch: source

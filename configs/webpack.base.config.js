@@ -3,17 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.tsx",
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
-  },
   output: {
     filename: "[name].bundle.js",
     chunkFilename: '[name].bundle.js',
@@ -31,10 +20,6 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         loader: "awesome-typescript-loader"
-      },
-      {
-        test: /\.(css)$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
       },
       {
         test: /\.csv$/,

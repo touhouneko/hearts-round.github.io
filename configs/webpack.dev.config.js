@@ -6,5 +6,15 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
+  },
+  module: {
+    ...config.module,
+    rules: [
+      {
+        test: /\.(css)$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader']
+      },
+      ...config.module.rules
+    ]
   }
 }

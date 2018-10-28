@@ -29,11 +29,11 @@ export default class App extends React.Component {
       <div className="global__body" key="body">
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/discography' component={Discography} />
+        <Route path='/discography' component={Discography} />
         <Route exact path='/contact' component={Contact} />
       </Switch>
       </div>,
       <Footer key="footer" />
-    ]
+    ];
   }
 }

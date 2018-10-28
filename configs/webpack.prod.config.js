@@ -1,7 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = require('./webpack.base.config');
 

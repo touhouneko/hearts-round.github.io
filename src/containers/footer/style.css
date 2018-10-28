@@ -2,3 +2,50 @@
   color: white;
   background-color: #343434;
 }
+.global__footer .footer__section {
+  text-align: center;
+}
+/* logo */
+.global__footer .footer__section--social {
+  margin-top: 50px;
+}
+.global__footer .section__paragraph {
+  margin: 0;
+}
+.global__footer .social__logo-wrapper {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  transform: rotate(45deg);
+  background: white;
+}
+.global__footer .social__logo-wrapper:not(:first-child) {
+  margin-left: 28px;
+}
+.global__footer .social__logo {
+  display: block;
+  width: 60px;
+  height: 60px;
+  transform: rotate(-45deg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 50px;
+}
+.global__footer .social__logo--twitter {
+  background-image: url("~@/images/twitter.svg");
+}
+.global__footer .social__logo--weibo {
+  background-image: url("~@/images/weibo.svg");
+}
+
+/* site name */
+.global__footer .footer__section--site-name {
+  margin-top: 60px;
+  font-size: 20px;
+  letter-spacing: 0.8em;
+}
+
+/* copyright */
+.global__footer .footer__section--copyright {
+  margin-top: 20px;
+}

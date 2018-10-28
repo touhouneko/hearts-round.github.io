@@ -1,6 +1,11 @@
 .global__header {
   display: inline-flex;
   justify-content: center;
+  background: white;
+  border-bottom: 1px solid #CBCBCB;
+  box-shadow: 0 0 60px 0 #CBCBCB;
+  height: 85px;
+  min-width: 100%;
 }
 
 .global__header .logo__wrapper {
@@ -11,13 +16,11 @@
 .global__header .nav__container {
   display: inline-flex;
   align-items: center;
-  font-size: 24px;
 }
 
 .global__header .nav__list {
   display: inline-flex;
   flex-grow: 1;
-  margin-left: 140px;
 }
 
 .global__header .nav__item-text {
@@ -30,10 +33,30 @@
 }
 .global__header .nav__item {
   display: inline-block;
-  margin: 0 35px;
 }
 .global__header .nav__item:last-child {
   margin-right: 0;
 }
 
+/* size */
+.global__header .nav__container {
+  font-size: 20px;
+}
+.global__header .nav__list {
+  margin-left: 190px;
+}
+.global__header .nav__item {
+  margin: 0 35px;
+}
 
+/* @media screen and (max-width: 1600px) {
+  .global__header .nav__container {
+    font-size: 20px;
+  }
+  .global__header .nav__list {
+    margin-left: 150px;
+  }
+  .global__header .nav__item {
+    margin: 0 25px;
+  }
+} */

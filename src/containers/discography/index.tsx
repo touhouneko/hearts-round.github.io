@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const Discography = () => (
-  <main className="global__body disc__container">
+  <main className="disc__container">
     this is disc page
   </main>
 );

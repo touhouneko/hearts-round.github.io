@@ -1,0 +1,13 @@
+.global__page-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.global__page-loading .lt-loading__container {
+  transform: scale(3);
+}
+.global__page-loading .lt-loading__rect {
+  background: #40A0B6;
+}

@@ -10,9 +10,10 @@ export default class Home extends React.Component {
   public render() {
     const { news } = localStore;
     return (
-      <main className="global__body home__container">
-        This is the home page
+      <main className="home__container">
+
         <div className="news__container">
+          <h1 className="news__title">News</h1>
           <ul className="news__list">
             {news.map(this.newsItem)}
           </ul>
@@ -28,7 +29,9 @@ export default class Home extends React.Component {
     return (
       <li className="news__item" key={idx}>
         <time className="news__time">{item.date}</time>
-        <p className="news__title">{item.title.chs}</p>
+        <p className="news__content">
+          <span className="news__text">{item.title.chs}</span>
+        </p>
       </li>
     )
   }

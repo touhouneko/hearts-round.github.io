@@ -4,26 +4,35 @@ import * as Loadable from "react-loadable";
 import 'normalize.css';
 
 import Nav from './containers/top-nav';
+import PageLoading from './containers/page-loading';
 import Footer from './containers/footer';
 import './site.css';
 
+
 const Home = Loadable({
   loader: () => import(/* webpackChunkName: "home" */'./containers/home'),
-  loading: () => (<div>loading</div>),
+  loading: PageLoading
 });
 const Discography = Loadable({
   loader: () => import(/* webpackChunkName: "discography" */'./containers/discography'),
-  loading: () => (<div>loading</div>),
+  loading: PageLoading
+})
+const Contact = Loadable({
+  loader: () => import(/* webpackChunkName: "contact" */'./containers/contact'),
+  loading: PageLoading
 })
 
 export default class App extends React.Component {
   public render() {
     return [
       <Nav key="nav"/>,
-      <Switch key="body">
+      <div className="global__body" key="body">
+      <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/discography' component={Discography} />
-      </Switch>,
+        <Route exact path='/contact' component={Contact} />
+      </Switch>
+      </div>,
       <Footer key="footer" />
     ]
   }

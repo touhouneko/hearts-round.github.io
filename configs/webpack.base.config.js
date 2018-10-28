@@ -44,6 +44,13 @@ module.exports = {
           skipEmptyLines: true,
           comments: '#'
         }
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192
+        }
       }
     ]
   },

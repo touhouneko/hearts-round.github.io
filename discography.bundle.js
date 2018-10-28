@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{39:function(n,e,i){"use strict";i.r(e);var s=i(0);e.default=function(){return s.createElement("main",{className:"disc__container"},"this is disc page")}}}]);

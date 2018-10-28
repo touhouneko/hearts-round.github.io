@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import * as Loadable from "react-loadable";
 import 'normalize.css';
 
@@ -28,7 +28,8 @@ export default class App extends React.Component {
       <Nav key="nav"/>,
       <div className="global__body" key="body">
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Redirect exact path='/' to='/home' />
+        <Route exact path='/home' component={Home} />
         <Route path='/discography' component={Discography} />
         <Route exact path='/contact' component={Contact} />
       </Switch>

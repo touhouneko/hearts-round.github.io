@@ -10,7 +10,7 @@ interface IRoute {
 }
 
 const routes: IRoute[] = [
-  { label: 'home', exact: true, path: '/' },
+  { label: 'home', exact: true, path: '/home' },
   { label: 'discography', exact: false, path: '/discography' },
   { label: 'gallery', exact: false, path: '/gallery' },
   { label: 'works', exact: false, path: '/works' },

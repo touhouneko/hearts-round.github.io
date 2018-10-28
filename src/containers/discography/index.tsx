@@ -33,7 +33,7 @@ const Discography = ({ match }: { match: any }) => (
       </NavLink>
     </nav>
     <Switch>
-      <Redirect exact from='/discography' to={`${match.url}/albums`} />
+      <Redirect exact from='/discography' to='/discography/albums' />
       <Route exact path={`${match.url}/albums`} component={AlbumPage}/>
       <Route exact path={`${match.url}/videos`} component={VideoPage}/>
     </Switch>

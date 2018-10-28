@@ -61,7 +61,12 @@ module.exports = {
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
       // outputDir: path.join(__dirname, '../prerendered'),
-      routes: ['/', '/discography/albums', '/discography/videos', '/contact'],
+      routes: ['/', '/discography', '/discography/albums', '/discography/videos', '/home', '/contact'],
+      postProcess (renderedRoute) {
+        // Ignore any redirects.
+        renderedRoute.route = renderedRoute.originalRoute;
+        return renderedRoute;
+      },
       minify: {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,

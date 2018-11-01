@@ -58,7 +58,7 @@ module.exports = {
     }),
     ...config.plugins,
     new MiniCssExtractPlugin({
-      filename: "[name].[hash.8].css",
+      filename: "[name].[hash:8].css",
       chunkFilename: "[name].[hash:8].css"
     }),
     new PrerenderSPAPlugin({

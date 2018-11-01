@@ -21,6 +21,10 @@ const Contact = Loadable({
   loader: () => import(/* webpackChunkName: "contact" */'./containers/contact'),
   loading: PageLoading
 })
+const Management = Loadable({
+  loader: () => import(/* webpackChunkName: "management" */'./containers/management'),
+  loading: PageLoading
+})
 
 export default class App extends React.Component {
   public render() {
@@ -32,6 +36,7 @@ export default class App extends React.Component {
         <Route exact path='/home' component={Home} />
         <Route path='/discography' component={Discography} />
         <Route exact path='/contact' component={Contact} />
+        <Route exact path='/management' component={Management} />
       </Switch>
       </div>,
       <Footer key="footer" />

@@ -10,3 +10,10 @@ render(
   </BrowserRouter>,
   document.getElementById('root'),
 );
+
+let module: {
+  hot: any
+};
+if (module.hot) {
+  module.hot.accept()
+}

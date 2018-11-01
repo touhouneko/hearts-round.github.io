@@ -6,6 +6,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.base.config');
 
+const prerenderUrls = [
+  '/', '/home', '/contact',
+  '/discography', '/discography/albums', '/discography/videos'
+];
+
 module.exports = {
   ...config,
   mode: 'production',
@@ -61,7 +66,7 @@ module.exports = {
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
       // outputDir: path.join(__dirname, '../prerendered'),
-      routes: ['/', '/discography', '/discography/albums', '/discography/videos', '/home', '/contact'],
+      routes: prerenderUrls,
       postProcess (renderedRoute) {
         // Ignore any redirects.
         renderedRoute.route = renderedRoute.originalRoute;

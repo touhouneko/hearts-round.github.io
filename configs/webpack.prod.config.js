@@ -7,7 +7,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.base.config');
 
 const prerenderUrls = [
-  '/', '/home', '/contact',
+  '/', '/home', '/contact', '/management',
   '/discography', '/discography/albums', '/discography/videos'
 ];
 
@@ -58,15 +58,13 @@ module.exports = {
     }),
     ...config.plugins,
     new MiniCssExtractPlugin({
-      filename: "[name].[hash:8].css",
-      chunkFilename: "[name].[hash:8].css"
+      filename: "static/css/[name].[hash:8].css",
+      chunkFilename: "static/css/[name].[hash:8].css"
     }),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
-      // outputDir: path.join(__dirname, '../prerendered'),
       routes: prerenderUrls,
       postProcess (renderedRoute) {
-        // Ignore any redirects.
         renderedRoute.route = renderedRoute.originalRoute;
         return renderedRoute;
       },

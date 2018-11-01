@@ -14,6 +14,6 @@ render(
 let module: {
   hot: any
 };
-if (module.hot) {
+if (module !== undefined && module.hot) {
   module.hot.accept()
 }

@@ -4,9 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    filename: "[name].[hash:8].js",
-    chunkFilename: '[name].[hash:8].js',
-    path: path.resolve(__dirname, '../dist'),
+    filename: "static/js/[name].[hash:8].js",
+    chunkFilename: 'static/js/[name].[hash:8].js',
+    path: path.resolve(__dirname, '../dist/'),
     publicPath: '/'
   },
   resolve: {

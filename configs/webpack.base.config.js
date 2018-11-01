@@ -19,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        loader: "awesome-typescript-loader"
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.csv$/,

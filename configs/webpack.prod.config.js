@@ -28,7 +28,7 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
+        sourceMap: true
       }),
       new OptimizeCSSAssetsPlugin({})
     ]
@@ -58,10 +58,8 @@ module.exports = {
     }),
     ...config.plugins,
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: "[name].[hash.8].css",
+      chunkFilename: "[name].[hash:8].css"
     }),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),

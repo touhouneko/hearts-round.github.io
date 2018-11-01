@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import * as qs from 'query-string';
 
 import AuthPage from './github-auth';
+import parseQueryString from '@/utils/query-string';
 import globalStore from '@/global-store';
 
 interface IProp {
@@ -24,7 +24,7 @@ export default class Management extends React.Component<IProp> {
     );
   }
   componentDidMount() {
-    const { code = '' } = qs.parse(this.props.location.search) as any;
+    const { code = '' } = parseQueryString(this.props.location.search) as any;
     if (code === '') return;    
     globalStore.tryCalculateToken(code);
   }

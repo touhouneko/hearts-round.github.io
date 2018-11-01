@@ -1,5 +1,4 @@
-import * as qs from 'query-string';
-
+import parseQueryString from '@/utils/query-string';
 import BaseApi from './base-api';
 
 class GithubApi extends BaseApi {
@@ -8,7 +7,7 @@ class GithubApi extends BaseApi {
     return new Promise((resolve, reject) => {
       this.axiosInstance.get(`${lambdaUrl}?&code=${code}`).then(res => {
         const { data = '' } = res;
-        const { error = '', access_token = '' } = qs.parse(data) as any;
+        const { error = '', access_token = '' } = parseQueryString(data) as any;
         if (access_token !== '')
           resolve(access_token);
         else

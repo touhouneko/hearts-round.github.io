@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import OutsideClickListener from '../outside-click-listener';
 import './style.css';
 
 interface IProp {
@@ -8,23 +7,24 @@ interface IProp {
   children?: any;
   nextLabel: string;
   prevLabel: string;
+  windowRef?: React.RefObject<HTMLDivElement>;
 
   handleNext: () => any;
   handlePrev: () => any;
-  handleClose: () => any;
 }
-export const ModalWithNav = ({
+
+const ModalWithNav = ({
   className = '',
   children,
   nextLabel,
   prevLabel,
+  windowRef = null,
   handlePrev,
-  handleNext,
-  handleClose
+  handleNext
 }: IProp) => (
-  <OutsideClickListener
+  <div
+    ref={windowRef}
     className={`lt-modal__window lt-modal__window--center lt-modal__window--nav ${className}`}
-    listener={handleClose}
   >
     {children}
     <div className="nav__wrapper">
@@ -41,7 +41,7 @@ export const ModalWithNav = ({
         <span>{nextLabel}&#8194;&#8594;</span>
       </a>
     </div>
-  </OutsideClickListener>
+  </div>
 );
 
 export default ModalWithNav;

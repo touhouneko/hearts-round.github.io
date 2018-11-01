@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import TwitterLogo from '@/images/twitter.svg';
 import './style.css';
 
 const Footer = () => (

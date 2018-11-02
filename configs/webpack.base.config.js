@@ -1,12 +1,11 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    filename: "static/js/[name].[hash:8].js",
-    chunkFilename: 'static/js/[name].[hash:8].js',
+    filename: "static/js/[name].[chunkhash:8].js",
+    chunkFilename: 'static/js/[name].[chunkhash:8].js',
     path: path.resolve(__dirname, '../dist/'),
     publicPath: '/'
   },

@@ -58,8 +58,8 @@ module.exports = {
     }),
     ...config.plugins,
     new MiniCssExtractPlugin({
-      filename: "static/css/[name].[hash:8].css",
-      chunkFilename: "static/css/[name].[hash:8].css"
+      filename: "static/css/[name].[chunkhash:8].css",
+      chunkFilename: "static/css/[name].[chunkhash:8].css"
     }),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),

@@ -1,19 +1,19 @@
-import parseQueryString from '@/utils/query-string';
+import { AxiosPromise } from 'axios';
+import sha256 from 'sha256';
+
+import bindthis from '@/decorators/bindthis';
 import BaseApi from './base-api';
 
 class GithubApi extends BaseApi {
-  public calculateToken(code: string): Promise<string> {
-    const lambdaUrl = 'https://tlcllgwvb5.execute-api.ap-southeast-2.amazonaws.com/default/github_oath';
-    return new Promise((resolve, reject) => {
-      this.axiosInstance.get(`${lambdaUrl}?&code=${code}`).then(res => {
-        const { data = '' } = res;
-        const { error = '', access_token = '' } = parseQueryString(data) as any;
-        if (access_token !== '')
-          resolve(access_token);
-        else
-          reject(error)
-      }).catch(reject)
-    });
+  @bindthis private updateFile(file: string, path: string, password: string): Promise<unknown> {
+    const hashedPwd = sha256(password).toUpperCase();
+    const content = btoa(unescape(encodeURIComponent(file)));
+    const url = 'https://kmtcckw6m9.execute-api.ap-southeast-2.amazonaws.com/prod/content';
+    return this.axiosInstance.put(`${url}?path=${path}&content=${content}&password=${hashedPwd}`);
+  }
+
+  @bindthis public updateNews(file: string, password: string): Promise<unknown> {
+    return this.updateFile(file, 'src/data/news.csv', password);
   }
 }
 

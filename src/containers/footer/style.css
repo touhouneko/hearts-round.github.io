@@ -32,10 +32,10 @@
   background-size: 50px 50px;
 }
 .global__footer .social__logo--twitter {
-  background-image: url("~@/images/twitter.svg");
+  background-image: url("~@/assets/images/twitter.svg");
 }
 .global__footer .social__logo--weibo {
-  background-image: url("~@/images/weibo.svg");
+  background-image: url("~@/assets/images/weibo.svg");
 }
 
 /* site name */

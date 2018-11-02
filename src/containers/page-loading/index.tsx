@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import BaseLoading from '@/components/loading/loading-base';
 import './style.css';

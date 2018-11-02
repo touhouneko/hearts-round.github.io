@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 export default function useClickOutside(wrapperRef: React.RefObject<HTMLElement> ,handler: () => any) {
   function handleClick(ev: MouseEvent) {

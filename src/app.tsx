@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import * as Loadable from "react-loadable";
+import Loadable from "react-loadable";
 import 'normalize.css';
 
 import Nav from './containers/top-nav';

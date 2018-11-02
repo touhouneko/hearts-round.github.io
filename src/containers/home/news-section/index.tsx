@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { INews } from '@/models/news';
 import { popupModal } from './modal';

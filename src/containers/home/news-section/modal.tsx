@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 
 import ModalWithNav from '@/components/modal/modal-nav';
@@ -29,7 +29,7 @@ function NewsModal({ news, initIdx, container }: INewsModalProp) {
       nextLabel={idx < news.length - 1 ? '下一条': ''}
       handleNext={() => setIdx(idx + 1)}
       handlePrev={() => setIdx(idx - 1)}
-      windowRef={windowRef}
+      ref={windowRef}
       className="news-modal"
     >
       <article className="news-modal__container">

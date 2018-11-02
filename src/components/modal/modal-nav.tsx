@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import './style.css';
 
@@ -7,23 +7,21 @@ interface IProp {
   children?: any;
   nextLabel: string;
   prevLabel: string;
-  windowRef?: React.RefObject<HTMLDivElement>;
 
   handleNext: () => any;
   handlePrev: () => any;
 }
 
-const ModalWithNav = ({
+const ModalWithNav = React.forwardRef(({
   className = '',
   children,
   nextLabel,
   prevLabel,
-  windowRef = null,
   handlePrev,
   handleNext
-}: IProp) => (
+}: IProp, ref: React.RefObject<HTMLDivElement>) => (
   <div
-    ref={windowRef}
+    ref={ref}
     className={`lt-modal__window lt-modal__window--center lt-modal__window--nav ${className}`}
   >
     {children}
@@ -42,6 +40,6 @@ const ModalWithNav = ({
       </a>
     </div>
   </div>
-);
+));
 
 export default ModalWithNav;

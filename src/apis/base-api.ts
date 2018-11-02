@@ -1,8 +1,8 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 export default abstract class BaseApi {
   protected axiosInstance: AxiosInstance;
-  constructor() {
-    this.axiosInstance = axios.create({});
+  constructor(config: AxiosRequestConfig = {}) {
+    this.axiosInstance = axios.create(config);
   }
 }

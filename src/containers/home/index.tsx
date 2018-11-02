@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import NewsSection from './news-section';
 import './style.css';

@@ -5,5 +5,5 @@ export interface IMultiLanguageText {
 }
 
 export default class MultiLanguageText implements IMultiLanguageText {
-  constructor(public chs: string, public cht: string, public jp: string) {}
+  constructor(public chs: string = '', public cht: string = '', public jp: string = '') {}
 }

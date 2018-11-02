@@ -1,7 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.base.config');
@@ -25,11 +25,11 @@ module.exports = {
       }
     },
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true
-      }),
+      // new UglifyJsPlugin({
+      //   cache: true,
+      //   parallel: false,
+      //   sourceMap: false
+      // }),
       new OptimizeCSSAssetsPlugin({})
     ]
   },
@@ -68,13 +68,13 @@ module.exports = {
         renderedRoute.route = renderedRoute.originalRoute;
         return renderedRoute;
       },
-      minify: {
-        collapseBooleanAttributes: true,
-        collapseWhitespace: true,
-        decodeEntities: true,
-        keepClosingSlash: true,
-        sortAttributes: true
-      },
+      // minify: {
+      //   collapseBooleanAttributes: true,
+      //   collapseWhitespace: true,
+      //   decodeEntities: true,
+      //   keepClosingSlash: true,
+      //   sortAttributes: true
+      // },
     })
   ]
 };

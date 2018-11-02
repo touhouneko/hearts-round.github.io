@@ -68,7 +68,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "static/js/" + ({"1":"contact","2":"discography","3":"discography-album","4":"discography-video","5":"home","7":"management"}[chunkId]||chunkId) + "." + "777dd241" + ".js"
+/******/ 		return __webpack_require__.p + "static/js/" + ({"1":"contact","2":"discography","3":"discography-album","4":"discography-video","5":"home","7":"management"}[chunkId]||chunkId) + "." + {"1":"490f8c5a","2":"c075b18f","3":"a15d4259","4":"ae819e71","5":"69ef90c5","7":"7744ed4b"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -106,7 +106,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "static/css/" + ({"1":"contact","2":"discography","3":"discography-album","4":"discography-video","5":"home","7":"management"}[chunkId]||chunkId) + "." + "777dd241" + ".css";
+/******/ 				var href = "static/css/" + ({"1":"contact","2":"discography","3":"discography-album","4":"discography-video","5":"home","7":"management"}[chunkId]||chunkId) + "." + {"1":"490f8c5a","2":"c075b18f","3":"a15d4259","4":"ae819e71","5":"69ef90c5","7":"7744ed4b"}[chunkId] + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

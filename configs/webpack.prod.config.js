@@ -1,6 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 // const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -18,18 +19,18 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom)[\\/]/,
           name: 'vendors',
           chunks: 'all'
         }
       }
     },
     minimizer: [
-      // new UglifyJsPlugin({
-      //   cache: true,
-      //   parallel: false,
-      //   sourceMap: false
-      // }),
+      new TerserPlugin({
+        cache: true,
+        parallel: 4,
+        sourceMap: true
+      }),
       new OptimizeCSSAssetsPlugin({})
     ]
   },

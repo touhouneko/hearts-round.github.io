@@ -33,9 +33,9 @@ function navItem(route: IRoute, idx: number) {
   );
 }
 
-const Header = () => (
+const Header = React.forwardRef((props: unknown, ref: React.RefObject<HTMLHeadingElement>) => (
   <header className="global__header">
-    <nav className="nav__container">
+    <nav className="nav__container" ref={ref}>
       <div className="logo__wrapper">
         <img className="logo" />
       </div>
@@ -44,6 +44,6 @@ const Header = () => (
       </ul>
     </nav>
   </header>
-);
+));
 
 export default Header;

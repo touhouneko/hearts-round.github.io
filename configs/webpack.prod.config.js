@@ -8,7 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.base.config');
 
 const prerenderUrls = [
-  '/', '/home', '/contact', '/management',
+  '/', '/home', '/contact', '/management', '/works', '/gallery',
   '/discography', '/discography/albums', '/discography/videos'
 ];
 

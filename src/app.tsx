@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import 'normalize.css';
 
+import useResize from '@/hooks/resize';
 import Nav from './containers/top-nav';
 import PageLoading from './containers/page-loading';
 import Footer from './containers/footer';
 import './site.css';
-
 
 const Home = Loadable({
   loader: () => import(/* webpackChunkName: "home" */'./containers/home'),
@@ -34,24 +34,32 @@ const Management = Loadable({
   loading: PageLoading
 });
 
-class App extends React.Component {
-  public render() {
-    return [
-      <Nav key="nav"/>,
-      <div className="global__body" key="body">
-      <Switch>
-        <Redirect exact path='/' to='/home' />
-        <Route exact path='/home' component={Home} />
-        <Route path='/discography' component={Discography} />
-        <Route exact path='/contact' component={Contact} />
-        <Route exact path='/gallery' component={Gallery} />
-        <Route exact path='/works' component={WorkPage} />
-        <Route exact path='/management' component={Management} />
-      </Switch>
-      </div>,
-      <Footer key="footer" />
-    ];
-  }
-}
 
-export default App;
+export default function App() {
+  const navWrapperRef = useRef<HTMLHeadingElement>(null);
+  const html = document.getElementsByTagName('html')[0];
+  function resizeListener() {
+    if (navWrapperRef.current === null) return;
+    let width = navWrapperRef.current.clientWidth;
+    html.style.minWidth = `${width}px`;
+  }
+  useResize(resizeListener);
+
+  return (
+    <React.Fragment>
+      <Nav key="nav" ref={navWrapperRef}/>
+      <div className="global__body" key="body">
+        <Switch>
+          <Redirect exact path='/' to='/home' />
+          <Route exact path='/home' component={Home} />
+          <Route path='/discography' component={Discography} />
+          <Route exact path='/contact' component={Contact} />
+          <Route exact path='/gallery' component={Gallery} />
+          <Route exact path='/works' component={WorkPage} />
+          <Route exact path='/management' component={Management} />
+        </Switch>
+      </div>
+      <Footer key="footer" />
+    </React.Fragment>
+  );
+}

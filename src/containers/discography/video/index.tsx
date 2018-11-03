@@ -1,38 +1,38 @@
 import React from 'react';
 
+// import videosInfo from '@/data/videos';
+import videosInfos, { IRawVideo } from '@/data/videos.csv';
 import './style.css';
 
-const Item = () => (
+const Item = ({ info }: { info: IRawVideo }) => (
   <section className="list__video">
-    <div
-      className="video__cover clickable"
-      // style={{backgroundImage: 'url("@/images/test.jpg")'}}
-    >
+    <div className="video__cover clickable">
+      <img src={info.cover} />
       <div className="video__button--outer">
         <i className="video__button--inner" />
       </div>
     </div>
     <article className="video__info">
       <h1 className="info__title">
-        Title
+        {info.title}
       </h1>
       <p className="indent info__album">
-        album
+      『{info.album}』
       </p>
       <p className="indent info__others">
-        Original:
+        Original: {info.original}
       </p>
       <p className="indent info__others">
-        Arrange:
+        Arrange: {info.arrange}
       </p>
       <p className="indent info__others">
-        Lyric:
+        Lyric: {info.lyrics}
       </p>
       <p className="indent info__others">
-        Illust:
+        Illust: {info.illust}
       </p>
       <p className="indent info__others">
-        Vocal:
+        Vocal: {info.vocal}
       </p>
       <div className="indent info__urls">
         <i className="urls__icon urls__icon--bilibili" />
@@ -45,7 +45,11 @@ const Item = () => (
 
 const Video = () => (
   <div className="video__container">
-    <Item />
+  {
+    videosInfos.map((v, idx) => (
+      <Item info={v} key={idx}/>
+    ))
+  }
   </div>
 );
 export default Video;

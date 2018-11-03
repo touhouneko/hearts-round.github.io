@@ -1,0 +1,13 @@
+.illustration__list {
+  margin: 130px 0;
+  display: grid;
+  grid-template-columns: 290px 290px 290px;
+  grid-template-rows: 290px;
+  grid-column-gap: 60px;
+  grid-row-gap: 70px;
+}
+
+.illustration__list > .illustration__item {
+  width: 290px;
+  height: 290px;;
+}

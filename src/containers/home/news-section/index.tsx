@@ -30,7 +30,7 @@ export default function NewsSection() {
 
   return (
     <section className="news__container">
-      <h1 className="news__title">News</h1>
+      <h1 className="news__title page__title">News</h1>
       <ul className="news__list">
         {news.map((news, idx) => (
           <NewsItem item={news} idx={idx} key={idx}/>

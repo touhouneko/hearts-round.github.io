@@ -3,14 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.tsx",
-  output: {
-    filename: "static/js/[name].[chunkhash:8].js",
-    chunkFilename: 'static/js/[name].[chunkhash:8].js',
-    path: path.resolve(__dirname, '../dist/'),
-    publicPath: '/'
-  },
   resolve: {
-    extensions: ['.js', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.ts', '.tsx'],
     alias: {
       '@': path.join(__dirname, '../src')
     },

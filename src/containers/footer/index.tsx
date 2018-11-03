@@ -5,10 +5,10 @@ import './style.css';
 const Footer = () => (
   <footer className="global__footer">
     <section className="footer__section footer__section--social">
-      <div className="social__logo-wrapper social__logo-wrapper--twitter">
+      <div className="social__logo-wrapper social__logo-wrapper--twitter clickable">
         <i className="social__logo social__logo--twitter"/>
       </div>
-      <div className="social__logo-wrapper social__logo-wrapper--weibo">
+      <div className="social__logo-wrapper social__logo-wrapper--weibo clickable">
         <i className="social__logo social__logo--weibo"/>
       </div>
     </section>

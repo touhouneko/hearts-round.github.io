@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Loadable from "react-loadable";
+import Loadable from 'react-loadable';
 import 'normalize.css';
 
 import Nav from './containers/top-nav';
@@ -16,17 +16,25 @@ const Home = Loadable({
 const Discography = Loadable({
   loader: () => import(/* webpackChunkName: "discography" */'./containers/discography'),
   loading: PageLoading
-})
+});
 const Contact = Loadable({
   loader: () => import(/* webpackChunkName: "contact" */'./containers/contact'),
+  loading: PageLoading
+});
+const Gallery = Loadable({
+  loader: () => import(/* webpackChunkName: "gallery" */'./containers/gallery'),
+  loading: PageLoading
+});
+const WorkPage = Loadable({
+  loader: () => import(/* webpackChunkName: "work" */'./containers/work'),
   loading: PageLoading
 })
 const Management = Loadable({
   loader: () => import(/* webpackChunkName: "management" */'./containers/management'),
   loading: PageLoading
-})
+});
 
-export default class App extends React.Component {
+class App extends React.Component {
   public render() {
     return [
       <Nav key="nav"/>,
@@ -36,6 +44,8 @@ export default class App extends React.Component {
         <Route exact path='/home' component={Home} />
         <Route path='/discography' component={Discography} />
         <Route exact path='/contact' component={Contact} />
+        <Route exact path='/gallery' component={Gallery} />
+        <Route exact path='/works' component={WorkPage} />
         <Route exact path='/management' component={Management} />
       </Switch>
       </div>,
@@ -43,3 +53,5 @@ export default class App extends React.Component {
     ];
   }
 }
+
+export default App;

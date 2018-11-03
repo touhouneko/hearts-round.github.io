@@ -1,3 +1,206 @@
-{
-  
-}
+[
+  {
+    "name": "Album1",
+    "cover_img": "https://via.placeholder.com/290x290",
+    "code": "HATO001",
+    "original": "Zun",
+    "illustration": "TOMATO",
+    "special_thanks": "Renka",
+    "product_url": "taobao",
+    "tracks": [
+      {
+        "title": "track 001",
+        "vocal": "CoreTania",
+        "original": "original track 001",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      },
+      {
+        "title": "track 002",
+        "vocal": "CoreTania",
+        "original": "original track 002",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Album2",
+    "cover_img": "https://via.placeholder.com/290x290",
+    "code": "HATO002",
+    "original": "Zun",
+    "illustration": "TOMATO",
+    "special_thanks": "Renka",
+    "product_url": "taobao",
+    "tracks": [
+      {
+        "title": "track 001",
+        "vocal": "CoreTania",
+        "original": "original track 001",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      },
+      {
+        "title": "track 002",
+        "vocal": "CoreTania",
+        "original": "original track 002",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Album3",
+    "cover_img": "https://via.placeholder.com/290x290",
+    "code": "HATO003",
+    "original": "Zun",
+    "illustration": "TOMATO",
+    "special_thanks": "Renka",
+    "product_url": "taobao",
+    "tracks": [
+      {
+        "title": "track 001",
+        "vocal": "CoreTania",
+        "original": "original track 001",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      },
+      {
+        "title": "track 002",
+        "vocal": "CoreTania",
+        "original": "original track 002",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Album4",
+    "cover_img": "https://via.placeholder.com/290x290",
+    "code": "HATO004",
+    "original": "Zun",
+    "illustration": "TOMATO",
+    "special_thanks": "Renka",
+    "product_url": "taobao",
+    "tracks": [
+      {
+        "title": "track 001",
+        "vocal": "CoreTania",
+        "original": "original track 001",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      },
+      {
+        "title": "track 002",
+        "vocal": "CoreTania",
+        "original": "original track 002",
+        "arrange": "xiaobai",
+        "length": "04:32",
+        "resource_url": "mp3_url",
+        "lyrics_author": "N-apoleon",
+        "lyrics_content": [
+          ["original lyrics line 1", "translated lyrics line 1"],
+          ["original lyrics line 2", "translated lyrics line 2"],
+          ["original lyrics line 3", "translated lyrics line 3"],
+          ["original lyrics line 4", "translated lyrics line 4"],
+          ["", ""],
+          ["original lyrics line 5", "translated lyrics line 5"],
+          ["original lyrics line 6", "translated lyrics line 6"],
+          ["original lyrics line 7", "translated lyrics line 7"],
+          ["original lyrics line 8", "translated lyrics line 8"]
+        ]
+      }
+    ]
+  }
+]

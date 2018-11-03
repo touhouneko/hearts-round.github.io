@@ -1,0 +1,26 @@
+.album__list {
+  display: grid;
+  margin-bottom: 75px;
+  grid-template-columns: 290px 290px 290px;
+  grid-row-gap: 70px;
+  grid-column-gap: 60px;
+}
+
+.album__list .item__cover {
+  border-radius: 12px;
+  width: 290px;
+  height: 290px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.album__list .album__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.album__list .item__title {
+  margin: 14px 0 0;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+  text-shadow: 0 0 8px rgba(0,0,0, 0.5);
+}

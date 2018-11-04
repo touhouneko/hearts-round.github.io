@@ -79,3 +79,17 @@ declare module '@/data/work.csv' {
   const works: ReadonlyArray<IRawWork>;
   export default works;
 }
+
+declare module '@/data/staff.csv' {
+  export interface IRawStaff {
+    name: string;
+    role: string;
+    avatar: string;
+    social_twitter: string;
+    social_bilibili: string;
+    social_weibo: string;
+    description: string;
+  }
+  const staffs: ReadonlyArray<IRawStaff>;
+  export default staffs;
+}

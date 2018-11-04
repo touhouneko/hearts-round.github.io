@@ -1,15 +1,29 @@
+const fs = require('fs');
 const path = require('path');
+const papa = require('papaparse');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.base.config');
 
+function getStaffNames() {
+  const content = fs.readFileSync(path.join(__dirname, '../src/data/staff.csv'), 'utf-8');
+  const staffs = papa.parse(content, {
+    header: true,
+    skipEmptyLines: true,
+    comments: '#'
+  });
+  return staffs.data.filter((_, idx) => idx > 0).
+  map(s => encodeURI(s.name).toLowerCase());
+}
+
 const prerenderUrls = [
   '/', '/home', '/contact', '/management', '/works', '/gallery',
-  '/discography', '/discography/albums', '/discography/videos'
+  '/discography', '/discography/albums', '/discography/videos',
+  '/about',
+  ...getStaffNames().map(n => `/about/${n}`)
 ];
 
 module.exports = {

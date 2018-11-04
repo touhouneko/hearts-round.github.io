@@ -16,8 +16,10 @@ ul {
 
 .global__body {
   padding-bottom: 250px;
-  width: 990px;
   margin: 0 auto;
+}
+.global__body:not(.full-width) {
+  width: 990px;
 }
 
 .global__footer {

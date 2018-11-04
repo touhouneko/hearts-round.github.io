@@ -25,4 +25,5 @@ const staffs: ReadonlyArray<IStaff> = rawStaffs.map(r => ({
   },
   description: r.description.split(';')
 }));
+staffs[0].name='心界巡'
 export default staffs;

@@ -16,7 +16,7 @@ function getStaffNames() {
     comments: '#'
   });
   return staffs.data.filter((_, idx) => idx > 0).
-  map(s => encodeURI(s.name).toLowerCase());
+  map(s => s.name.toLowerCase());
 }
 
 const prerenderUrls = [

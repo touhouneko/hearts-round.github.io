@@ -13,7 +13,6 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-es2015": "^7.0.0-beta.53",
-    "@types/jsonp": "^0.2.0",
     "@types/papaparse": "^4.5.4",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
@@ -25,6 +24,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.18.0",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.0",
     "csv-loader": "^3.0.2",
     "file-loader": "^2.0.0",
@@ -56,5 +56,6 @@
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {}
 }

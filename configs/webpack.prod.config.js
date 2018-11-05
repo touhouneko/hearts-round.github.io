@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const papa = require('papaparse');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -22,9 +23,7 @@ function getStaffNames() {
 
 const prerenderUrls = [
   '/', '/home', '/contact', '/management', '/works', '/gallery',
-  '/discography', '/discography/albums', '/discography/videos',
-  '/about',
-  ...getStaffNames().map(n => `/about/${n}`)
+  '/404'
 ];
 
 module.exports = {
@@ -83,6 +82,10 @@ module.exports = {
       filename: "static/css/[name].[chunkhash:8].css",
       chunkFilename: "static/css/[name].[chunkhash:8].css"
     }),
+    // new CopyWebpackPlugin([{
+    //   from: path.resolve(__dirname, '../dist/index.html'),
+    //   to: '404.html'
+    // }]),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
       routes: prerenderUrls,

@@ -1,5 +1,6 @@
-import bindthis from '@/decorators/bindthis';
+import { unmountComponentAtNode } from 'react-dom';
 
+import bindthis from '@/decorators/bindthis';
 import './style.css';
 
 class ModalFactory {
@@ -17,7 +18,8 @@ class ModalFactory {
     return container;
   }
 
-  @bindthis public turnoffMask(container: HTMLDivElement) {
+  @bindthis public closeModal(container: HTMLDivElement) {
+    unmountComponentAtNode(container);
     this.openCount --;
     if (this.openCount === 0)
       document.getElementsByTagName('body')[0].classList.remove('modal-open');

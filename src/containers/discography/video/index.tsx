@@ -1,12 +1,15 @@
 import React from 'react';
 
-// import videosInfo from '@/data/videos';
-import videosInfos, { IRawVideo } from '@/data/videos.csv';
+import videoInfos, { IVideoInfo } from '@/data/videos';
+import { popupVideoModal } from '@/components/modal/modal-video';
 import './style.css';
 
-const Item = ({ info }: { info: IRawVideo }) => (
+const Item = ({ info, idx }: { info: IVideoInfo, idx: number }) => (
   <section className="list__video">
-    <div className="video__cover clickable">
+    <div
+      className="video__cover clickable"
+      onClick={popupVideoModal.bind(null, videoInfos, 'youtube' ,idx)}
+    >
       <img src={info.cover} />
       <div className="video__button--outer">
         <i className="video__button--inner" />
@@ -35,9 +38,9 @@ const Item = ({ info }: { info: IRawVideo }) => (
         Vocal: {info.vocal}
       </p>
       <div className="indent info__urls">
-        <i className="urls__icon urls__icon--bilibili" />
-        <i className="urls__icon urls__icon--niconico" />
-        <i className="urls__icon urls__icon--youtube" />
+        <i className="urls__icon urls__icon--bilibili clickable" />
+        <i className="urls__icon urls__icon--niconico clickable" />
+        <i className="urls__icon urls__icon--youtube clickable" />
       </div>
     </article>
   </section>
@@ -46,8 +49,8 @@ const Item = ({ info }: { info: IRawVideo }) => (
 const Video = () => (
   <div className="video__container">
   {
-    videosInfos.map((v, idx) => (
-      <Item info={v} key={idx}/>
+    videoInfos.map((v, idx) => (
+      <Item info={v} idx={idx} key={idx}/>
     ))
   }
   </div>

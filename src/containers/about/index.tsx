@@ -1,7 +1,7 @@
 import React from 'react';
-import { RouteProps, Redirect, NavLink, BrowserRouter } from 'react-router-dom';
+import { RouteProps, Redirect, NavLink } from 'react-router-dom';
 
-import staffs, { IStaff } from '@/data/staff';
+import staffs from '@/data/staff';
 import './style.css';
 
 interface INavProps {
@@ -28,6 +28,7 @@ function NavItem ({ name, role, to }: INavProps) {
 }
 
 function findStaff(staffName: string) {
+  // the first one is about the site globally and hence the path is /about/
   if (staffName === '')
     return staffs[0];
   const theStaff = staffs.find(s => s.name.toLowerCase() === staffName);
@@ -93,5 +94,5 @@ export default function About({ match }: IProps) {
         </div>
       </div>
     </main>
-  )
+  );
 }

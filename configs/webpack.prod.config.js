@@ -15,6 +15,7 @@ function getStaffNames() {
     skipEmptyLines: true,
     comments: '#'
   });
+  // the first one is about the site globally.
   return staffs.data.filter((_, idx) => idx > 0).
   map(s => s.name.toLowerCase());
 }
@@ -88,14 +89,7 @@ module.exports = {
       postProcess (renderedRoute) {
         renderedRoute.route = renderedRoute.originalRoute;
         return renderedRoute;
-      },
-      // minify: {
-      //   collapseBooleanAttributes: true,
-      //   collapseWhitespace: true,
-      //   decodeEntities: true,
-      //   keepClosingSlash: true,
-      //   sortAttributes: true
-      // },
+      }
     })
   ]
 };

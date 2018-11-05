@@ -1,16 +1,11 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { render } from 'react-dom';
 
 import ModalWithNav from '@/components/modal/modal-nav';
 import modalFactory from '@/components/modal/factory';
 import useClickOutside from '@/hooks/click-outside';
 import { INews } from '@/models/news';
 import './modal-style.css';
-
-function closeModal(container: HTMLDivElement) {
-  unmountComponentAtNode(container);
-  modalFactory.turnoffMask(container);
-}
 
 interface INewsModalProp {
   news: ReadonlyArray<INews>;
@@ -21,7 +16,7 @@ interface INewsModalProp {
 function NewsModal({ news, initIdx, container }: INewsModalProp) {
   const [idx, setIdx] = React.useState(initIdx);
   const windowRef = React.useRef(null);
-  useClickOutside(windowRef, closeModal.bind(null, container));
+  useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, container));
 
   return (
     <ModalWithNav

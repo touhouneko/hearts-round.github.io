@@ -1,0 +1,25 @@
+/* carousel */
+.home__container .banner__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 80px;
+}
+.home__container .lt-carousel__list {
+  transition: transform 0.5s;
+}
+.home__container .banner__controller {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+.home__container .controller__jumper {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 0 black;
+  margin: 0 20px;
+}
+.home__container .controller__jumper.selected {
+  background: #343434;
+}

@@ -44,6 +44,9 @@ declare module '@/data/videos.csv' {
     lyrics: string;
     illust: string;
     vocal: string;
+    id_youtube: string;
+    id_bilibili: string;
+    id_niconico: string;
   }
   const videos :ReadonlyArray<IRawVideo>;
   export default videos;
@@ -92,4 +95,13 @@ declare module '@/data/staff.csv' {
   }
   const staffs: ReadonlyArray<IRawStaff>;
   export default staffs;
+}
+
+declare module '@/data/banner.csv' {
+  export interface IRawBanner {
+    image: string;
+    title: string;
+  }
+  const banners: ReadonlyArray<IRawBanner>;
+  export default banners;
 }

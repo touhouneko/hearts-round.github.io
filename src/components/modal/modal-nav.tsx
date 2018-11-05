@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.css';
 
-interface IProp {
+export interface IProp {
   className?: string;
   children?: any;
   nextLabel: string;

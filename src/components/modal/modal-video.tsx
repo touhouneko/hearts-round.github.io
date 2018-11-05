@@ -17,7 +17,8 @@ function EmbeddedVideo ({ width, height }: { width: number, height: number }) {
   const allProps: {[key: string]: any} = {
     width: width,
     height: height,
-    frameBorder: 0
+    frameBorder: 0,
+    allowFullScreen: true
   };
   switch(site) {
     case 'youtube':

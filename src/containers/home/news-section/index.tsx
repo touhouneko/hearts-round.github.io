@@ -8,6 +8,7 @@ import './style.css';
 export default function NewsSection() {
   let [news, setNews] = React.useState([] as ReadonlyArray<INews>);
 
+  // get the news on mounted
   React.useEffect(() => {
     apis.getNews().then(setNews).catch(console.error);
   }, []);

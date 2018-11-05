@@ -4,6 +4,10 @@ import videoInfos, { IVideoInfo } from '@/data/videos';
 import { popupVideoModal } from '@/components/modal/modal-video';
 import './style.css';
 
+/**
+ * @param info the info of the video
+ * @param idx the video's index
+ */
 const Item = ({ info, idx }: { info: IVideoInfo, idx: number }) => (
   <section className="list__video">
     <div

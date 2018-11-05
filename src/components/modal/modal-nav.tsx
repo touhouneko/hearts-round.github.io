@@ -12,6 +12,14 @@ export interface IProp {
   handlePrev: () => any;
 }
 
+/**
+ * The modal with the bottom nav bar (next and previous)
+ * @param nextLabel text label for the next button
+ * @param prevLabel text label for the previous button
+ * @param handleNext called when the next is clicked
+ * @param handlePrev called when the previous is clicked
+ * @param {React.RefObject<HTMLDivElement>} ref container reference to the wrapper of the modal
+ */
 const ModalWithNav = React.forwardRef(({
   className = '',
   children,

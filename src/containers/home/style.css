@@ -8,6 +8,24 @@
 .home__container .lt-carousel__list {
   transition: transform 0.5s;
 }
+.home__container .banner__wrapper {
+  position: relative;
+}
+.home__container .banner__image {
+  vertical-align: top;
+}
+.home__container .banner__title {
+  position: absolute;
+  bottom: 0;
+  line-height: 30px;
+  width: calc(100% - 2em);
+  margin: 0;
+  padding: 0 1em;
+  font-size: 20px;
+  color: white;
+  background: #343434;
+  opacity: 0.5;
+}
 .home__container .banner__controller {
   display: flex;
   justify-content: center;

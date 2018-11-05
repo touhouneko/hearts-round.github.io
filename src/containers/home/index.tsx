@@ -27,6 +27,7 @@ function CarouselSection() {
         {
           banners.map((_, idx) => (
             <a
+              key={idx}
               className={`controller__jumper clickable ${displayedIdx===idx ? 'selected' : ''}`}
               onClick={setDisplayedIdx.bind(null, idx)}
             />

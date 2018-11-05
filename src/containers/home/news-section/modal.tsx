@@ -15,7 +15,9 @@ interface INewsModalProp {
 
 function NewsModal({ news, initIdx, container }: INewsModalProp) {
   const [idx, setIdx] = React.useState(initIdx);
+  // the ref of the modal window(not the container but its first child)
   const windowRef = React.useRef(null);
+  // close the modal when outside of the modal is clicked
   useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, container));
 
   return (

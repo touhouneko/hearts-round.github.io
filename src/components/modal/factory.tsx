@@ -4,10 +4,17 @@ import bindthis from '@/decorators/bindthis';
 import './style.css';
 
 class ModalFactory {
+  // whenever there is a modal, the historyCount += 1
   private historyCount: number = 0;
+  // represents the number of the modal that is current open
   private openCount: number = 0;
+  // the z-index for the first modal.
+  // the second modal's z-index will be baseZIndex + 1
   private readonly baseZIndex = 999;
 
+  /**
+   * @return The container for the modal.
+   */
   @bindthis public createFullscreenMask(): HTMLDivElement {
     this.historyCount ++;
     this.openCount ++;
@@ -18,6 +25,7 @@ class ModalFactory {
     return container;
   }
 
+  // close the modal in the given container
   @bindthis public closeModal(container: HTMLDivElement) {
     unmountComponentAtNode(container);
     this.openCount --;

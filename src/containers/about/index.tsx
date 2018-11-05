@@ -9,6 +9,11 @@ interface INavProps {
   role: string;
   to: string
 }
+/**
+ * @param name name of the staff
+ * @param role role of the staff (vocal/arrangement etc.)
+ * @param to navigation link, (/coretania, for example)
+ */
 function NavItem ({ name, role, to }: INavProps) {
   return (
     <li className="nav__item">
@@ -27,8 +32,11 @@ function NavItem ({ name, role, to }: INavProps) {
   );
 }
 
+/**
+ * @param staffName name of the staff
+ * if the staffName is '', which indicates it is the root path, the first one will be used
+ */
 function findStaff(staffName: string) {
-  // the first one is about the site globally and hence the path is /about/
   if (staffName === '')
     return staffs[0];
   const theStaff = staffs.find(s => s.name.toLowerCase() === staffName);
@@ -78,6 +86,7 @@ export default function About({ match }: IProps) {
             }
           </section>
         </article>
+        {/* sns icon groups */}
         <div className="about__content about__content--avatar">
           <img src={theStaff.avatar} className="about__avatar" />
           <div className="about__link-container">

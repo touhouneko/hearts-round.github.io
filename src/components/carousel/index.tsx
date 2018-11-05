@@ -7,6 +7,7 @@ const CarouselContext = createContext({
   height: 0
 });
 
+// used as children in the Carousel
 export function FrameItem({ children }: React.Props<unknown>) {
   const { width, height } = useContext(CarouselContext);
   return (
@@ -36,6 +37,7 @@ export function Carousel({ children, displayedIdx, height, width }: ICarouselPro
           style={{transform: `translateX(-${displayedIdx * width}px)`}}
           className="lt-carousel__list"
         >
+          {/* children are assumed to be the FrameItem */}
           {children}
         </ul>
       </div>

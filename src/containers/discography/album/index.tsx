@@ -7,6 +7,11 @@ interface IAlbumItemProps {
   cover: string;
   code: string;
 }
+/**
+ * @param name name of the album
+ * @param cover image url address of the cover
+ * @param code product code of the album (HATO001 for example)
+ */
 const AlbumItem = ({ name, cover, code}: IAlbumItemProps) => (
   <li className="album__item clickable">
     <img className="item__cover" src={cover} />

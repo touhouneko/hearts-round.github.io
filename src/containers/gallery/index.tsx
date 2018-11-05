@@ -3,6 +3,10 @@ import React from 'react';
 import illustrations, { IIllustration } from '@/data/gallery';
 import './style.css';
 
+/**
+ * @param info the information of the illustration
+ * @param idx the illustration's numbered index
+ */
 const Item = ({ info, idx }: { info: IIllustration, idx: number }) => (
   <img
     className="illustration__item clickable"

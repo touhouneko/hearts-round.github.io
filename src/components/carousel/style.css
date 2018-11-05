@@ -1,0 +1,11 @@
+.lt-carousel__frame {
+  overflow: hidden;
+  position: relative;
+}
+.lt-carousel__list {
+  white-space: nowrap;
+}
+.lt-carousel__item {
+  display: inline-block;
+  vertical-align: top;
+}

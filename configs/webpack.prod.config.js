@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const papa = require('papaparse');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -22,8 +23,7 @@ function getStaffNames() {
 }
 
 const prerenderUrls = [
-  '/', '/home', '/contact', '/management', '/works', '/gallery',
-  '/404'
+  '/', '/home', '/contact', '/management', '/works', '/gallery'
 ];
 
 module.exports = {
@@ -74,6 +74,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      template: 'index.html'
+    }),
     new CleanWebpackPlugin(['dist'], {
       root: path.join(__dirname, '..')
     }),

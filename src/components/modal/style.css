@@ -64,6 +64,9 @@ body.modal-open {
   display: block;
   margin-top: 24px;
 }
+.v-modal__embed.hide {
+  display: none;
+}
 
 .video-modal__column--description {
   margin: 100px 0 0;

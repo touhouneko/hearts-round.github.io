@@ -32,7 +32,7 @@
 |tracks[].title||
 |tracks[].vocal (optional)||
 |tracks[].original (optional)||
-|tracks[].composer||
+|tracks[].composer(optional)||
 |tracks[].arrange (optional)||
 |tracks[].lyrics (optional)||
 |tracks[].length|时长，例：4:32|

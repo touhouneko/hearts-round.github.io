@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 
 import useClickOutside from '@/hooks/click-outside';
 import popupAlbumModal from '@/containers/discography/album/album-modal';
+import PageLoading from '@/containers/page-loading';
 import ModalWithNav from './modal-nav';
 import modalFactory from './factory';
 import albums from '@/data/albums';
@@ -32,13 +33,13 @@ const EmbeddedVideo = forwardRef(function({
   height: number
 }, ref: React.RefObject<HTMLIFrameElement>) {
   const { videoId, site } = useContext(VideoContext);
+  const [ loadingFlag, setLoadingFlag ] = useState(true);
   const allProps: {[key: string]: any} = {
     width: width,
     height: height,
     frameBorder: 0,
     allowFullScreen: true,
-    type: 'text/html',
-    ref
+    type: 'text/html'
   };
   switch(site) {
     case 'youtube':
@@ -51,7 +52,23 @@ const EmbeddedVideo = forwardRef(function({
       break;
   }
   return (
-    <iframe {...allProps} className="v-modal__embed"/>
+    <React.Fragment>
+      <iframe
+        {...allProps}
+        ref={ref}
+        onLoad={setLoadingFlag.bind(null, false)}
+        className={`v-modal__embed ${loadingFlag ? 'hide' : ''}`}
+      />
+      {
+        loadingFlag ?
+        (
+          <div style={{height, width}}>
+            <PageLoading />
+          </div>
+        ):
+        null
+      }
+    </React.Fragment>
   );
 })
 

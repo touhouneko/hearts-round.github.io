@@ -63,6 +63,5 @@
 |vocal||
 |cover|专辑的封面，以 https:// 或 http:// 开头，显示大小为250x250|
 |id_youtube|youtube的视频ID，网址中的粗体部分 [https://www.youtube.com/watch?v=**SCQgE4mTnjU**](/#)|
-|id_bilibili|bilibili的视频ID以及分p号码，网址中的粗体部分 [https://www.bilibili.com/video/**av2739129/?p=3**](/#)
-**分P号不能省略！**如果没有分p号，例如[https://www.bilibili.com/video/**av2739129**](/#)，则输入`av2739129/?p=1`|
+|id_bilibili|bilibili的视频ID以及分p号码，网址中的粗体部分 [https://www.bilibili.com/video/**av2739129/?p=3**](/#) **分P号不能省略！** 如果没有分p号，例如[https://www.bilibili.com/video/**av2739129**](/#)，则输入`av2739129/?p=1`|
 |id_niconico|niconico的视频ID，网址中的粗体部分 [https://www.nicovideo.jp/watch/**sm7706816**](/#)|

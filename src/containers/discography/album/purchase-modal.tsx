@@ -22,13 +22,13 @@ function PurchaseModal ({
       className="lt-modal__window lt-modal__window--center purchase-modal__container"
     >
       <li className="purchase-modal__item">
-        <a href={links.taobao} className="purchase-modal__link">
+        <a href={links.taobao} className="purchase-modal__link" target="_blank">
           <i className="purchase-modal__icon purchase-modal__icon--taobao" />
           <p className="purchase-modal__region">中国大陆</p>
         </a>
       </li>
       <li className="purchase-modal__item">
-        <a href={links.tora} className="purchase-modal__link">
+        <a href={links.tora} className="purchase-modal__link" target="_blank">
           <i className="purchase-modal__icon purchase-modal__icon--tora" />
           <p className="purchase-modal__region">日本</p>
         </a>

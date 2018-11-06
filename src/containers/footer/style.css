@@ -19,6 +19,12 @@
   transform: rotate(45deg);
   background: white;
 }
+.global__footer .social__logo-wrapper:hover {
+  box-shadow: inset -40px 0 40px -20px rgba(0,0,0, 0.5);
+}
+.global__footer .social__logo-wrapper:active {
+  box-shadow: inset 40px 0 40px -20px rgba(0,0,0, 0.5);
+}
 .global__footer .social__logo-wrapper:not(:first-child) {
   margin-left: 28px;
 }

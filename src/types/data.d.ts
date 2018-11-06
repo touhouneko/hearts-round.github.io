@@ -105,6 +105,7 @@ declare module '@/data/banner.csv' {
   export interface IRawBanner {
     image: string;
     title: string;
+    album_code: string;
   }
   const banners: ReadonlyArray<IRawBanner>;
   export default banners;

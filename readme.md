@@ -1,6 +1,7 @@
 # 数据格式
 
 ## staff.csv
+用于 https://hearts-round.github.io/about 的参与人员编辑
 
 |变量名|描述|
 |:------------- |:-------------:|
@@ -13,7 +14,10 @@
 |description|个人文字描述，段落间用英文分号隔开";"， **尽可能不要使用英文引号和英文逗号** |
 
 ## album.json
+用于 https://hearts-round.github.io/discography/albums 的专辑显示，以及其他处的弹窗
+
 该文件为json格式，可以找在线JSON编辑器编辑,比如https://jsonformatter.org/json-editor 进行修改
+
 |变量名|描述|
 |:----:|:-----:|
 |code|专辑编号，如HATO001|
@@ -36,29 +40,29 @@
 |tracks[].has_lyrics|是否有歌词, true=有，false=没有，**不允许其他值**|
 
 
+## banner.csv
+用于首页的轮播图
 
+|变量名|描述|
+|:----:|:----:|
+|image|图片的地址，以 https:// 或 http:// 开头，显示大小为770x370|
+|title|轮播图下放的文字描述|
+|album_code|相对应的专辑编号，比如HATO001|
 
+## video.csv
+用于 https://hearts-round.github.io/discography/videos 中的视频
 
-# Progress
-
-## 可以开始更新数据的页面
-
-### About
-|||
-|:------------- |:-------------:|
-|页面| 90% (缺少倒影logo以及导航栏icon) |
-|数据格式| 已确认 |
-
-
-
-
-## 其他页面
-
-### Contact
-|||
-|:------------- |:-------------:|
-|页面| 99% (缺少倒影logo) |
-|数据格式| 无 |
-
-### Album
-
+|变量名|描述|
+|:----:|:----:|
+|title|视频的标题|
+|album|对应的专辑名称(album.name)|
+|original||
+|arrange||
+|lyrics||
+|illust||
+|vocal||
+|cover|专辑的封面，以 https:// 或 http:// 开头，显示大小为250x250|
+|id_youtube|youtube的视频ID，网址中的粗体部分 [https://www.youtube.com/watch?v=**SCQgE4mTnjU**](/#)|
+|id_bilibili|bilibili的视频ID以及分p号码，网址中的粗体部分 [https://www.bilibili.com/video/**av2739129/?p=3**](/#)
+**分P号不能省略！**如果没有分p号，例如[https://www.bilibili.com/video/**av2739129**](/#)，则输入`av2739129/?p=1`|
+|id_niconico|niconico的视频ID，网址中的粗体部分 [https://www.nicovideo.jp/watch/**sm7706816**](/#)|

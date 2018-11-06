@@ -82,7 +82,7 @@ module.exports = {
       filename: "static/css/[name].[chunkhash:8].css",
       chunkFilename: "static/css/[name].[chunkhash:8].css"
     }),
-    new CopyWebpackPlugin(['_config.yml']),
+    new CopyWebpackPlugin(['_config.yml', 'favicon.ico']),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
       routes: ['/', '/home', '/contact'],

@@ -1,5 +1,5 @@
 .news-modal {
-  width: 630px;
+  width: 550px;
 }
 .news-modal__container {
   font-size: 18px;
@@ -7,14 +7,14 @@
 
 .news-modal__date {
   display: inline-block;
-  margin: 30px 22px 0 36px;
+  margin: 24px 20px 0 30px;
   background: #43a2b4;
   color: white;
   font-size: inherit;
-  padding: 8px;
+  padding: 6px 8px;
   font-weight: normal;
 }
 .news-modal__content {
   text-indent: 1em;
-  padding: 0 45px 90px;
+  padding: 0 38px 76px;
 }

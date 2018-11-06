@@ -23,7 +23,7 @@ function getStaffNames() {
 }
 
 const prerenderUrls = [
-  '/', '/home', '/contact', '/management', '/works', '/gallery'
+  '/', '/home', '/contact'
 ];
 
 module.exports = {

@@ -40,9 +40,18 @@ function SNSLogo({ link, site }: {link: string, site: string }) {
   if (link === '')
     iconClassName += ' disabled'
   else
-  wrapperProps.href = link;
+    switch(site) {
+      case 'weibo':
+        wrapperProps.href = `https://www.weibo.com/${link}`;
+        break;
+      case 'bilibili':
+        wrapperProps.href = `https://space.bilibili.com/${link}`;
+        break;
+      case 'twitter':
+        wrapperProps.href= `https://twitter.com/${link}`;
+    }
   return (
-    <a {...wrapperProps}>
+    <a {...wrapperProps} target="_Blank">
       <i className={iconClassName} />
     </a>
   );

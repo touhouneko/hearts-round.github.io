@@ -1,6 +1,6 @@
-const fs = require('fs');
+// const fs = require('fs');
 const path = require('path');
-const papa = require('papaparse');
+// const papa = require('papaparse');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -10,21 +10,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.base.config');
 
-function getStaffNames() {
-  const content = fs.readFileSync(path.join(__dirname, '../src/data/staff.csv'), 'utf-8');
-  const staffs = papa.parse(content, {
-    header: true,
-    skipEmptyLines: true,
-    comments: '#'
-  });
-  // the first one is about the site globally.
-  return staffs.data.filter((_, idx) => idx > 0).
-  map(s => s.name.toLowerCase());
-}
-
-const prerenderUrls = [
-  '/', '/home', '/contact'
-];
+// function getStaffNames() {
+//   const content = fs.readFileSync(path.join(__dirname, '../src/data/staff.csv'), 'utf-8');
+//   const staffs = papa.parse(content, {
+//     header: true,
+//     skipEmptyLines: true,
+//     comments: '#'
+//   });
+//   // the first one is about the site globally.
+//   return staffs.data.filter((_, idx) => idx > 0).
+//   map(s => s.name.toLowerCase());
+// }
 
 module.exports = {
   ...config,
@@ -89,7 +85,7 @@ module.exports = {
     new CopyWebpackPlugin(['_config.yml']),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
-      routes: prerenderUrls,
+      routes: ['/', '/home', '/contact'],
       postProcess (renderedRoute) {
         renderedRoute.route = renderedRoute.originalRoute;
         return renderedRoute;

@@ -1,18 +1,18 @@
 .video__container {
-  margin-left: 60px;
+  margin-left: 50px;
 }
 .video__container .list__video {
   display: flex;
-  height: 320px;
-  margin-bottom: 120px;
+  height: 250px;
+  margin-bottom: 60px;
 }
 .video__container .list__video:last-child {
-  margin-bottom: 150px;
+  margin-bottom: 130px;
 }
 .video__container .video__cover {
   position: relative;
-  width: 290px;
-  height: 290px;
+  width: 250px;
+  height: 250px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
@@ -56,49 +56,58 @@
 
 /* article */
 .video__container .video__info {
-  margin-left: 70px;
+  margin-left: 100px;
   width: 350px;
   height: 100%;
 }
 .video__container .info__title {
+  position: relative;
   height: 30px;
   line-height: 30px;
-  margin: 24px 0 20px;
+  margin: 18px 0 18px;
   font-weight: normal;
-  font-size: 32px;
+  font-size: 28px;
 }
 .video__container .info__title::after {
   content: '';
   display: block;
-  margin: 10px 0 0 40px;
+  margin-top: 8px;
   height: 1px;
   background: linear-gradient(to right, black, #EDEDED);
 }
-.video__container .indent {
-  margin-left: 40px;
-}
 .video__container .info__album {
-  font-size: 16px;
-  margin-bottom: 18px;
+  font-size: 14px;
+  margin-bottom: 12px;
 }
 .video__container .info__others {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 19px;
 }
 .video__container .info__title::before {
-  content: 'a';
-  display: inline-block;
-  width: 40px;
+  position: absolute;
+  display: block;
+  content: '';
+  left: -50px;
+  top: 2px;
+  width: 26px;
+  height: 26px;
+  transform: rotate(48deg) scale(1.8);
+  background-size: cover;
+  background-image:url("~@/assets/images/arrow.svg");
+
+  /* content: 'a'; */
+  /* display: inline-block; */
+  /* width: 40px; */
 }
 .video__container .info__urls {
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
 }
 .video__container .urls__icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: white;
 }

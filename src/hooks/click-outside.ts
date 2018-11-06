@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function useClickOutside(wrapperRef: React.RefObject<HTMLElement> ,handler: () => any) {
+export default function useClickOutside(
+  wrapperRef: React.RefObject<HTMLElement>,
+  handler: () => any,
+  receiver?: HTMLElement | Document
+) {
   function handleClick(ev: MouseEvent) {
     if (wrapperRef.current === null) return;
     else if (wrapperRef.current.contains(ev.target as Node)) return;
@@ -8,9 +12,10 @@ export default function useClickOutside(wrapperRef: React.RefObject<HTMLElement>
   }
 
   React.useEffect(() => {
-    document.addEventListener('click', handleClick);
+    if (receiver === undefined) receiver = document;
+    receiver.addEventListener('click', handleClick);
     return () => {
-      document.removeEventListener('click', handleClick);
+      receiver.removeEventListener('click', handleClick);
     }
   }, []);
 }

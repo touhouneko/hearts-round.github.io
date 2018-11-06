@@ -18,7 +18,7 @@ function NewsModal({ news, initIdx, container }: INewsModalProp) {
   // the ref of the modal window(not the container but its first child)
   const windowRef = React.useRef(null);
   // close the modal when outside of the modal is clicked
-  useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, container));
+  useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, container), container);
 
   return (
     <ModalWithNav

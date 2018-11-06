@@ -1,117 +1,138 @@
 [
   {
-    "name": "Album1",
-    "cover_img": "https://via.placeholder.com/290x290",
+    "name": "album001",
     "code": "HATO001",
-    "original": "Zun",
+    "cover": "https://via.placeholder.com/500x500",
+    "date": "2017-12-9",
     "illustration": "TOMATO",
-    "special_thanks": "Renka",
-    "product_url": "taobao",
+    "thanks": "Renka",
+    "product_link": {
+      "taobao": "https://www.taobao.com",
+      "tora": "https://www.toranoana.jp/"
+    },
     "tracks": [
       {
         "title": "track 001",
         "vocal": "CoreTania",
         "original": "original track 001",
-        "arrange": "xiaobai",
+        "composer": "xxx",
+        "arrange": "xiaobai2",
+        "lyrics": "N-apoleon1",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": true
       },
       {
-        "title": "track 002",
+        "title": "track 001",
         "vocal": "CoreTania",
-        "original": "original track 002",
+        "original": "original track 001",
         "arrange": "xiaobai",
+        "lyrics": "N-apoleon",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": false
       }
     ]
   },
   {
-    "name": "Album2",
-    "cover_img": "https://via.placeholder.com/290x290",
+    "name": "album002",
     "code": "HATO002",
-    "original": "Zun",
+    "date": "2017-12-12",
+    "cover": "https://via.placeholder.com/500x500",
     "illustration": "TOMATO",
-    "special_thanks": "Renka",
-    "product_url": "taobao",
+    "thanks": "Renka",
+    "product_link": {
+      "taobao": "https://www.taobao.com",
+      "tora": "https://www.toranoana.jp/"
+    },
     "tracks": [
       {
-        "title": "track 001",
+        "title": "track 004",
         "vocal": "CoreTania",
         "original": "original track 001",
         "arrange": "xiaobai",
+        "lyrics": "N-apoleon",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": true
       },
       {
-        "title": "track 002",
+        "title": "track 005",
         "vocal": "CoreTania",
-        "original": "original track 002",
+        "original": "original track 001",
         "arrange": "xiaobai",
+        "lyrics": "N-apoleon",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": false
       }
     ]
   },
   {
-    "name": "Album3",
-    "cover_img": "https://via.placeholder.com/290x290",
+    "name": "album003",
     "code": "HATO003",
-    "original": "Zun",
+    "date": "2017-11-11",
+    "cover": "https://via.placeholder.com/500x500",
     "illustration": "TOMATO",
-    "special_thanks": "Renka",
-    "product_url": "taobao",
+    "thanks": "Renka",
+    "product_link": {
+      "taobao": "https://www.taobao.com",
+      "tora": "https://www.toranoana.jp/"
+    },
     "tracks": [
       {
-        "title": "track 001",
+        "title": "track 008",
         "vocal": "CoreTania",
         "original": "original track 001",
         "arrange": "xiaobai",
+        "lyrics": "N-apoleon",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": false
       },
       {
-        "title": "track 002",
+        "title": "track 007",
         "vocal": "CoreTania",
-        "original": "original track 002",
+        "original": "original track 001",
         "arrange": "xiaobai",
+        "lyrics": "N-apoleon",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": true
       }
     ]
   },
   {
-    "name": "Album4",
-    "cover_img": "https://via.placeholder.com/290x290",
+    "name": "album004",
     "code": "HATO004",
-    "original": "Zun",
+    "date": "2017-11-11",
+    "cover": "https://via.placeholder.com/500x500",
     "illustration": "TOMATO",
-    "special_thanks": "Renka",
-    "product_url": "taobao",
+    "thanks": "Renka",
+    "product_link": {
+      "taobao": "https://www.taobao.com",
+      "tora": "https://www.toranoana.jp/"
+    },
     "tracks": [
       {
-        "title": "track 001",
+        "title": "track 021",
         "vocal": "CoreTania",
         "original": "original track 001",
         "arrange": "xiaobai",
+        "lyrics": "N-apoleon",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": true
       },
       {
-        "title": "track 002",
+        "title": "track 011",
         "vocal": "CoreTania",
-        "original": "original track 002",
+        "original": "original track 001",
         "arrange": "xiaobai",
+        "lyrics": "N-apoleon",
         "length": "04:32",
-        "resource_url": "mp3_url",
-        "lyrics_author": "N-apoleon"
+        "link": "mp3_link",
+        "has_lyrics": true
       }
     ]
   }

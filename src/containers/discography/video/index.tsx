@@ -12,7 +12,7 @@ const Item = ({ info, idx }: { info: IVideoInfo, idx: number }) => (
   <section className="list__video">
     <div
       className="video__cover clickable"
-      onClick={popupVideoModal.bind(null, videoInfos, 'youtube' ,idx)}
+      onClick={popupVideoModal.bind(null, videoInfos, 'bilibili' ,idx)}
     >
       <img src={info.cover} />
       <div className="video__button--outer">

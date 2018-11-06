@@ -19,7 +19,7 @@ a {
 }
 
 .global__body {
-  padding-bottom: 250px;
+  padding-bottom: 220px;
   margin: 0 auto;
 }
 .global__body:not(.full-width) {
@@ -30,7 +30,7 @@ a {
   position: absolute;
   width: 100%;
   bottom: 0;
-  height: 250px;
+  height: 220px;
 }
 
 /* common */
@@ -46,5 +46,5 @@ a {
   height: 30px;
   width: 30px;
   margin-right: 15px;
-  background: #40A0B6;  
+  background: #43a2b4;  
 }

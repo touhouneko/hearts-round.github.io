@@ -8,10 +8,9 @@ import './style.css';
  * @param idx the illustration's numbered index
  */
 const Item = ({ info, idx }: { info: IIllustration, idx: number }) => (
-  <img
-    className="illustration__item clickable"
-    src={info.url.cover}
-  />
+  <li className={`illustration__item illustration__item--${idx%3} clickable`}>
+    <img src={info.url.cover} className="illustration__image"/>
+  </li>
 );
 
 const Gallery = () => (

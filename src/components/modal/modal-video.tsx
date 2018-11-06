@@ -1,9 +1,11 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useRef, forwardRef } from 'react';
 import { render } from 'react-dom';
 
 import useClickOutside from '@/hooks/click-outside';
+import popupAlbumModal from '@/containers/discography/album/album-modal';
 import ModalWithNav from './modal-nav';
 import modalFactory from './factory';
+import albums from '@/data/albums';
 import { VideoSiteType, IVideoInfo } from '@/data/videos';
 
 interface IVideoModalContext extends IVideoInfo {
@@ -12,27 +14,50 @@ interface IVideoModalContext extends IVideoInfo {
 const VideoContext = createContext<IVideoModalContext | null>(null);
 
 
-function EmbeddedVideo ({ width, height }: { width: number, height: number }) {
+function handleAlbumClicked(albumTitle: string, iFrameRef: React.RefObject<HTMLIFrameElement>) {
+  const idx = albums.findIndex(a => a.name === albumTitle);
+  if (idx < 0) {
+    alert('The album can not be found');
+    return;
+  }
+  if (iFrameRef.current === null) return;
+  iFrameRef.current.src = iFrameRef.current.src;
+  popupAlbumModal(idx);
+}
+const EmbeddedVideo = forwardRef(function({
+  width,
+  height
+}: {
+  width: number,
+  height: number
+}, ref: React.RefObject<HTMLIFrameElement>) {
   const { videoId, site } = useContext(VideoContext);
   const allProps: {[key: string]: any} = {
     width: width,
     height: height,
     frameBorder: 0,
-    allowFullScreen: true
+    allowFullScreen: true,
+    type: 'text/html',
+    ref
   };
   switch(site) {
     case 'youtube':
-      allProps.type = 'text/html';
-      allProps.src = `https://www.youtube.com/embed/${videoId[site]}`
+      allProps.src = `https://www.youtube.com/embed/${videoId.youtube}`;
+      break;
+    case 'bilibili':
+      let id = videoId.bilibili.slice(2);
+      const [aid, pid] = id.split('/?p=');
+      allProps.src = `https://player.bilibili.com/player.html?aid=${aid}&page=${pid}`;
       break;
   }
   return (
     <iframe {...allProps} className="v-modal__embed"/>
   );
-}
+})
 
 function VideoModalWindow() {
   const info = useContext(VideoContext);
+  const iFrameRef = useRef<HTMLIFrameElement>(null);
   return (
     <main className='video-modal__window'>
       <div className="video-modal__column--video">
@@ -41,12 +66,15 @@ function VideoModalWindow() {
             {info.title}
           </h2>
         </div>
-        <EmbeddedVideo height={480} width={620} key={info.title}/>
+        <EmbeddedVideo height={300} width={530} key={info.title} ref={iFrameRef}/>
       </div>
       <article className="video-modal__column--description">
         <section className="video-modal-description__section">
           <p className="section__text">
-            <a href="/#">
+            <a
+              className="clickable"
+              onClick={handleAlbumClicked.bind(null, info.album, iFrameRef)}
+            >
               『{info.album}』
             </a>
             ss
@@ -62,13 +90,28 @@ function VideoModalWindow() {
         <section className="video-modal-description__section video-modal-description__section--link">
           <p className="section__text">Link</p>
           <p className="section__text">
-            <a href={`https://www.bilibili.com/video/${info.videoId.bilibili}`}>Bilibili</a>
+            <a
+              target="_blank"
+              href={`https://www.bilibili.com/video/${info.videoId.bilibili}`}
+            >
+              Bilibili
+            </a>
           </p>
           <p className="section__text">
-            <a href={`https://www.nicovideo.jp/watch/${info.videoId.niconico}`}>Niconico</a>
+            <a
+              target="_blank"
+              href={`https://www.nicovideo.jp/watch/${info.videoId.niconico}`}
+            >
+              Niconico
+            </a>
           </p>
           <p className="section__text">
-            <a href={`https://www.youtube.com/watch?v=${info.videoId.youtube}`}>Youtube</a>
+            <a
+              target="_blank"
+              href={`https://www.youtube.com/watch?v=${info.videoId.youtube}`}
+            >
+              Youtube
+            </a>
           </p>
         </section>
       </article>
@@ -82,22 +125,22 @@ interface IVideoModalProps {
   container: HTMLDivElement;
   site: VideoSiteType;
 }
-function VideoModal(props: IVideoModalProps) {
-  const [idx, setIdx] = useState(props.initialIdx);
+function VideoModal({ contents, initialIdx, container, site}: IVideoModalProps) {
+  const [idx, setIdx] = useState(initialIdx);
   const windowRef = React.useRef(null);
-  useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, props.container));
+  useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, container), container);
   return (
     <ModalWithNav
-      prevLabel={idx > 0 ? '上一条' : ''}
-      nextLabel={idx < props.contents.length - 1 ? '下一条': ''}
+      prevLabel={idx > 0 ? contents[idx-1].title : ''}
+      nextLabel={idx < contents.length - 1 ? contents[idx+1].title: ''}
       handleNext={() => setIdx(idx + 1)}
       handlePrev={() => setIdx(idx - 1)}
       ref={windowRef}
       className="video-modal"
     >
       <VideoContext.Provider value={{
-        ...props.contents[idx],
-        site: props.site
+        ...contents[idx],
+        site
       }}>
         <VideoModalWindow />
       </VideoContext.Provider>

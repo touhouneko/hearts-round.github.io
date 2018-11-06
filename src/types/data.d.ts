@@ -12,25 +12,29 @@ declare module '@/data/news.csv' {
 declare module '@/data/albums.json' {
   export interface IRawTrack {
     title: string;
-    vocal: string;
-    original: string;
-    arrange: string;
+    vocal?: string;
+    original?: string;
+    arrange?: string;
+    composer?: string;
+    lyrics?: string;
     length: string;
-    resource_url: string;
-    lyrics_author: string;
-    lyrics_content: ReadonlyArray<[string, string]>;
+    link: string;
+    has_lyrics: boolean;
   }
   export interface IRawAlbum {
-    name: string;
-    cover_img: string;
     code: string;
-    original: string;
+    date: string;
+    name: string;
+    cover: string;
     illustration: string;
-    special_thanks: string;
-    product_url: string;
+    thanks: string;
+    product_link: {
+      taobao: string;
+      tora: string;
+    }
     tracks: ReadonlyArray<IRawTrack>;
   }
-  const albums: ReadonlyArray<IRawAlbum>;
+  const albums: ReadonlyArray<IRawAlbum>
   export default albums;
 }
 

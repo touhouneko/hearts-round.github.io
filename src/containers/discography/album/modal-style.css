@@ -1,0 +1,142 @@
+.album-modal__window {
+  padding: 50px;
+}
+/* album info */
+.album-modal__window .album-info__container {
+  display: flex;
+}
+  /* left column */
+.album-modal__window .album-info__cover {
+  display: block;
+  width: 290px;
+  height: 290px;
+}
+.album-modal__window .album-info__code {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: #777777;
+}
+  /* right column */
+    /* header */
+.album-modal__window .album-info__column--right {
+  margin-left: 40px;
+}
+.album-modal__window .album-info__header {
+  position: relative;
+  display: flex;
+  padding-bottom: 10px;
+}
+.album-modal__window .album-info__header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(67, 162, 180, 0),
+    rgba(67, 162, 180, 1) 20%,
+    rgba(67, 162, 180, 1) 80%,
+    rgba(67, 162, 180, 0)
+  );
+}
+.album-modal__window .album-info__title {
+  position: relative;
+  left: -0.6em;
+  margin: 0;
+  font-weight: normal;
+  font-size: 32px;
+}
+.album-modal__window .album-info__time {
+  display: block;
+  font-size: 12px;
+  color: #777777;
+}
+.album-modal__window .album-info__buy {
+  width: 46px;
+  height: 46px;
+  margin-left: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+    /* content */
+.album-modal__window .album-info__author-item {
+  display: block;
+  margin-top: 9px;
+}
+.album-modal__window .album-info__author {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+.album-modal__window .album-info__author--field {
+  font-weight: 600;
+}
+.album-modal__window .album-info__author--field > .underlined {
+  position: relative;
+  padding-right: 2em;
+}
+.album-modal__window .album-info__author--field > .underlined::after {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 2px;
+  background: #43a2b4;
+}
+
+
+/* purchase modal */
+.purchase-modal__container {
+  display: flex;
+  flex-direction: row;
+  width: 340px;
+  height: 260px;
+  border-radius: 8px;
+}
+.purchase-modal__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 170px;
+  height: 100%;
+}
+.purchase-modal__item:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(67, 162, 180, 0),
+    rgba(67, 162, 180, 1) 20%,
+    rgba(67, 162, 180, 1) 80%,
+    rgba(67, 162, 180, 0)
+  );
+}
+.purchase-modal__icon {
+  display: block;
+  height: 60px;
+}
+.purchase-modal__icon--taobao {
+  width: 60px;
+  background-size: cover;
+  background-image: url("~@/assets/images/taobao.svg");
+}
+.purchase-modal__link {
+  text-decoration: none;
+}
+.purchase-modal__link:hover {
+  text-decoration: underline;
+}
+.purchase-modal__region {
+  color: #777777;
+  margin-top: 30px;
+}

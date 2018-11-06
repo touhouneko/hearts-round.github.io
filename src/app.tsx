@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Switch, Route, Redirect, withRouter, RouteProps } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import { cold } from 'react-hot-loader';
 import 'normalize.css';
 
 import useResize from '@/hooks/resize';
@@ -72,4 +73,4 @@ function App({ location }: RouteProps) {
   );
 }
 
-export default withRouter(App);
+export default cold(withRouter(App));

@@ -86,10 +86,7 @@ module.exports = {
       filename: "static/css/[name].[chunkhash:8].css",
       chunkFilename: "static/css/[name].[chunkhash:8].css"
     }),
-    // new CopyWebpackPlugin([{
-    //   from: path.resolve(__dirname, '../dist/index.html'),
-    //   to: '404.html'
-    // }]),
+    new CopyWebpackPlugin(['_config.yml']),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
       routes: prerenderUrls,

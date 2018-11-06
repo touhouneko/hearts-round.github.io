@@ -32,6 +32,21 @@ function NavItem ({ name, role, to }: INavProps) {
   );
 }
 
+function SNSLogo({ link, site }: {link: string, site: string }) {
+  const wrapperProps: any = {
+    className: 'about__link'
+  }
+  let iconClassName = `about__icon about__icon--${site}`;
+  if (link === '')
+    iconClassName += ' disabled'
+  else
+  wrapperProps.href = link;
+  return (
+    <a {...wrapperProps}>
+      <i className={iconClassName} />
+    </a>
+  );
+}
 const StaffIntroduction = ({ intro }: { intro: IStaffIntroduction }) => (
   <li className="about__content-container">
     <article className="about__content about__content--article">
@@ -52,15 +67,9 @@ const StaffIntroduction = ({ intro }: { intro: IStaffIntroduction }) => (
     <div className="about__content about__content--avatar">
       <img src={intro.avatar} className="about__avatar" />
       <div className="about__link-container">
-        <a className="about__link clickable" href={intro.social.twitter}>
-          <i className="about__icon about__icon--twitter" />
-        </a>
-        <a className="about__link clickable" href={intro.social.bilibili}>
-          <i className="about__icon about__icon--bilibili" />
-        </a>
-        <a className="about__link clickable" href={intro.social.weibo}>
-          <i className="about__icon about__icon--weibo" />
-        </a>
+        <SNSLogo link = {intro.social.twitter} site='twitter'/>
+        <SNSLogo link = {intro.social.bilibili} site='bilibili'/>
+        <SNSLogo link = {intro.social.weibo} site='weibo'/>
       </div>
     </div>
   </li>

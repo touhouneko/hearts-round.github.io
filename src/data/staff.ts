@@ -42,7 +42,7 @@ const regularStaffs: ReadonlyArray<IStaff> = rawStaffs
 .map(r => ({
   name: r.name,
   role: r.role,
-  path: `/${encodeURI(r.name).toLowerCase()}`,
+  path: `/${r.name.toLowerCase()}`,
   introduction: [{
     name: r.name,
     avatar: r.avatar,

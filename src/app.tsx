@@ -8,6 +8,7 @@ import useResize from '@/hooks/resize';
 import Nav from './containers/top-nav';
 import PageLoading from './containers/page-loading';
 import Footer from './containers/footer';
+import NotFound from './containers/404';
 import './site.css';
 
 const Home = Loadable({
@@ -66,6 +67,7 @@ function App({ location }: RouteProps) {
           <Route exact path='/management' component={Management} />
           <Route exact path='/about' component={About} />
           <Route exact path='/about/:staff' component={About} />
+          <Route component={NotFound} />
         </Switch>
       </div>
       <Footer key="footer" />
@@ -73,4 +75,4 @@ function App({ location }: RouteProps) {
   );
 }
 
-export default cold(withRouter(App));
+export default withRouter(App);

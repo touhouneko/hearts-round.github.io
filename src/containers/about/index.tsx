@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteProps, Redirect, NavLink } from 'react-router-dom';
 
-import staffs from '@/data/staff';
+import staffs, { IStaffIntroduction } from '@/data/staff';
 import './style.css';
 
 interface INavProps {
@@ -32,6 +32,40 @@ function NavItem ({ name, role, to }: INavProps) {
   );
 }
 
+const StaffIntroduction = ({ intro }: { intro: IStaffIntroduction }) => (
+  <li className="about__content-container">
+    <article className="about__content about__content--article">
+      <h2 className="article__heading">
+        {intro.name}
+      </h2>
+      <section className="article__body">
+        {
+          intro.description.map((p, idx) => (
+            <p className="article__paragraph" key={idx}>
+              {p}
+            </p>
+          ))
+        }
+      </section>
+    </article>
+    {/* sns icon groups */}
+    <div className="about__content about__content--avatar">
+      <img src={intro.avatar} className="about__avatar" />
+      <div className="about__link-container">
+        <a className="about__link clickable" href={intro.social.twitter}>
+          <i className="about__icon about__icon--twitter" />
+        </a>
+        <a className="about__link clickable" href={intro.social.bilibili}>
+          <i className="about__icon about__icon--bilibili" />
+        </a>
+        <a className="about__link clickable" href={intro.social.weibo}>
+          <i className="about__icon about__icon--weibo" />
+        </a>
+      </div>
+    </div>
+  </li>
+);
+
 /**
  * @param staffName name of the staff
  * if the staffName is '', which indicates it is the root path, the first one will be used
@@ -53,15 +87,13 @@ interface IProps extends RouteProps {
 export default function About({ match }: IProps) {
   const { staff: staffName = '' } = match.params;
   const theStaff = findStaff(staffName);
-  if (theStaff  === undefined) {
-    alert('The staff does not exist');
-    return (<Redirect to="/about" />)
-  }
+  if (theStaff  === undefined) 
+    return (<Redirect to="/404" />)
   return (
     <main className="about__container" key={window.location.pathname}>
       <aside className="about__aside">
         <nav className="about__nav">
-          <img src="https://via.placeholder.com/230x170" className="about__logo--large" />
+          <img src="https://via.placeholder.com/205x150" className="about__logo--large" />
           <ul className="nav__list">
             {
               staffs.map(s => (
@@ -71,37 +103,13 @@ export default function About({ match }: IProps) {
           </ul>
         </nav>
       </aside>
-      <div className="about__content-container">
-        <article className="about__content about__content--article">
-          <h2 className="article__heading">
-            {theStaff.name}
-          </h2>
-          <section className="article__body">
-            {
-              theStaff.description.map((p, idx) => (
-                <p className="article__paragraph" key={idx}>
-                  {p}
-                </p>
-              ))
-            }
-          </section>
-        </article>
-        {/* sns icon groups */}
-        <div className="about__content about__content--avatar">
-          <img src={theStaff.avatar} className="about__avatar" />
-          <div className="about__link-container">
-            <a className="about__link clickable" href={theStaff.social.twitter}>
-              <i className="about__icon about__icon--twitter" />
-            </a>
-            <a className="about__link clickable" href={theStaff.social.bilibili}>
-              <i className="about__icon about__icon--bilibili" />
-            </a>
-            <a className="about__link clickable" href={theStaff.social.weibo}>
-              <i className="about__icon about__icon--weibo" />
-            </a>
-          </div>
-        </div>
-      </div>
+      <ul className="about__introduction-list">
+        {
+          theStaff.introduction.map((intro, idx) => (
+            <StaffIntroduction intro={intro} key={idx}/>
+          ))
+        }
+      </ul>
     </main>
   );
 }

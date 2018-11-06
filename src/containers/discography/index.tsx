@@ -3,6 +3,7 @@ import { Switch, Route, Redirect, NavLink, BrowserRouter } from 'react-router-do
 import Loadable from "react-loadable";
 
 import PageLoading from '../page-loading';
+import NotFound from '../404';
 import './style.css';
 
 const AlbumPage = Loadable({
@@ -37,6 +38,7 @@ const Discography = () => (
         <Redirect exact from='/' to='/albums' />
         <Route exact path='/albums' component={AlbumPage}/>
         <Route exact path='/videos' component={VideoPage}/>
+        <Route component={NotFound} />
       </Switch>
     </main>
   </BrowserRouter>

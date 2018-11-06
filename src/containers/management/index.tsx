@@ -4,6 +4,7 @@ import { HashRouter, Switch, Route, Redirect, NavLink } from 'react-router-dom'
 import TokenContext from './pwd-context';
 import AlbumManagement from './albums';
 import NewsManagement from './news';
+import NotFound from '../404';
 import './style.css';
 
 interface IProp {
@@ -46,6 +47,7 @@ export default function ManagementPage({ location }: IProp) {
             <Redirect exact path="/" to="/news" />
             <Route exact path="/news" component={NewsManagement} />
             <Route exact path="/albums" component={AlbumManagement} />
+            <Route component={NotFound} />
           </Switch>
         </TokenContext.Provider>
       </main>

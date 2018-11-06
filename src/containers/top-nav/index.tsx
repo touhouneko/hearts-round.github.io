@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import './style.css';
 
@@ -36,9 +36,12 @@ function navItem(route: IRoute, idx: number) {
 const Header = React.forwardRef((props: unknown, ref: React.RefObject<HTMLHeadingElement>) => (
   <header className="global__header">
     <nav className="nav__container" ref={ref}>
-      <div className="logo__wrapper">
-        <img className="logo" />
-      </div>
+      <Link className="logo__wrapper" to="/home">
+        <i className="logo" />
+        <span className="logo__text">
+          Hearts Rounds
+        </span>
+      </Link>
       <ul className="nav__list">
         {routes.map(navItem)}
       </ul>

@@ -67,7 +67,8 @@ function App({ location }: RouteProps) {
           <Route exact path='/management' component={Management} />
           <Route exact path='/about' component={About} />
           <Route exact path='/about/:staff' component={About} />
-          <Route component={NotFound} />
+          <Route exact path='/404' component={NotFound} />
+          <Redirect to='/404' />
         </Switch>
       </div>
       <Footer key="footer" />

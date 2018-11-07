@@ -63,8 +63,19 @@ function CarouselSection() {
 export default function Home() {  
   return (
     <main className="home__container">
-      <CarouselSection />
-      <NewsSection />
+      <div className="home__cover">
+        <img
+          src='https://s3-ap-southeast-2.amazonaws.com/large-timber-blog/others/HOME.png'
+          className="cover__image"
+        />
+      </div>
+      <div className="home__logo">
+        <img className="logo__image" />
+      </div>
+      <div className="home__body">
+        <CarouselSection />
+        <NewsSection />
+      </div>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 export type TrackFieldTypes = 'vocal' | 'original' | 'composer' | 'arrange' | 'lyrics' | 'pv';
 
-interface ITrackAuthor {
+export interface ITrackAuthor {
   vocal?: string;
   original?: string;
   composer?: string;

@@ -1,4 +1,3 @@
-import { AxiosPromise } from 'axios';
 import sha256 from 'sha256';
 
 import bindthis from '@/decorators/bindthis';

@@ -1,5 +1,7 @@
 .home__container .news__container {
-  margin: 70px 0 110px;
+  width: 990px;
+  margin: 70px auto 0;
+  padding-bottom: 110px;
 }
 .home__container .news__title {
   margin-bottom: 60px;

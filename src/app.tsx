@@ -19,6 +19,10 @@ const Discography = Loadable({
   loader: () => import(/* webpackChunkName: "discography" */'./containers/discography'),
   loading: PageLoading
 });
+const LyricsPage = Loadable({
+  loader: () => import(/* webpackChunkName: "lyrics" */'./containers/discography/lyrics'),
+  loading: PageLoading
+})
 const Contact = Loadable({
   loader: () => import(/* webpackChunkName: "contact" */'./containers/contact'),
   loading: PageLoading
@@ -45,7 +49,8 @@ function App({ location }: RouteProps) {
   const navWrapperRef = useRef<HTMLHeadingElement>(null);
   const html = document.getElementsByTagName('html')[0];
   // whether the global__body shall be full-width
-  const fullWidthFlag = location.pathname.slice(0, 6) === '/about';
+  const fullWidthFlag = location.pathname.slice(0, 6) === '/about' ||
+  location.pathname === '/' || location.pathname.slice(0, 5) === '/home';
   function resizeListener() {
     if (navWrapperRef.current === null) return;
     let width = navWrapperRef.current.clientWidth;
@@ -60,6 +65,7 @@ function App({ location }: RouteProps) {
         <Switch>
           <Redirect exact path='/' to='/home' />
           <Route exact path='/home' component={Home} />
+          <Route exact path='/discography/lyrics/:albumCode/:trackId' component={LyricsPage} />
           <Route path='/discography' component={Discography} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/gallery' component={Gallery} />

@@ -1,3 +1,48 @@
+/* site cover treatment */
+.home__container .home__cover {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-top: 75px;
+  height: calc(100vh - 75px);
+}
+.home__container .cover__image {
+  height: 100%;
+}
+.home__container .home__logo {
+  width: 100%;
+  height: calc(100vh - 75px);
+}
+.home__container .logo__image {
+  position: relative;
+  z-index: 5;
+  width: 210px;
+  height: 160px;
+  margin-top: 22vh;
+  margin-left: 10vw;
+  background: transparent;
+}
+.home__container .home__body {
+  position: relative;
+  border-top: 1px solid black;
+  background: #EDEDED;
+  z-index: 5;
+}
+/* .home__container::before {
+  content: '';
+  display: block;
+  height: calc(100vh - 75px);
+  background: white;
+} */
+/* .home__container .home__mask {
+  position: relative;
+  z-index: 5;
+  background: #EDEDED;
+} */
 /* carousel */
 .home__container .banner__container {
   display: flex;

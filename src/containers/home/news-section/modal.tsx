@@ -22,8 +22,8 @@ function NewsModal({ news, initIdx, container }: INewsModalProp) {
 
   return (
     <ModalWithNav
-      prevLabel={idx > 0 ? '上一条' : ''}
-      nextLabel={idx < news.length - 1 ? '下一条': ''}
+      prevLabel={idx > 0 ? 'Previous' : ''}
+      nextLabel={idx < news.length - 1 ? 'Next': ''}
       handleNext={() => setIdx(idx + 1)}
       handlePrev={() => setIdx(idx - 1)}
       ref={windowRef}

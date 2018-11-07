@@ -13,6 +13,7 @@
 .global__header .logo__wrapper {
   position: relative;
   width: 76px;
+  white-space: nowrap;
   flex: 0 0 auto;
   text-decoration: none;
 }

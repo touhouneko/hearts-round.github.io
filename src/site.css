@@ -4,7 +4,14 @@ ul {
 }
 a {
   color: inherit;
+  outline: 0;
 }
+/* a:active {
+  border: none;
+}
+a:focus {
+  border: none;
+} */
 
 /* classes */
 .clickable {

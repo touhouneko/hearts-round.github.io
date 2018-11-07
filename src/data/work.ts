@@ -2,6 +2,7 @@ import rawWorks from '@/data/work.csv';
 
 export interface IWork {
   title: string;
+  principle: string;
   provider: string;
   album: string;
   cover: string;
@@ -21,6 +22,7 @@ export interface IWork {
 
 const works: ReadonlyArray<IWork> = rawWorks.map(w => ({
   title: w.title,
+  principle: w.principle,
   provider: w.provider,
   album: w.album,
   cover: w.cover,

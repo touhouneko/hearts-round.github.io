@@ -7,7 +7,7 @@ const WorkItem = ({ work, idx }: { work: IWork, idx: number }) => (
   <li className="work__item">
     <article className="work__article">
       <h3 className="work__header">
-        委托方
+        {work.principle}
       </h3>
       <div className="work__content">
         <img className="work__cover clickable" src={work.cover} />
@@ -16,10 +16,10 @@ const WorkItem = ({ work, idx }: { work: IWork, idx: number }) => (
             {work.title}
           </p>
           <p className="info__item">
-            {work.provider}
+            {work.provider} 提供
           </p>
           <p className="info__item">
-            收录于「{work.album}」
+            In the album「{work.album}」
           </p>
         </section>
       </div>

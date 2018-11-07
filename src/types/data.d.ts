@@ -70,6 +70,7 @@ declare module '@/data/gallery.csv' {
 declare module '@/data/work.csv' {
   export interface IRawWork {
     title: string;
+    principle: string;
     provider: string;
     album: string;
     cover: string;

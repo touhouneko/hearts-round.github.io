@@ -21,6 +21,7 @@
   background: #43a2b4;
   color: white;
   padding: 0 0.5em;
+  height: 100%;
 }
 .home__container .news__content {
   margin: 0 0 0 46px;

@@ -67,3 +67,17 @@
   line-height: 24px;
   height: 24px;
 }
+
+/* loading-failed */
+.loading-failed {
+  margin: 0 auto;
+
+}
+.refresh-icon {
+  height: 128px;
+  width: 128px;
+  display: block;
+  margin: 0 auto;
+  background-size: cover;
+  background-image: url("~@/assets/images/refresh.svg");
+}

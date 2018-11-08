@@ -47,7 +47,7 @@ const EmbeddedVideo = forwardRef(function({
       break;
     case 'bilibili':
       let id = videoId.bilibili.slice(2);
-      const [aid, pid] = id.split('/?p=');
+      const [aid, pid =  '1'] = id.split('/?p=');
       allProps.src = `https://player.bilibili.com/player.html?aid=${aid}&page=${pid}`;
       break;
   }

@@ -22,6 +22,11 @@ const config = require('./webpack.base.config');
 //   map(s => s.name.toLowerCase());
 // }
 
+const prerenderRoutes = [
+  '/', '/home', '/contact',
+  '/discography/lyrics/hato001/01'
+]
+
 module.exports = {
   ...config,
   output: {
@@ -85,7 +90,8 @@ module.exports = {
     new CopyWebpackPlugin(['_config.yml']),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
-      routes: ['/', '/home', '/contact'],
+      routes: prerenderRoutes,
+      captureAfterTime: 5000,
       postProcess (renderedRoute) {
         renderedRoute.route = renderedRoute.originalRoute;
         return renderedRoute;

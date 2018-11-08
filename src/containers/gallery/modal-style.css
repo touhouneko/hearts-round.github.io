@@ -1,0 +1,11 @@
+.gallery__modal {
+  display: flex;
+  padding: 20px 60px 26px 20px;
+}
+
+.gallery__modal .modal__description--gallery {
+  margin: 15px 0 0 34px;
+}
+.gallery__modal .description__section {
+  margin: 15px 0;
+}

@@ -52,9 +52,9 @@ function App({ location }: RouteProps) {
   const fullWidthFlag = location.pathname.slice(0, 6) === '/about' ||
   location.pathname === '/' || location.pathname.slice(0, 5) === '/home';
   function resizeListener() {
-    if (navWrapperRef.current === null) return;
-    let width = navWrapperRef.current.clientWidth;
-    html.style.minWidth = `${width}px`;
+    // if (navWrapperRef.current === null) return;
+    // let width = navWrapperRef.current.clientWidth;
+    // html.style.minWidth = `${width}px`;
   }
   useResize(resizeListener);
 

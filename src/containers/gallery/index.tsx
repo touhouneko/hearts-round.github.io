@@ -1,6 +1,7 @@
 import React from 'react';
 
 import illustrations, { IIllustration } from '@/data/gallery';
+import popupModal from './modal';
 import './style.css';
 
 /**
@@ -8,7 +9,10 @@ import './style.css';
  * @param idx the illustration's numbered index
  */
 const Item = ({ info, idx }: { info: IIllustration, idx: number }) => (
-  <li className={`illustration__item illustration__item--${idx%3} clickable`}>
+  <li
+    onClick={popupModal.bind(null, idx)}
+    className={`illustration__item illustration__item--${idx%3} clickable`}
+  >
     <img src={info.url.cover} className="illustration__image"/>
   </li>
 );

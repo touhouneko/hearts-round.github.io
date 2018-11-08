@@ -79,14 +79,14 @@ function VideoModalWindow() {
     <main className='video-modal__window'>
       <div className="video-modal__column--video">
         <div className="video-modal__title-container">
-          <h2 className="video-modal__title">
+          <h2 className="video-modal__title modal__title">
             {info.title}
           </h2>
         </div>
         <EmbeddedVideo height={300} width={530} key={info.title} ref={iFrameRef}/>
       </div>
       <article className="video-modal__column--description">
-        <section className="video-modal-description__section">
+        <section className="video-modal-description__section with-v-bar">
           <p className="section__text">
             <a
               className="clickable"
@@ -97,15 +97,15 @@ function VideoModalWindow() {
             ss
           </p>
         </section>
-        <section className="video-modal-description__section">
+        <section className="video-modal-description__section with-v-bar">
           <p className="section__text">Original: {info.original}</p>
           <p className="section__text">Arrange: {info.arrange}</p>
           <p className="section__text">Lyric: {info.lyrics}</p>
           <p className="section__text">Illust: {info.illust}</p>
           <p className="section__text">Vocal: {info.vocal}</p>
         </section>
-        <section className="video-modal-description__section video-modal-description__section--link">
-          <p className="section__text">Link</p>
+        <section className="video-modal-description__section description__section--link with-v-bar">
+          <p className="section__text section__text--gap">Link</p>
           <p className="section__text">
             <a
               target="_blank"

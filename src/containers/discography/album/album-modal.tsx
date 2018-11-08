@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import useClickOutside from '@/hooks/click-outside';
 import ModalWithNav from '@/components/modal/modal-nav';
 import modalFactory from '@/components/modal/factory';
-import albums, { IAlbumInfo, ITrackInfo } from '@/data/albums';
+import albums from '@/data/albums';
 import popupPurchaseModal from './purchase-modal';
 import './modal-style.css';
 
@@ -77,7 +77,7 @@ function AlbumModalWindow({ initialIdx, container }: IAlbumModalProps) {
         </section>
       </main>
     </ModalWithNav>
-  )
+  );
 }
 
 export default function popupAlbumModal(idx: number) {

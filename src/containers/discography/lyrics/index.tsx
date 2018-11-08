@@ -23,6 +23,7 @@ function TrackInfo ({ info }: { info: ITrackInfo }) {
         <div className="track-info__links">
           <a
             href={info.link}
+            target="_blank"
             className="track-info__link track-info__link--music"
           />
           {/* <a
@@ -116,16 +117,21 @@ export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
   const [notFoundFlag, setNotFoundFlag] = useState(false);
   const [timeoutFlag, setTimeoutFlag] = useState(false);
 
+  function fetchTrackInfo() {
+    const [albumIdx, trackIdx] = parsePath(props.match.params);
+    setTrackInfo(albums[albumIdx].tracks[trackIdx]);
+  }
+
   function fetchLyrics() {
     let cachedLyrics = getLyricsSync();
     if (cachedLyrics !== null) {
+      fetchTrackInfo();
       setLoadingFlag(false);
       setLyrics(cachedLyrics);
       return;
     }
     setLoadingFlag(true);
     const [albumIdx, trackIdx] = parsePath(props.match.params);
-    setTrackInfo(albums[albumIdx].tracks[trackIdx]);
     getLyrics(albums[albumIdx].code, trackIdx).then(lyrics => {
       setLoadingFlag(false);
       setLyrics(lyrics);
@@ -143,6 +149,7 @@ export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
       setNotFoundFlag(true);
       return;
     }
+    fetchTrackInfo();
     fetchLyrics();
   }, []);
 

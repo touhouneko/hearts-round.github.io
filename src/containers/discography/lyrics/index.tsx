@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 
 import albums, { ITrackInfo } from '@/data/albums';
-// import videos from '@/data/videos';
-import PageLoading from '@/containers/page-loading';
-import { getLyrics, getLyricsSync } from '@/apis/jsonp-apis';
+import loadLyrics from '@/apis/lyrics-loader';
 import './style.css';
 
 export interface ILyrics {
@@ -53,57 +51,56 @@ function TrackInfo ({ info }: { info: ITrackInfo }) {
 }
 interface ILyricsSectionProps {
   lyrics: ReadonlyArray<ILyrics>;
-  timeoutFlag: boolean;
-  reload: () => void;
 }
-const LyricsSection = ({ lyrics, timeoutFlag, reload }: ILyricsSectionProps) => (
+const LyricsSection = ({ lyrics }: ILyricsSectionProps) => (
   <article className="lyrics__body" id="content">
   {
-    timeoutFlag ?
-    (
-      <div className="loading-failed">
-        <h1>Loading failed</h1>
-        <i className="refresh-icon clickable" onClick={reload}/>
-      </div> 
-    ):
-    (
-      ['left', 'right'].map(side => (
-        <ul className={`lyrics__list lyrics__list--${side}`} key={side}>
-        {
-          lyrics.map(l => l[side as 'left' | 'right']).map((l, idx) => (
-            <p className="lyrics__line" key={idx}>
-              {l}
-            </p>
-          ))
-        }
-        </ul>
-      ))
-    )
+    ['left', 'right'].map(side => (
+      <ul className={`lyrics__list lyrics__list--${side}`} key={side}>
+      {
+        lyrics.map(l => l[side as 'left' | 'right']).map((l, idx) => (
+          <p className="lyrics__line" key={idx}>
+            {l}
+          </p>
+        ))
+      }
+      </ul>
+    ))
   }
   </article>
 );
 
 // return [albumIdx, trackIdx]
+// trackIdx (number) start from 0
+// trackId (string) start from 1
 function parsePath({ albumCode = '', trackId = '' }: IMatchProps): [number, number] {
   const albumIdx = albums.findIndex(a => a.code.toLowerCase() === albumCode.toLowerCase());
-  const trackIdx = parseInt(trackId, 10);
+  const trackIdx = parseInt(trackId, 10) - 1;
   return [albumIdx, trackIdx];
 }
 
 // if the path is not valid, the user will be redirected to 404 page
+// trackIdx (number) start from 0
+// trackId (string) start from 1
 function isPathValid({ albumCode = '', trackId = '' }: IMatchProps): boolean {
-  const albumIdx = albums.findIndex(a => a.code.toLowerCase() === albumCode.toLowerCase());
+  // albumCode must be all in lowercase
+  if (albumCode.toLowerCase() !== albumCode)
+    return false;
+  const albumIdx = albums.findIndex(a => a.code.toLowerCase() === albumCode);
   // can album be found based on the code ?
   if (albumIdx < 0)
     return false;
+  // trackId must be two digit
+  if (trackId.length !== 2)
+    return false;
   // is trackId a integer?
   if (trackId === '' || isNaN(trackId as any)) return false;
-  const trackIdx = parseFloat(trackId);
+  const trackIdx = parseFloat(trackId) - 1;
   if (trackIdx !== Math.floor(trackIdx)) return false;
   // does the track exists?
   else if (albums[albumIdx].tracks[trackIdx] === undefined) return false;
   // does the track has lyrics?
-  return albums[albumIdx].tracks[trackIdx].hasLyrics === false;
+  return albums[albumIdx].tracks[trackIdx].hasLyrics === true;
 }
 
 interface IMatchProps {
@@ -112,10 +109,8 @@ interface IMatchProps {
 }
 export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
   const [lyrics, setLyrics] = useState<ReadonlyArray<ILyrics>>([]);
-  const [loadingFlag, setLoadingFlag] = useState(true);
   const [trackInfo, setTrackInfo] = useState<ITrackInfo>(null);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
-  const [timeoutFlag, setTimeoutFlag] = useState(false);
 
   function fetchTrackInfo() {
     const [albumIdx, trackIdx] = parsePath(props.match.params);
@@ -123,29 +118,18 @@ export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
   }
 
   function fetchLyrics() {
-    let cachedLyrics = getLyricsSync();
-    if (cachedLyrics !== null) {
-      fetchTrackInfo();
-      setLoadingFlag(false);
-      setLyrics(cachedLyrics);
-      return;
-    }
-    setLoadingFlag(true);
     const [albumIdx, trackIdx] = parsePath(props.match.params);
-    getLyrics(albums[albumIdx].code, trackIdx).then(lyrics => {
-      setLoadingFlag(false);
+    loadLyrics(albums[albumIdx].code, trackIdx).then(lyrics => {
       setLyrics(lyrics);
     }).catch(err => {
-      if ('status' in err && err.status === 404)
-          setNotFoundFlag(true);
-        else
-          setTimeoutFlag(true);
-      setLoadingFlag(false);
+      console.error(err);
+      setNotFoundFlag(true);
     });
   }
 
   useEffect(() => {
     if (!isPathValid(props.match.params)) {
+      console.error('url not valid')
       setNotFoundFlag(true);
       return;
     }
@@ -159,15 +143,7 @@ export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
   return (
     <main className="lyrics__container">
       <TrackInfo info={trackInfo}/>
-      {
-        loadingFlag ?
-        <PageLoading /> :
-        <LyricsSection
-          lyrics={lyrics}
-          timeoutFlag={timeoutFlag}
-          reload={fetchLyrics}
-        />
-      }      
+      <LyricsSection lyrics={lyrics} />
     </main>
   );
 }

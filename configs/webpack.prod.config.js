@@ -1,6 +1,6 @@
-// const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
-// const papa = require('papaparse');
+const papa = require('papaparse');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -10,21 +10,37 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.base.config');
 
-// function getStaffNames() {
-//   const content = fs.readFileSync(path.join(__dirname, '../src/data/staff.csv'), 'utf-8');
-//   const staffs = papa.parse(content, {
-//     header: true,
-//     skipEmptyLines: true,
-//     comments: '#'
-//   });
-//   // the first one is about the site globally.
-//   return staffs.data.filter((_, idx) => idx > 0).
-//   map(s => s.name.toLowerCase());
-// }
+function getStaffPaths() {
+  const content = fs.readFileSync(path.join(__dirname, '../src/data/staff.csv'), 'utf-8');
+  const staffs = papa.parse(content, {
+    header: true,
+    skipEmptyLines: true,
+    comments: '#'
+  });
+  // the first one is about the site globally.
+  return staffs.data.filter((_, idx) => idx > 0).
+  filter(s => s.role !== 'others').
+  map(s => `/about/${s.name.toLowerCase()}`);
+}
+
+function getLyricsRoutes() {
+  const routes = [];
+  const folders = fs.readdirSync(path.resolve(__dirname, '../src/data/lyrics'));
+  folders.forEach(folder => {
+    const files = fs.readdirSync(path.resolve(__dirname, `../src/data/lyrics/${folder}/`))
+    files.forEach(file => {
+      const [name,] = file.split('.');
+      routes.push(`/discography/lyrics/${folder.toLowerCase()}/${name}`)
+    });
+  });
+  return routes;
+}
 
 const prerenderRoutes = [
-  '/', '/home', '/contact',
-  '/discography/lyrics/hato001/01'
+  '/', '/home', '/contact', '/discography', '/discography/albums',
+  '/discography/videos', '/gallery', '/works', '/about', '/contact',
+  ...getStaffPaths(), '/about/others',
+  ...getLyricsRoutes()
 ]
 
 module.exports = {
@@ -91,7 +107,7 @@ module.exports = {
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
       routes: prerenderRoutes,
-      captureAfterTime: 5000,
+      renderAfterTime: 10000,
       postProcess (renderedRoute) {
         renderedRoute.route = renderedRoute.originalRoute;
         return renderedRoute;

@@ -5,6 +5,10 @@
 /* aside */
 .about__container .about__aside {
   flex: 28;
+  /* width: 28%; */
+  /* position: fixed; */
+  /* top: 0; */
+  /* padding-top: 75px; */
   display: flex;
   justify-content: flex-end;
   background: white;
@@ -70,8 +74,10 @@
 /* content */
 .about__introduction-list {
   flex: 72;
-  padding-top: 95px;
-  padding-left: 50px;
+  padding: 95px 0 0 50px;
+  /* padding-top: 95px; */
+  /* padding-left: 50px; */
+  /* padding: 95px 0 0 calc(28% + 50px); */
 }
 .about__container .about__content-container {
   display: inline-flex;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import videoInfos, { IVideoInfo } from '@/data/videos';
+import videoInfos from '@/data/videos';
+import { IVideo } from '@/models/video';
 import { popupVideoModal } from '@/components/modal/modal-video';
 import './style.css';
 
@@ -8,7 +9,7 @@ import './style.css';
  * @param info the info of the video
  * @param idx the video's index
  */
-const Item = ({ info, idx }: { info: IVideoInfo, idx: number }) => (
+const Item = ({ info, idx }: { info: IVideo, idx: number }) => (
   <section className="list__video">
     <div
       className="video__cover clickable"
@@ -24,22 +25,22 @@ const Item = ({ info, idx }: { info: IVideoInfo, idx: number }) => (
         {info.title}
       </h1>
       <p className="indent info__album">
-      『{info.album}』
+      『{info.albumName}』
       </p>
       <p className="indent info__others">
-        Original: {info.original}
+        Original: {info.author.original}
       </p>
       <p className="indent info__others">
-        Arrange: {info.arrange}
+        Arrange: {info.author.arrange}
       </p>
       <p className="indent info__others">
-        Lyric: {info.lyrics}
+        Lyric: {info.author.lyrics}
       </p>
       <p className="indent info__others">
-        Illust: {info.illust}
+        Illust: {info.author.illustrator}
       </p>
       <p className="indent info__others">
-        Vocal: {info.vocal}
+        Vocal: {info.author.vocal}
       </p>
       <div className="indent info__urls">
         <i className="urls__icon urls__icon--bilibili clickable" />

@@ -71,7 +71,12 @@ export default function Home() {
       </div>
       <div className="home__logo">
         <img className="logo__image" />
+        <section className="logo__slogan">
+          <p className="slogan__line slogan__line--0">少女见见见</p>
+          <p className="slogan__line slogan__line--1">雨雨雨上∙ ∙ ∙</p>
+        </section>
       </div>
+      <div className="home__buffer" />
       <div className="home__body">
         <CarouselSection />
         <NewsSection />

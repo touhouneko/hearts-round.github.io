@@ -22,38 +22,6 @@
   height: 100%;
 }
 
-/* play button */
-/* .video__container .video__button--outer {
-  position: absolute;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 74px;
-  height: 74px;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-} */
-/* .video__container .video__cover:hover > .video__button--outer {
-  display: flex;
-}
-.video__container .video__button--inner {
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  transform: translateX(50%);
-}
-.video__container .video__button--inner::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 60px;
-  background: black;
-  transform: translate(-52px, -10px) rotate(45deg);
-} */
-
 /* article */
 .video__container .video__info {
   margin-left: 100px;

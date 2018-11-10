@@ -15,9 +15,7 @@ const TableHeader = () => (
   <tr className="table__header">
     <th>id</th>
     <th>Date</th>
-    <th>Title_chs</th>
-    <th>Title_cht</th>
-    <th>Title_jp</th>
+    <th>Title</th>
     <th>Operation</th>
   </tr>
 );
@@ -30,9 +28,7 @@ export default function NewsManagement() {
   function handleSubmit(news: EditableNewsModel[], password: string) {
     const json: IRawNews[] = news.map(n => ({
       date: n.date,
-      title_chs: n.title.chs,
-      title_cht: n.title.cht,
-      title_jp: n.title.jp
+      title: n.title
     }));
     const csv = papaparse.unparse(json);
     setAjaxStatus(EAjaxStatus.pending);

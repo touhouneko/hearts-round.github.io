@@ -15,17 +15,46 @@
   height: 100%;
 }
 .home__container .home__logo {
-  width: 100%;
-  height: calc(100vh - 75px);
+  position: fixed;
+  top: calc(22vh + 75px);
+  left: 10vw;
+  z-index: 5;
 }
 .home__container .logo__image {
   position: relative;
-  z-index: 5;
   width: 210px;
   height: 160px;
-  margin-top: 22vh;
-  margin-left: 10vw;
   background: transparent;
+}
+.home__container .logo__slogan {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  margin-left: 20px;
+  font-size: 24px;
+}
+.home__container .logo__slogan::after {
+  content: '';
+  height: 1px;
+  position: absolute;
+  left: 20px;
+  right: 30px;
+  top: 1.05em;
+  background: linear-gradient(to right,
+    rgba(67, 162, 180, 0),
+    rgba(67, 162, 180, 1) 50%,
+    rgba(67, 162, 180, 0)
+  );
+}
+.home__container .slogan__line {
+  margin: 0;
+}
+.home__container .slogan__line--1 {
+  margin-left: 3.5em;
+}
+.home__container .home__buffer {
+  width: 100%;
+  height: calc(100vh - 75px);
 }
 .home__container .home__body {
   position: relative;

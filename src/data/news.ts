@@ -1,6 +1,5 @@
 import rawNews, { IRawNews } from '@/data/news.csv';
 import NewsModel, { INews } from '@/models/news';
-import MultiLanguageText from '@/models/text';
 
 function verifyInput(raw: IRawNews): boolean {
   return true;
@@ -16,7 +15,7 @@ function parseOne(raw: IRawNews): INews {
   if (!verifyInput(raw)) {
     throw new Error('error parsing news');
   }
-  const title = new MultiLanguageText(raw.title_chs, raw.title_cht, raw.title_jp);
+  const title = raw.title;
   return new NewsModel(raw.date, title);
 }
 

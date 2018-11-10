@@ -1,21 +1,20 @@
-import MultiLanguageText, { IMultiLanguageText } from '@/models/text';
 import bindthis from '@/decorators/bindthis';
 import IEditable from './editable';
 
 export interface INews {
   date: string;
-  title: IMultiLanguageText;
+  title: string;
 }
 
 export default class NewsModel implements INews {
-  constructor(public date: string, public title: IMultiLanguageText) {}
+  constructor(public date: string, public title: string) {}
 }
 
 export class EditableNewsModel implements INews, IEditable {
   public editable: boolean = false;
   public edited: boolean = false;
   public editing: boolean = false;
-  constructor(private readonly news: INews = new NewsModel('', new MultiLanguageText())){}
+  constructor(private readonly news: INews = new NewsModel('','')){}
   public get date(){
     return this.news.date;
   }
@@ -24,6 +23,9 @@ export class EditableNewsModel implements INews, IEditable {
   }
   public get title() {
     return this.news.title;
+  }
+  public set title(val: string) {
+    this.news.title = val;
   }
   @bindthis public addEditEffect(timeout: number = 0) {
     this.edited = true;

@@ -37,9 +37,7 @@ const TableRow = ({ news, idx, dispatch }: IRowProps) => (
   <tr className={`table__row ${news.edited ? 'edited': ''}`}>
     <td>{idx}</td>
     <TdInput field="date" value={news.date} dispatch={dispatch} editable={news.editable} idx={idx}/>
-    <TdInput field="title_chs" value={news.title.chs} dispatch={dispatch} editable={news.editable} idx={idx}/>
-    <TdInput field="title_cht" value={news.title.cht} dispatch={dispatch} editable={news.editable} idx={idx}/>
-    <TdInput field="title_jp" value={news.title.jp} dispatch={dispatch} editable={news.editable} idx={idx}/>
+    <TdInput field="title" value={news.title} dispatch={dispatch} editable={news.editable} idx={idx}/>
     <td>
       <a
         onClick={dispatch.bind(null, { type: 'SAVE', payload: {idx}} )}

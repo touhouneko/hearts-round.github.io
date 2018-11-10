@@ -34,7 +34,7 @@ function NewsModal({ news, initIdx, container }: INewsModalProp) {
           <time>{news[idx].date}</time>
         </h1>
         <p className="news-modal__content">
-          {news[idx].title.chs}
+          {news[idx].title}
         </p>
       </article>
     </ModalWithNav>

@@ -1,43 +1,20 @@
 import rawWorks from '@/data/work.csv';
+import { IWork, WorkModel } from '@/models/work';
+import TrackAuthorModel from '@/models/author';
 
-export interface IWork {
-  title: string;
-  principle: string;
-  provider: string;
-  album: string;
-  cover: string;
-  aboutUrl: string;
-  contributor: {
-    original: string;
-    arrange: string;
-    lyrics: string;
-    vocal: string;
-  };
-  link: {
-    bilibili: string;
-    niconico: string;
-    youtube: string;
-  }
-}
-
-const works: ReadonlyArray<IWork> = rawWorks.map(w => ({
-  title: w.title,
-  principle: w.principle,
-  provider: w.provider,
-  album: w.album,
-  cover: w.cover,
-  aboutUrl: w.link_about,
-  contributor: {
-    original: w.original,
-    arrange: w.arrange,
-    lyrics: w.lyrics,
-    vocal: w.vocal
-  },
-  link: {
-    bilibili: w.link_bilibili,
-    niconico: w.link_niconico,
-    youtube: w.link_youtube
-  }
-}));
+const works: ReadonlyArray<IWork> = rawWorks.map(w => new WorkModel(
+  w.cover, {
+    name: w.principle, link: w.principle_url
+  }, new TrackAuthorModel({
+    ...w
+  }), {
+    bilibili: w.video_bilibili,
+    niconico: w.video_niconico,
+    youtube: w.video_youtube
+  }, w.ext_link, {
+    top: w.info_1.split(';'),
+    bottom: w.info_2
+  }, `/works/${w.lyrics_idx}`
+));
 
 export default works;

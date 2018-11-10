@@ -1,3 +1,5 @@
+import bindthis from "@/decorators/bindthis";
+
 export type TrackFieldTypes = 'vocal' | 'original' | 'composer' | 'arrange' | 'lyrics' | 'pv';
 
 export interface ITrackAuthor {
@@ -7,6 +9,12 @@ export interface ITrackAuthor {
   arrange?: string;
   lyrics?: string;
   pv?: string;
+  illustrator?: string;
+
+  merge: (...args: TrackFieldTypes[]) => string;
+}
+export interface IHasAuthor {
+  author: ITrackAuthor;
 }
 
 export default class TrackAuthorModel implements ITrackAuthor{
@@ -16,18 +24,20 @@ export default class TrackAuthorModel implements ITrackAuthor{
   public arrange: string;
   public lyrics: string;
   public pv: string;
-  constructor(params: ITrackAuthor) {
+  public illustrator: string;
+  constructor(params: any) {
     ({
       vocal: this.vocal = '',
       original: this.original = '',
       composer: this.composer = '',
       arrange: this.arrange = '',
       lyrics: this.lyrics = '',
-      pv: this.pv = ''
+      pv: this.pv = '',
+      illustrator: this.illustrator = ''
     } = params);
   }
 
-  public merge(field1: TrackFieldTypes, field2: TrackFieldTypes): string {
+  @bindthis public merge(field1: TrackFieldTypes, field2: TrackFieldTypes): string {
     if (this[field1] === '' && this[field2] === '') return '';
     else if (this[field1] === '') return this[field2];
     else if (this[field2] === '') return this[field1];

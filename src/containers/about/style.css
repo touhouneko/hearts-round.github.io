@@ -1,14 +1,13 @@
 .about__container {
   display: flex;
+  /* height: calc(100vh - 75px - 220px); */
+  /* min-height:  */
+  /* overflow: hidden; */
 }
 
 /* aside */
 .about__container .about__aside {
   flex: 28;
-  /* width: 28%; */
-  /* position: fixed; */
-  /* top: 0; */
-  /* padding-top: 75px; */
   display: flex;
   justify-content: flex-end;
   background: white;
@@ -74,17 +73,21 @@
 /* content */
 .about__introduction-list {
   flex: 72;
+  display: inline-flex;
+  flex-direction: column;
   padding: 95px 0 0 50px;
+  /* height: calc(100vh - 75px - 220px); */
+  /* overflow-y: scroll; */
   /* padding-top: 95px; */
   /* padding-left: 50px; */
   /* padding: 95px 0 0 calc(28% + 50px); */
 }
 .about__container .about__content-container {
   display: inline-flex;
-  position: relative;
+  flex-shrink: 0;
   margin-bottom: 80px;
 }
-.about__container .about__content-container:not(:last-child)::after {
+.about__container .about__content-container:not(:last-child)>.about__content::after {
   content: '';
   height: 1px;
   display: block;
@@ -95,6 +98,7 @@
   background: black;  
 }
 .about__container .about__content {
+  position: relative;
   flex: 0 0 auto;
 }
 .about__container .about__content--article {
@@ -124,7 +128,7 @@
   margin: 1.4em 0;
 }
 .about__container .about__content--avatar {
-  margin-left: 30px;
+  padding-left: 30px;
 }
 .about__container .about__avatar {
   width: 230px;

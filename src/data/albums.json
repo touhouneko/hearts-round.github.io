@@ -4,11 +4,9 @@
     "code": "HATO001",
     "cover": "https://via.placeholder.com/500x500",
     "date": "2017-12-9",
-    "illustration": "TOMATO",
     "thanks": "Renka",
     "product_link": {
-      "taobao": "https://www.taobao.com",
-      "tora": "https://www.toranoana.jp/"
+      "taobao": "https://www.taobao.com"
     },
     "tracks": [
       {
@@ -17,6 +15,7 @@
         "original": "original track 001",
         "composer": "xxx",
         "arrange": "xiaobai2",
+        "pv": "some_one",
         "lyrics": "N-apoleon1",
         "length": "04:32",
         "link": "mp3_link",
@@ -39,7 +38,6 @@
     "code": "HATO002",
     "date": "2017-12-12",
     "cover": "https://via.placeholder.com/500x500",
-    "illustration": "TOMATO",
     "thanks": "Renka",
     "product_link": {
       "taobao": "https://www.taobao.com",
@@ -60,6 +58,8 @@
         "title": "track 005",
         "vocal": "CoreTania",
         "original": "original track 001",
+        "pv": "some_one",
+        "illustrator": "TOMATO",
         "arrange": "xiaobai",
         "lyrics": "N-apoleon",
         "length": "04:32",
@@ -73,7 +73,6 @@
     "code": "HATO003",
     "date": "2017-11-11",
     "cover": "https://via.placeholder.com/500x500",
-    "illustration": "TOMATO",
     "thanks": "Renka",
     "product_link": {
       "taobao": "https://www.taobao.com",
@@ -84,8 +83,10 @@
         "title": "track 008",
         "vocal": "CoreTania",
         "original": "original track 001",
+        "illustrator": "TOMATO",
         "arrange": "xiaobai",
         "lyrics": "N-apoleon",
+        "pv": "some_one",
         "length": "04:32",
         "link": "mp3_link",
         "has_lyrics": false
@@ -107,7 +108,6 @@
     "code": "HATO004",
     "date": "2017-11-11",
     "cover": "https://via.placeholder.com/500x500",
-    "illustration": "TOMATO",
     "thanks": "Renka",
     "product_link": {
       "taobao": "https://www.taobao.com",
@@ -119,8 +119,10 @@
         "vocal": "CoreTania",
         "original": "original track 001",
         "arrange": "xiaobai",
+        "illustrator": "TOMATO",
         "lyrics": "N-apoleon",
         "length": "04:32",
+        "pv": "some_one",
         "link": "mp3_link",
         "has_lyrics": true
       },
@@ -132,6 +134,7 @@
         "lyrics": "N-apoleon",
         "length": "04:32",
         "link": "mp3_link",
+        "pv": "some_one",
         "has_lyrics": true
       }
     ]

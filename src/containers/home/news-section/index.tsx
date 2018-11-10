@@ -22,7 +22,7 @@ export default function NewsSection() {
             className="news__text clickable"
             onClick={() => popupModal(news, idx)}
           >
-            {item.title.chs}
+            {item.title}
           </span>
         </p>
       </li>

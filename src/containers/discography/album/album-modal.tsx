@@ -56,7 +56,7 @@ function AlbumModalWindow({ initialIdx, container }: IAlbumModalProps) {
                 </time>
               </div>
               <i
-                onClick={popupPurchaseModal.bind(null, theAlbum.productLink)}
+                onClick={popupPurchaseModal.bind(null, theAlbum.purchaseLink)}
                 className="album-info__buy clickable"
               />
             </header>
@@ -65,7 +65,7 @@ function AlbumModalWindow({ initialIdx, container }: IAlbumModalProps) {
               <AuthorField field='Compose & Arrange' value={theAlbum.author.merge('composer', 'arrange')} />
               <AuthorField field='Lyrics' value={theAlbum.author.lyrics} />
               <AuthorField field='Vocal' value={theAlbum.author.vocal} />
-              <AuthorField field='Illustration' value={theAlbum.illustration} />
+              <AuthorField field='Illustration' value={theAlbum.author.illustrator} />
               <AuthorField field='Special Thanks' value={theAlbum.thanks} />
             </ul>
           </article>

@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteProps, Redirect, NavLink } from 'react-router-dom';
 
 import staffs, { IStaffIntroduction } from '@/data/staff';
+import defaultAvatar from '@/assets/images/avatar.svg';
 import './style.css';
 
 interface INavProps {
@@ -74,7 +75,10 @@ const StaffIntroduction = ({ intro }: { intro: IStaffIntroduction }) => (
     </article>
     {/* sns icon groups */}
     <div className="about__content about__content--avatar">
-      <img src={intro.avatar} className="about__avatar" />
+      <img
+        src={intro.avatar === '' ? defaultAvatar : intro.avatar}
+        className="about__avatar"
+      />
       <div className="about__link-container">
         <SNSLogo link = {intro.social.twitter} site='twitter'/>
         <SNSLogo link = {intro.social.bilibili} site='bilibili'/>

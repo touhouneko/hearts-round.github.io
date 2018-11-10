@@ -1,9 +1,7 @@
 declare module '@/data/news.csv' {
   export interface IRawNews {
     date: string;
-    title_chs: string;
-    title_cht: string;
-    title_jp: string;
+    title: string;
   }
   const news: IRawNews[];
   export default news;
@@ -16,9 +14,11 @@ declare module '@/data/albums.json' {
     original?: string;
     arrange?: string;
     composer?: string;
+    pv?: string;
+    illustrator?: string;
     lyrics?: string;
     length: string;
-    link: string;
+    link?: string;
     has_lyrics: boolean;
   }
   export interface IRawAlbum {
@@ -26,11 +26,10 @@ declare module '@/data/albums.json' {
     date: string;
     name: string;
     cover: string;
-    illustration: string;
     thanks: string;
     product_link: {
       taobao: string;
-      tora: string;
+      tora?: string;
     }
     tracks: ReadonlyArray<IRawTrack>;
   }
@@ -40,17 +39,12 @@ declare module '@/data/albums.json' {
 
 declare module '@/data/videos.csv' {
   export interface IRawVideo {
+    album_code: string;
+    track_id: string;
     cover: string;
-    title: string;
-    album: string;
-    original: string;
-    arrange: string;
-    lyrics: string;
-    illust: string;
-    vocal: string;
-    id_youtube: string;
+    id_youtube?: string;
     id_bilibili: string;
-    id_niconico: string;
+    id_niconico?: string;
   }
   const videos :ReadonlyArray<IRawVideo>;
   export default videos;
@@ -59,9 +53,12 @@ declare module '@/data/videos.csv' {
 declare module '@/data/gallery.csv' {
   export interface IRawIllustration {
     url_cover: string;
+    url_modal: string;
     url_origin: string;
     author_name: string;
-    author_url: string;
+    author_url?: string;
+    album_code?: string;
+    track_idx?: string;
   }
   const illustrations: ReadonlyArray<IRawIllustration>;
   export default illustrations;
@@ -69,20 +66,23 @@ declare module '@/data/gallery.csv' {
 
 declare module '@/data/work.csv' {
   export interface IRawWork {
-    title: string;
     principle: string;
-    provider: string;
-    album: string;
+    principle_url?: string;
     cover: string;
-    link_about: string;
-    original: string;
-    arrange: string;
-    lyrics: string;
-    illust: string;
-    vocal: string;
-    link_bilibili: string;
-    link_niconico: string;
-    link_youtube: string;
+    info_1: string;
+    info_2?: string;
+    video_bilibili: string;
+    video_niconico?: string;
+    video_youtube?: string;
+    original?: string;
+    compose?: string;
+    arrange?: string;
+    lyric?: string;
+    illust?: string;
+    vocal?: string;
+    pv?: string;
+    lyrics_idx?: string;
+    ext_link?: string;
   }
   const works: ReadonlyArray<IRawWork>;
   export default works;
@@ -92,10 +92,10 @@ declare module '@/data/staff.csv' {
   export interface IRawStaff {
     name: string;
     role: string;
-    avatar: string;
-    social_twitter: string;
-    social_bilibili: string;
-    social_weibo: string;
+    avatar?: string;
+    social_twitter?: string;
+    social_bilibili?: string;
+    social_weibo?: string;
     description: string;
   }
   const staffs: ReadonlyArray<IRawStaff>;

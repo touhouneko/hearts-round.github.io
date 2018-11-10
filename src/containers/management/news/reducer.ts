@@ -57,14 +57,8 @@ export function reducer(state: IState, { type, payload }: IAction) {
         case 'date':
           state.news[payload.idx].date = payload.value;
           break;
-        case 'title_chs':
-          state.news[payload.idx].title.chs = payload.value;
-          break;
-        case 'title_cht':
-          state.news[payload.idx].title.cht = payload.value;
-          break;
-        case 'title_jp':
-          state.news[payload.idx].title.jp = payload.value;
+        case 'title':
+          state.news[payload.idx].title = payload.value;
           break;
       }
       state.news[payload.idx].edited = true;

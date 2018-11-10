@@ -36,12 +36,12 @@ function navItem(route: IRoute, idx: number) {
 const Header = React.forwardRef((props: unknown, ref: React.RefObject<HTMLHeadingElement>) => (
   <header className="global__header">
     <nav className="nav__container" ref={ref}>
-      <Link className="logo__wrapper" to="/home">
+      <div className="logo__wrapper">
         <i className="logo" />
         <span className="logo__text">
           Hearts Rounds
         </span>
-      </Link>
+      </div>
       <ul className="nav__list">
         {routes.map(navItem)}
       </ul>

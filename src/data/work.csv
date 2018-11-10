@@ -1,6 +1,6 @@
-title,principle,provider,album,cover,link_about,original,arrange,lyrics,illust,vocal,link_bilibili,link_niconico,link_youtube
-work001,principle001,provider001,album001,https://via.placeholder.com/270x150,www.google.com,zun,xiaobai,CoreTania,magic girl,CoreTania,www.bilibili.com,www.niconico.com,www.youtube.com
-work002,principle002,provider002,album002,https://via.placeholder.com/190x190,www.google.com,zun,xiaobai,CoreTania,magic girl,CoreTania,www.bilibili.com,www.niconico.com,www.youtube.com
-work003,principle003,provider003,album003,https://via.placeholder.com/270x150,www.google.com,zun,xiaobai,CoreTania,magic girl,CoreTania,www.bilibili.com,www.niconico.com,www.youtube.com
-work004,principle004,provider004,album004,https://via.placeholder.com/190x190,www.google.com,zun,xiaobai,CoreTania,magic girl,CoreTania,www.bilibili.com,www.niconico.com,www.youtube.com
-work005,principle005,provider005,album005,https://via.placeholder.com/270x150,www.google.com,zun,xiaobai,CoreTania,magic girl,CoreTania,www.bilibili.com,www.niconico.com,www.youtube.com
+principle,principle_url,cover,info_1,info_2,video_bilibili,video_niconico,video_youtube,original,compose,arrange,lyric,illust,vocal,pv,lyrics_idx,ext_link
+work001,https://weibo.com/u/6500013650,https://via.placeholder.com/270x150,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,dpw9EHDh2bM,av35219233/?p=1,sm30379034,CoreTania,magic girl,CoreTania,CoreTania,CoreTania,CoreTania,CoreTania,1,
+work002,,https://via.placeholder.com/190x190,xxx乐曲xxxxx;Arrangement提供,,,av2739129/?p=2,,,magic girl,CoreTania,CoreTania,,CoreTania,,2,https://weibo.com/u/6500013650
+work003,https://weibo.com/u/6500013650,,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,dpw9EHDh2bM,av35219233/?p=1,sm30379034,CoreTania,magic girl,CoreTania,,CoreTania,CoreTania,CoreTania,,
+work004,,https://via.placeholder.com/190x190,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,dpw9EHDh2bM,av35219233/?p=1,,CoreTania,,CoreTania,CoreTania,,,,3,https://weibo.com/u/6500013650
+work005,https://weibo.com/u/6500013650,https://via.placeholder.com/270x150,xxx乐曲xxxxx;Arrangement提供,,,av35219233/?p=1,sm30379034,CoreTania,magic girl,,,CoreTania,,CoreTania,,https://weibo.com/u/6500013650

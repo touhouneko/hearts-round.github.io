@@ -1,6 +1,6 @@
-title,album,original,arrange,lyrics,illust,vocal,cover,id_youtube,id_bilibili,id_niconico
-video001,album001,Zun,xiaobai,Coretania,magic girl,Coretania,https://via.placeholder.com/290x290,dpw9EHDh2bM,av35219233/?p=1,sm30379034
-video002,album002,Zun,xiaobai,Coretania,magic girl,Coretania,https://via.placeholder.com/290x290,dpw9EHDh2bM,av2739129/?p=2,sm30379034
-video003,album003,Zun,xiaobai,Coretania,magic girl,Coretania,https://via.placeholder.com/290x290,dpw9EHDh2bM,av35219233/?p=1,sm30379034
-video004,album004,Zun,xiaobai,Coretania,magic girl,Coretania,https://via.placeholder.com/290x290,dpw9EHDh2bM,av35219233/?p=1,sm30379034
-video005,album005,Zun,xiaobai,Coretania,magic girl,Coretania,https://via.placeholder.com/290x290,dpw9EHDh2bM,av35219233/?p=1,sm30379034
+album_code,track_id,cover,id_youtube,id_bilibili,id_niconico
+HATO001,1,https://via.placeholder.com/290x290,dpw9EHDh2bM,av35219233/?p=1,sm30379034
+HATO002,2,https://via.placeholder.com/290x290,,av2739129/?p=2,
+HATO003,1,https://via.placeholder.com/290x290,dpw9EHDh2bM,av35219233/?p=1,sm30379034
+HATO003,2,https://via.placeholder.com/290x290,dpw9EHDh2bM,av35219233/?p=1,
+HATO004,1,https://via.placeholder.com/290x290,,av35219233/?p=1,sm30379034

@@ -7,9 +7,9 @@ import PageLoading from '@/containers/page-loading';
 import ModalWithNav from './modal-nav';
 import modalFactory from './factory';
 import albums from '@/data/albums';
-import { VideoSiteType, IVideoInfo } from '@/data/videos';
+import { VideoSiteType, IVideo } from '@/models/video';
 
-interface IVideoModalContext extends IVideoInfo {
+interface IVideoModalContext extends IVideo {
   site: VideoSiteType
 }
 const VideoContext = createContext<IVideoModalContext | null>(null);
@@ -90,19 +90,20 @@ function VideoModalWindow() {
           <p className="section__text">
             <a
               className="clickable"
-              onClick={handleAlbumClicked.bind(null, info.album, iFrameRef)}
+              onClick={handleAlbumClicked.bind(null, info.albumName, iFrameRef)}
             >
-              『{info.album}』
+              『{info.albumName}』
             </a>
             ss
           </p>
         </section>
         <section className="video-modal-description__section with-v-bar">
-          <p className="section__text">Original: {info.original}</p>
-          <p className="section__text">Arrange: {info.arrange}</p>
-          <p className="section__text">Lyric: {info.lyrics}</p>
-          <p className="section__text">Illust: {info.illust}</p>
-          <p className="section__text">Vocal: {info.vocal}</p>
+          <p className="section__text">Original: {info.author.original}</p>
+          <p className="section__text">Arrange: {info.author.arrange}</p>
+          <p className="section__text">Lyric: {info.author.lyrics}</p>
+          <p className="section__text">Illust: {info.author.illustrator}</p>
+          <p className="section__text">Vocal: {info.author.vocal}</p>
+          <p className="section__text">Pv: {info.author.pv}</p>
         </section>
         <section className="video-modal-description__section description__section--link with-v-bar">
           <p className="section__text section__text--gap">Link</p>
@@ -137,7 +138,7 @@ function VideoModalWindow() {
 }
 
 interface IVideoModalProps {
-  contents: ReadonlyArray<IVideoInfo>;
+  contents: ReadonlyArray<IVideo>;
   initialIdx: number;
   container: HTMLDivElement;
   site: VideoSiteType;
@@ -166,7 +167,7 @@ function VideoModal({ contents, initialIdx, container, site}: IVideoModalProps) 
 }
 
 export function popupVideoModal(
-  contents: ReadonlyArray<IVideoInfo>,
+  contents: ReadonlyArray<IVideo>,
   site: 'bilibili' | 'niconico' | 'youtube',
   idx: number
 ) {

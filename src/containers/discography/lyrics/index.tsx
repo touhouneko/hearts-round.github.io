@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 
-import albums, { ITrackInfo } from '@/data/albums';
+import albums from '@/data/albums';
+import { ITrack } from '@/models/track';
 import loadLyrics from '@/apis/lyrics-loader';
 import './style.css';
 
@@ -10,7 +11,7 @@ export interface ILyrics {
   right: string;
 }
 
-function TrackInfo ({ info }: { info: ITrackInfo }) {
+function TrackInfo ({ info }: { info: ITrack }) {
   if (info === null) return (<article />)
   return (
     <article className="track-info__container">
@@ -109,7 +110,7 @@ interface IMatchProps {
 }
 export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
   const [lyrics, setLyrics] = useState<ReadonlyArray<ILyrics>>([]);
-  const [trackInfo, setTrackInfo] = useState<ITrackInfo>(null);
+  const [trackInfo, setTrackInfo] = useState<ITrack>(null);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
 
   function fetchTrackInfo() {

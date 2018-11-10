@@ -1,25 +1,26 @@
 import React from 'react';
 
-import works, { IWork } from '@/data/work';
+import works from '@/data/work';
+import { IWork } from '@/models/work';
 import './style.css';
 
 const WorkItem = ({ work, idx }: { work: IWork, idx: number }) => (
   <li className="work__item">
     <article className="work__article">
       <h3 className="work__header">
-        {work.principle}
+        {work.principle.name}
       </h3>
       <div className="work__content">
         <img className="work__cover clickable" src={work.cover} />
         <section className="work__info">
           <p className="info__item">
-            {work.title}
+            {work.description.top[0]}
           </p>
           <p className="info__item">
-            {work.provider} 提供
+            {work.description.top[1]}
           </p>
           <p className="info__item">
-            In the album「{work.album}」
+            {work.description.bottom}
           </p>
         </section>
       </div>

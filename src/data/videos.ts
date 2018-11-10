@@ -1,32 +1,16 @@
-import rawVideos, { IRawVideo } from '@/data/videos.csv';
+import albums from './albums';
+import rawVideos from '@/data/videos.csv';
+import { VideoModel, IVideo } from '@/models/video';
 
-export type VideoSiteType = 'bilibili' | 'niconico' | 'youtube';
-export interface IVideoId {
-  bilibili: string;
-  niconico: string;
-  youtube: string;
-}
-export interface IHasVideoId {
-  videoId: IVideoId;
-  lyricsLink?: string;
-  musicLink?: string;
-}
-export interface IVideoInfo extends IHasVideoId {
-  cover: string;
-  title: string;
-  album: string;
-  original: string;
-  arrange: string;
-  lyrics: string;
-  illust: string;
-  vocal: string;
-}
-const videoInfos: ReadonlyArray<IVideoInfo> = rawVideos.map(r => ({
-  ...r,
-  videoId: {
+const videoInfos: ReadonlyArray<IVideo> = rawVideos.map(r => {
+  const [theAlbum] = albums.filter(a => a.code.toLowerCase() === r.album_code.toLowerCase());
+  const trackIdx = parseInt(r.track_id, 10) - 1;
+  const theTrack = theAlbum.tracks[trackIdx];
+  return new VideoModel(theTrack, theAlbum.name, r.cover, {
     bilibili: r.id_bilibili,
-    niconico: r.id_niconico,
-    youtube: r.id_youtube
-  },
-}))
+    youtube: r.id_youtube,
+    niconico: r.id_niconico
+  })
+});
+
 export default videoInfos;

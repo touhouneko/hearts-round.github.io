@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { Switch, Route, Redirect, withRouter, RouteProps } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import { cold } from 'react-hot-loader';
 import 'normalize.css';
 
 import useResize from '@/hooks/resize';
@@ -39,10 +38,10 @@ const About = Loadable({
   loader: () => import(/* webpackChunkName: "about" */'./containers/about'),
   loading: PageLoading
 });
-const Management = Loadable({
-  loader: () => import(/* webpackChunkName: "management" */'./containers/management'),
-  loading: PageLoading
-});
+// const Management = Loadable({
+//   loader: () => import(/* webpackChunkName: "management" */'./containers/management'),
+//   loading: PageLoading
+// });
 
 
 function App({ location }: RouteProps) {
@@ -52,9 +51,9 @@ function App({ location }: RouteProps) {
   const fullWidthFlag = location.pathname.slice(0, 6) === '/about' ||
   location.pathname === '/' || location.pathname.slice(0, 5) === '/home';
   function resizeListener() {
-    // if (navWrapperRef.current === null) return;
-    // let width = navWrapperRef.current.clientWidth;
-    // html.style.minWidth = `${width}px`;
+    if (navWrapperRef.current === null) return;
+    let width = navWrapperRef.current.clientWidth;
+    html.style.minWidth = `${width}px`;
   }
   useResize(resizeListener);
 
@@ -70,7 +69,7 @@ function App({ location }: RouteProps) {
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/gallery' component={Gallery} />
           <Route exact path='/works' component={WorkPage} />
-          <Route exact path='/management' component={Management} />
+          {/* <Route exact path='/management' component={Management} /> */}
           <Route exact path='/about' component={About} />
           <Route exact path='/about/:staff' component={About} />
           <Route exact path='/404' component={NotFound} />

@@ -1,6 +1,7 @@
 .album__list {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 60px;
 }
 
 .album__list .item__cover {
@@ -15,7 +16,7 @@
   flex-direction: column;
 }
 .album__list .album__item--1 {
-  margin: 0 120px;
+  margin: 0 60px;
 }
 
 .album__list .item__title {

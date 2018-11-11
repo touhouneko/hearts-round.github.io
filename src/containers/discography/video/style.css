@@ -27,6 +27,12 @@
   margin-left: 100px;
   width: 350px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.video__container .info__header {
+  flex: 0 0 auto;
 }
 .video__container .info__title {
   position: relative;
@@ -45,11 +51,14 @@
 }
 .video__container .info__album {
   font-size: 14px;
-  margin-bottom: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+.video__container .info__author {
+  flex: 0 1 auto;
 }
 .video__container .info__others {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
   font-size: 16px;
   line-height: 19px;
 }
@@ -70,7 +79,7 @@
   /* width: 40px; */
 }
 .video__container .info__urls {
-  margin-top: 20px;
+  flex: 0 0 auto;
   display: flex;
 }
 .video__container .urls__icon {

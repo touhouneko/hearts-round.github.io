@@ -68,6 +68,7 @@ declare module '@/data/work.csv' {
   export interface IRawWork {
     principle: string;
     principle_url?: string;
+    title: string;
     cover: string;
     info_1: string;
     info_2?: string;
@@ -81,7 +82,7 @@ declare module '@/data/work.csv' {
     illust?: string;
     vocal?: string;
     pv?: string;
-    lyrics_idx?: string;
+    has_lyrics: string;
     ext_link?: string;
   }
   const works: ReadonlyArray<IRawWork>;

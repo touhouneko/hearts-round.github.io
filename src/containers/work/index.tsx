@@ -2,7 +2,23 @@ import React from 'react';
 
 import works from '@/data/work';
 import { IWork } from '@/models/work';
+import { popupWorkModal } from './modal';
 import './style.css';
+
+// delete works which can not be clicked.
+// as the modal need idx to nav and the works without the cover
+// are neglected.
+function calculateOffsets(): number[] {
+  const offsets: number[] = [];
+  let idx = 0;
+  works.forEach(w => {
+    if (w.cover === '') idx--;
+    offsets.push(idx);
+  });
+  return offsets;
+}
+const offsets: number[] = calculateOffsets();
+
 
 const WorkItem = ({ work, idx }: { work: IWork, idx: number }) => (
   <li className="work__item">
@@ -11,7 +27,11 @@ const WorkItem = ({ work, idx }: { work: IWork, idx: number }) => (
         {work.principle.name}
       </h3>
       <div className="work__content">
-        <img className="work__cover clickable" src={work.cover} />
+        <img
+          onClick={popupWorkModal.bind(null, idx+offsets[idx])}
+          className="work__cover clickable"
+          src={work.cover}
+        />
         <section className="work__info">
           <p className="info__item">
             {work.description.top[0]}

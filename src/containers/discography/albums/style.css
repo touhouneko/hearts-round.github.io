@@ -1,0 +1,32 @@
+.album__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 60px;
+}
+
+.album__list .album__link {
+  display: block;
+  text-decoration: none;
+}
+.album__list .item__cover {
+  border-radius: 12px;
+  width: 250px;
+  height: 250px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.album__list .album__item {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+}
+.album__list .album__item--1 {
+  margin: 0 60px;
+}
+
+.album__list .item__title {
+  margin: 14px 0 0;
+  text-align: center;
+  font-weight: normal;
+  font-size: 18px;
+  text-shadow: 0 0 8px rgba(0,0,0, 0.5);
+}

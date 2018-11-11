@@ -27,6 +27,7 @@ export class AlbumModel implements IAlbum {
     public tracks: ReadonlyArray<ITrack>
   ) {
     this.author = this.generateAuthor();
+    // console.log(this.author);
   }
 
   private generateAuthor() {

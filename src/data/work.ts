@@ -2,8 +2,8 @@ import rawWorks from '@/data/work.csv';
 import { IWork, WorkModel } from '@/models/work';
 import TrackAuthorModel from '@/models/author';
 
-const works: ReadonlyArray<IWork> = rawWorks.map(w => new WorkModel(
-  w.cover, {
+const works: ReadonlyArray<IWork> = rawWorks.map((w, idx) => new WorkModel(
+  w.cover, w.title, {
     name: w.principle, link: w.principle_url
   }, new TrackAuthorModel({
     ...w
@@ -14,7 +14,7 @@ const works: ReadonlyArray<IWork> = rawWorks.map(w => new WorkModel(
   }, w.ext_link, {
     top: w.info_1.split(';'),
     bottom: w.info_2
-  }, `/works/${w.lyrics_idx}`
+  }, w.has_lyrics === 'true'
 ));
 
 export default works;

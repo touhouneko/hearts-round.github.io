@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 
+import { IHasExternalLinks } from '@/models/external-links';
+import { IHasAuthor } from '@/models/author';
 import albums from '@/data/albums';
-import { ITrack } from '@/models/track';
+import works from '@/data/work';
 import loadLyrics from '@/apis/lyrics-loader';
 import './style.css';
 
@@ -11,7 +13,10 @@ export interface ILyrics {
   right: string;
 }
 
-function TrackInfo ({ info }: { info: ITrack }) {
+interface ITrackInfoProps extends IHasAuthor, IHasExternalLinks {
+  title: string;
+}
+function TrackInfo ({ info }: { info: ITrackInfoProps }) {
   if (info === null) return (<article />)
   return (
     <article className="track-info__container">
@@ -21,7 +26,7 @@ function TrackInfo ({ info }: { info: ITrack }) {
         </h2>
         <div className="track-info__links">
           <a
-            href={info.link}
+            href={info.links.music}
             target="_blank"
             className="track-info__link track-info__link--music"
           />
@@ -84,6 +89,10 @@ function parsePath({ albumCode = '', trackId = '' }: IMatchProps): [number, numb
 // trackIdx (number) start from 0
 // trackId (string) start from 1
 function isPathValid({ albumCode = '', trackId = '' }: IMatchProps): boolean {
+  if (albumCode === 'works') {
+    const trackIdx = parseInt(trackId, 10);
+    return works[trackIdx - 1].hasLyrics === true;
+  }
   // albumCode must be all in lowercase
   if (albumCode.toLowerCase() !== albumCode)
     return false;
@@ -110,17 +119,25 @@ interface IMatchProps {
 }
 export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
   const [lyrics, setLyrics] = useState<ReadonlyArray<ILyrics>>([]);
-  const [trackInfo, setTrackInfo] = useState<ITrack>(null);
+  const [trackInfo, setTrackInfo] = useState<ITrackInfoProps>(null);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
 
   function fetchTrackInfo() {
-    const [albumIdx, trackIdx] = parsePath(props.match.params);
-    setTrackInfo(albums[albumIdx].tracks[trackIdx]);
+    if (props.match.params.albumCode === 'works') {
+      const trackIdx = parseInt(props.match.params.trackId) - 1;
+      setTrackInfo(works[trackIdx]);
+    } else {
+      const [albumIdx, trackIdx] = parsePath(props.match.params);
+      setTrackInfo(albums[albumIdx].tracks[trackIdx]);
+    }
   }
 
   function fetchLyrics() {
     const [albumIdx, trackIdx] = parsePath(props.match.params);
-    loadLyrics(albums[albumIdx].code, trackIdx).then(lyrics => {
+    const code = props.match.params.albumCode === 'works' ?
+      'works' :
+      albums[albumIdx].code;
+    loadLyrics(code, trackIdx).then(lyrics => {
       setLyrics(lyrics);
     }).catch(err => {
       console.error(err);

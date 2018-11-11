@@ -1,30 +1,31 @@
-import { IHasAuthor, ITrackAuthor } from './author';
 import { ITrack } from './track';
+import { IAlbum } from './album';
+import { IHasExternalLinks, IVideoId, IExternalLinks, ExternalLinksModel } from './external-links';
 
 export type VideoSiteType = 'bilibili' | 'youtube' | 'niconico';
-export interface IVideoId {
-  bilibili: string;
-  youtube: string;
-  niconico: string;
-}
 
-export interface IVideo extends IHasAuthor {
+export interface IVideo extends IHasExternalLinks {
   cover: string;
-  title: string;
   albumName: string;
-  videoId: IVideoId;
+  albumCode: string;
+  trackIdx: number;
+  track: ITrack;
 }
 
 export class VideoModel implements IVideo {
-  public title: string;
-  public author: ITrackAuthor;
+  public track: ITrack;
+  public albumName: string;
+  public albumCode: string;
+  public links: IExternalLinks = new ExternalLinksModel();
   constructor(
-    track: ITrack,
-    public albumName: string,
+    album: IAlbum,
+    public trackIdx: number,
     public cover: string,
-    public videoId: IVideoId
+    videoId: IVideoId
   ) {
-    this.title = track.title;
-    this.author = track.author;
+    this.track = album.tracks[trackIdx];
+    this.albumCode = album.code;
+    this.albumName = album.name;
+    this.links.videoId = videoId
   }
 }

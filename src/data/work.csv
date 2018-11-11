@@ -1,6 +1,6 @@
-principle,principle_url,cover,info_1,info_2,video_bilibili,video_niconico,video_youtube,original,compose,arrange,lyric,illust,vocal,pv,lyrics_idx,ext_link
-work001,https://weibo.com/u/6500013650,https://via.placeholder.com/270x150,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,dpw9EHDh2bM,av35219233/?p=1,sm30379034,CoreTania,magic girl,CoreTania,CoreTania,CoreTania,CoreTania,CoreTania,1,
-work002,,https://via.placeholder.com/190x190,xxx乐曲xxxxx;Arrangement提供,,,av2739129/?p=2,,,magic girl,CoreTania,CoreTania,,CoreTania,,2,https://weibo.com/u/6500013650
-work003,https://weibo.com/u/6500013650,,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,dpw9EHDh2bM,av35219233/?p=1,sm30379034,CoreTania,magic girl,CoreTania,,CoreTania,CoreTania,CoreTania,,
-work004,,https://via.placeholder.com/190x190,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,dpw9EHDh2bM,av35219233/?p=1,,CoreTania,,CoreTania,CoreTania,,,,3,https://weibo.com/u/6500013650
-work005,https://weibo.com/u/6500013650,https://via.placeholder.com/270x150,xxx乐曲xxxxx;Arrangement提供,,,av35219233/?p=1,sm30379034,CoreTania,magic girl,,,CoreTania,,CoreTania,,https://weibo.com/u/6500013650
+principle,principle_url,title,cover,info_1,info_2,video_bilibili,video_niconico,video_youtube,original,compose,arrange,lyric,illust,vocal,pv,has_lyrics,ext_link
+work001,https://weibo.com/u/6500013650,title1,https://via.placeholder.com/270x150,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,av35219233/?p=1,,sm30379034,CoreTania,magic girl,CoreTania,CoreTania,CoreTania,CoreTania,CoreTania,true,
+work002,,title2,https://via.placeholder.com/190x190,xxx乐曲xxxxx;Arrangement提供,,av2739129/?p=2,dpw9EHDh2bM,,,magic girl,CoreTania,CoreTania,,CoreTania,,true,https://weibo.com/u/6500013650
+work003,https://weibo.com/u/6500013650,title1,,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,av35219233/?p=1,,sm30379034,CoreTania,magic girl,CoreTania,,CoreTania,CoreTania,CoreTania,false,
+work004,,title3,https://via.placeholder.com/190x190,xxx乐曲xxxxx;Arrangement提供,收录于专辑bbbbb,av35219233/?p=1,dpw9EHDh2bM,,CoreTania,,CoreTania,CoreTania,,,,true,https://weibo.com/u/6500013650
+work005,https://weibo.com/u/6500013650,title4,https://via.placeholder.com/270x150,xxx乐曲xxxxx;Arrangement提供,,av35219233/?p=1,dpw9EHDh2bM,sm30379034,CoreTania,magic girl,,,CoreTania,,CoreTania,false,https://weibo.com/u/6500013650

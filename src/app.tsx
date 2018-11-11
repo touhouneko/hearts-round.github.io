@@ -38,6 +38,10 @@ const About = Loadable({
   loader: () => import(/* webpackChunkName: "about" */'./containers/about'),
   loading: PageLoading
 });
+const Album = Loadable({
+  loader: () => import(/* webpackChunkName: "albumInfo" */'./containers/discography/album'),
+  loading: PageLoading
+})
 // const Management = Loadable({
 //   loader: () => import(/* webpackChunkName: "management" */'./containers/management'),
 //   loading: PageLoading
@@ -65,6 +69,7 @@ function App({ location }: RouteProps) {
           <Redirect exact path='/' to='/home' />
           <Route exact path='/home' component={Home} />
           <Route exact path='/discography/lyrics/:albumCode/:trackId' component={LyricsPage} />
+          <Route exact path='/discography/album/:code' component={Album} />
           <Route path='/discography' component={Discography} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/gallery' component={Gallery} />

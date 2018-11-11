@@ -5,18 +5,22 @@ import useClickOutside from '@/hooks/click-outside';
 import ModalWithNav from '@/components/modal/modal-nav';
 import modalFactory from '@/components/modal/factory';
 import albums from '@/data/albums';
-import popupPurchaseModal from './purchase-modal';
+import popupPurchaseModal from '../album/purchase-modal';
 import './modal-style.css';
 
 const AuthorField = ({ field, value }: { field: string, value: string}) => (
-  <li className="album-info__author-item">
-    <p className="album-info__author album-info__author--field">
-      <span className="underlined">{field}</span>
-    </p>
-    <p className="album-info__author album-info__author--value">
-      {value}
-    </p>
-  </li>
+  value === undefined || value === '' ?
+  null :
+  (
+    <li className="album-info__author-item">
+      <p className="album-info__author album-info__author--field">
+        <span className="underlined">{field}</span>
+      </p>
+      <p className="album-info__author album-info__author--value">
+        {value}
+      </p>
+    </li>
+  )
 )
 
 interface IAlbumModalProps {

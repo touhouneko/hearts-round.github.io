@@ -1,31 +1,25 @@
 import React, { useState, createContext, useContext, useRef, forwardRef } from 'react';
-import { render } from 'react-dom';
 
-import useClickOutside from '@/hooks/click-outside';
-import popupAlbumModal from '@/containers/discography/album/album-modal';
 import PageLoading from '@/containers/page-loading';
-import ModalWithNav from './modal-nav';
-import modalFactory from './factory';
-import albums from '@/data/albums';
-import { VideoSiteType, IVideo } from '@/models/video';
+import { VideoSiteType } from '@/models/video';
+import { IHasAuthor } from '@/models/author';
+import { IVideoId } from '@/models/external-links';
 
-interface IVideoModalContext extends IVideo {
-  site: VideoSiteType
+export interface IVideoModal extends IHasAuthor {
+  title: string;
+  videoId: IVideoId;
 }
-const VideoContext = createContext<IVideoModalContext | null>(null);
 
-
-function handleAlbumClicked(albumTitle: string, iFrameRef: React.RefObject<HTMLIFrameElement>) {
-  const idx = albums.findIndex(a => a.name === albumTitle);
-  if (idx < 0) {
-    alert('The album can not be found');
-    return;
-  }
-  if (iFrameRef.current === null) return;
-  iFrameRef.current.src = iFrameRef.current.src;
-  popupAlbumModal(idx);
+export interface IVideoModalContext extends IVideoModal {
+  site: VideoSiteType;
+  linkLabel: string;
+  linkUrl: string;
+  lyricsUrl: string;
+  externalUrl: string;
 }
-const EmbeddedVideo = forwardRef(function({
+export const VideoContext = createContext<IVideoModalContext | null>(null);
+
+export const EmbeddedVideo = forwardRef(function({
   width,
   height
 }: {
@@ -72,7 +66,17 @@ const EmbeddedVideo = forwardRef(function({
   );
 })
 
-function VideoModalWindow() {
+const AuthorField = ({ field, value }: { field: string, value: string}) => (
+  value === undefined || value === '' ?
+  null :
+  (
+    <p className="section__text">
+      {field}: {value}
+    </p>
+  )
+);
+
+export function VideoModalWindow() {
   const info = useContext(VideoContext);
   const iFrameRef = useRef<HTMLIFrameElement>(null);
   return (
@@ -88,22 +92,18 @@ function VideoModalWindow() {
       <article className="video-modal__column--description">
         <section className="video-modal-description__section with-v-bar">
           <p className="section__text">
-            <a
-              className="clickable"
-              onClick={handleAlbumClicked.bind(null, info.albumName, iFrameRef)}
-            >
-              『{info.albumName}』
+            <a href={info.linkUrl} target="_blank">
+              {info.linkLabel}
             </a>
-            ss
           </p>
         </section>
         <section className="video-modal-description__section with-v-bar">
-          <p className="section__text">Original: {info.author.original}</p>
-          <p className="section__text">Arrange: {info.author.arrange}</p>
-          <p className="section__text">Lyric: {info.author.lyrics}</p>
-          <p className="section__text">Illust: {info.author.illustrator}</p>
-          <p className="section__text">Vocal: {info.author.vocal}</p>
-          <p className="section__text">Pv: {info.author.pv}</p>
+          <AuthorField field="Original" value={info.author.original} />
+          <AuthorField field="Compose" value={info.author.composer} />
+          <AuthorField field="Arrange" value={info.author.arrange} />
+          <AuthorField field="Lyric" value={info.author.lyrics} />
+          <AuthorField field="Vocal" value={info.author.vocal} />
+          <AuthorField field="PV" value={info.author.pv} />
         </section>
         <section className="video-modal-description__section description__section--link with-v-bar">
           <p className="section__text section__text--gap">Link</p>
@@ -135,45 +135,4 @@ function VideoModalWindow() {
       </article>
     </main>
   );
-}
-
-interface IVideoModalProps {
-  contents: ReadonlyArray<IVideo>;
-  initialIdx: number;
-  container: HTMLDivElement;
-  site: VideoSiteType;
-}
-function VideoModal({ contents, initialIdx, container, site}: IVideoModalProps) {
-  const [idx, setIdx] = useState(initialIdx);
-  const windowRef = React.useRef(null);
-  useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, container), container);
-  return (
-    <ModalWithNav
-      prevLabel={idx > 0 ? contents[idx-1].title : ''}
-      nextLabel={idx < contents.length - 1 ? contents[idx+1].title: ''}
-      handleNext={() => setIdx(idx + 1)}
-      handlePrev={() => setIdx(idx - 1)}
-      ref={windowRef}
-      className="video-modal"
-    >
-      <VideoContext.Provider value={{
-        ...contents[idx],
-        site
-      }}>
-        <VideoModalWindow />
-      </VideoContext.Provider>
-    </ModalWithNav>
-  );
-}
-
-export function popupVideoModal(
-  contents: ReadonlyArray<IVideo>,
-  site: 'bilibili' | 'niconico' | 'youtube',
-  idx: number
-) {
-  const container = modalFactory.createFullscreenMask();
-  render(
-    <VideoModal initialIdx={idx} contents={contents} site={site} container={container}/>
-    , container);
-  document.getElementsByTagName('body')[0].appendChild(container);
 }

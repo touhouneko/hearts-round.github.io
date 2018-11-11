@@ -5,7 +5,7 @@ import useClickOutside from '@/hooks/click-outside';
 import modalFactory from '@/components/modal/factory';
 import { IPurchaseLink } from '@/models/album';
 import '@/components/modal/style.css';
-import './modal-style.css';
+import './style.css';
 
 function PurchaseModal ({
   links,

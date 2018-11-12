@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Switch, Route, Redirect, withRouter, RouteProps } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import 'normalize.css';
@@ -60,6 +60,10 @@ function App({ location }: RouteProps) {
     html.style.minWidth = `${width}px`;
   }
   useResize(resizeListener);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname])
 
   return (
     <React.Fragment>

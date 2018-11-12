@@ -1,8 +1,9 @@
-import React from 'react';
-import { RouteProps, Redirect, NavLink } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Redirect, NavLink, RouteComponentProps } from 'react-router-dom';
 
 import staffs, { IStaffIntroduction } from '@/data/staff';
 import defaultAvatar from '@/assets/images/avatar.svg';
+import useOnScroll from '@/hooks/scroll';
 import './style.css';
 
 interface INavProps {
@@ -99,21 +100,43 @@ function findStaff(staffName: string) {
   return theStaff;
 }
 
-interface IProps extends RouteProps {
-  match: {
-    params: {
-      staff?: string
-    }
-  }
+interface IProps {
+  staff?: string
 }
-export default function About({ match }: IProps) {
-  const { staff: staffName = '' } = match.params;
+export default function About(props: RouteComponentProps<IProps>) {
+  const [offsetY, setOffsetY] = useState(0);
+  const [minHeight, setMinHeight] = useState(0);
+  const navRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    setMinHeight(navRef.current.clientHeight);
+  }, [])
+
+  useOnScroll(() => {
+    const footerHeight = 220;
+    const headerHeight = 75;
+    const contentHeight = contentRef.current.clientHeight;
+    const { scrollTop, clientHeight } = document.documentElement;
+    const offset = contentHeight - scrollTop - clientHeight - footerHeight;
+    if (offset < -footerHeight - headerHeight)
+      setOffsetY(offset + footerHeight + headerHeight)
+    else
+      setOffsetY(0);
+  }, [minHeight]);
+
+  const { staff: staffName = '' } = props.match.params;
   const theStaff = findStaff(staffName);
+  console.log(`translateY (${offsetY}px)`);
   if (theStaff  === undefined) 
     return (<Redirect to="/404" />)
   return (
-    <main className="about__container" key={window.location.pathname}>
-      <aside className="about__aside">
+    <main className="about__container" style={{minHeight}}>
+      <aside
+        ref={navRef}
+        className="about__aside"
+        style={{transform: `translateY(${offsetY}px)`}}
+      >
         <nav className="about__nav">
           <img src="https://via.placeholder.com/205x150" className="about__logo--large" />
           <ul className="nav__list">
@@ -125,7 +148,10 @@ export default function About({ match }: IProps) {
           </ul>
         </nav>
       </aside>
-      <ul className="about__introduction-list">
+      <ul
+        ref={contentRef}
+        className="about__introduction-list"
+      >
         {
           theStaff.introduction.map((intro, idx) => (
             <StaffIntroduction intro={intro} key={idx}/>

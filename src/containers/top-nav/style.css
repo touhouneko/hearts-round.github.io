@@ -44,10 +44,12 @@
 .global__header .nav__item-text {
   line-height: 75px;
   text-decoration: none;
-  color: inherit;
+  color: #2c2c2c;
   text-transform: uppercase;
 }
+.global__header .nav__item-text:hover,
 .global__header .nav__item-text.active {
+  color: black;
   text-shadow: 0 0 15px black;
 }
 .global__header .nav__item {

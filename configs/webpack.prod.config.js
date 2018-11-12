@@ -36,11 +36,18 @@ function getLyricsRoutes() {
   return routes;
 }
 
+function getAlbumsRoutes() {
+  const content = fs.readFileSync(path.join(__dirname, '../src/data/albums.json'), 'utf-8');
+  const albums = JSON.parse(content);
+  return albums.map(a => `/discography/album/${a.code}`);
+}
+
 const prerenderRoutes = [
   '/', '/home', '/contact', '/discography', '/discography/albums',
   '/discography/videos', '/gallery', '/works', '/about', '/contact',
   ...getStaffPaths(), '/about/others',
-  ...getLyricsRoutes()
+  ...getLyricsRoutes(),
+  ...getAlbumsRoutes()
 ]
 
 module.exports = {

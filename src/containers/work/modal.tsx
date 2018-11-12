@@ -33,7 +33,9 @@ function WorkModal({ initialIdx, container}: IWorkModal) {
         videoId: worksWithVideo[idx].links.videoId,
         linkUrl: worksWithVideo[idx].principle.link,
         linkLabel: worksWithVideo[idx].principle.name,
-        lyricsUrl: worksWithVideo[idx].hasLyrics ? '/discography/lyrics/works/idx' : '',
+        lyricsUrl: worksWithVideo[idx].hasLyrics ?
+          `/discography/lyrics/works/${('00' + (idx + 1)).slice(-3)}`:
+          '',
         externalUrl: worksWithVideo[idx].links.music
       }}>
         <VideoModalWindow />

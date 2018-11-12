@@ -39,7 +39,7 @@
   position: absolute;
   left: 20px;
   right: 30px;
-  top: 1.05em;
+  top: 1.1em;
   background: linear-gradient(to right,
     rgba(67, 162, 180, 0),
     rgba(67, 162, 180, 1) 50%,
@@ -47,10 +47,11 @@
   );
 }
 .home__container .slogan__line {
+  line-height: 1;
   margin: 0;
 }
 .home__container .slogan__line--1 {
-  margin-left: 3.5em;
+  margin: 0.2em 0 0 3.5em;
 }
 .home__container .home__buffer {
   width: 100%;

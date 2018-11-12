@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function onScroll(listener: () => any, deps: any[]) {
+export default function onScroll(listener: () => any, deps: any[] = []) {
   useEffect(() => {
     listener();
     window.addEventListener('scroll', listener);

@@ -6,6 +6,9 @@ a {
   color: inherit;
   outline: 0;
 }
+main, section, article, aside, nav, header, footer {
+  display: block;
+}
 /* a:active {
   border: none;
 }

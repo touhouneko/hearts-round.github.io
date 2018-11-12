@@ -105,6 +105,7 @@ interface IProps {
 }
 export default function About(props: RouteComponentProps<IProps>) {
   const [offsetY, setOffsetY] = useState(0);
+  const [offsetX, setOffsetX] = useState(0);
   const [minHeight, setMinHeight] = useState(0);
   const navRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLUListElement>(null);
@@ -116,7 +117,8 @@ export default function About(props: RouteComponentProps<IProps>) {
   useOnScroll(() => {
     const headerHeight = 75;
     const contentHeight = contentRef.current.clientHeight;
-    const { scrollTop, clientHeight } = document.documentElement;
+    const { scrollTop, scrollLeft, clientHeight } = document.documentElement;
+    setOffsetX(-scrollLeft);
     const offset = contentHeight - scrollTop - clientHeight + headerHeight;
     console.log(contentHeight, scrollTop, clientHeight, headerHeight);
     // if the nav is shorter than viewport
@@ -139,7 +141,7 @@ export default function About(props: RouteComponentProps<IProps>) {
       <aside
         ref={navRef}
         className="about__aside"
-        style={{transform: `translateY(${offsetY}px)`}}
+        style={{transform: `translate(${offsetX}px,${offsetY}px)`}}
       >
         <nav className="about__nav">
           <img src="https://via.placeholder.com/205x150" className="about__logo--large" />

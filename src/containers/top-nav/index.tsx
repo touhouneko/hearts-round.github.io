@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
+import useOnScroll from '@/hooks/scroll';
 import './style.css';
 
 interface IRoute {
@@ -33,20 +34,31 @@ function navItem(route: IRoute, idx: number) {
   );
 }
 
-const Header = React.forwardRef((props: unknown, ref: React.RefObject<HTMLHeadingElement>) => (
-  <header className="global__header">
-    <nav className="nav__container" ref={ref}>
-      <div className="logo__wrapper">
-        <i className="logo" />
-        <span className="logo__text">
-          Hearts Rounds
-        </span>
-      </div>
-      <ul className="nav__list">
-        {routes.map(navItem)}
-      </ul>
-    </nav>
-  </header>
-));
+const Header = React.forwardRef(function(props: unknown, ref: React.RefObject<HTMLHeadingElement>) {
+  const [offsetX, setOffsetX] = useState(0);
+  const minWidth = ref.current === null? 0: ref.current.clientWidth;
+  useOnScroll(() => {
+    setOffsetX(document.documentElement.scrollLeft)
+  });
+
+  return (
+    <header
+      className="global__header"
+      style={{transform: `translateX(-${offsetX}px)`, minWidth}}
+    >
+      <nav className="nav__container" ref={ref}>
+        <div className="logo__wrapper">
+          <i className="logo" />
+          <span className="logo__text">
+            Hearts Rounds
+          </span>
+        </div>
+        <ul className="nav__list">
+          {routes.map(navItem)}
+        </ul>
+      </nav>
+    </header>
+  )
+});
 
 export default Header;

@@ -6,6 +6,7 @@ import defaultAvatar from '@/assets/images/avatar.svg';
 import useOnScroll from '@/hooks/scroll';
 import './style.css';
 
+const html = document.getElementsByTagName('html')[0];
 interface INavProps {
   name: string;
   role: string;
@@ -106,44 +107,32 @@ interface IProps {
 export default function About(props: RouteComponentProps<IProps>) {
   const [offsetY, setOffsetY] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
-  const [minHeight, setMinHeight] = useState(0);
   const navRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    setMinHeight(navRef.current.clientHeight);
-  }, [])
-
   useOnScroll(() => {
-    const headerHeight = 75;
-    const contentHeight = contentRef.current.clientHeight;
-    const { scrollTop, scrollLeft, clientHeight } = document.documentElement;
-    setOffsetX(-scrollLeft);
-    const offset = contentHeight - scrollTop - clientHeight + headerHeight;
-    console.log(contentHeight, scrollTop, clientHeight, headerHeight);
-    // if the nav is shorter than viewport
-    const heightDiff = Math.max(-scrollTop,
-      Math.min(clientHeight - minHeight, 0)
-    );
-    // console.log(heightDiff);
-    if (offset < 0)
-      setOffsetY(offset + heightDiff)
-    else
-      setOffsetY(heightDiff);
-  }, [minHeight]);
+    const scrollX = window.scrollX | document.documentElement.scrollLeft;
+    const scrollY = window.scrollY | document.documentElement.scrollTop;
+    setOffsetX(-scrollX);
+
+    const bottomPos = navRef.current.getBoundingClientRect().bottom - offsetY + scrollY;
+    const pageBottomPos = html.offsetHeight;
+    let offset = Math.min(0, pageBottomPos - bottomPos - 220);
+    offset = Math.max(-scrollY, offset);
+    setOffsetY(offset)
+  }, [offsetY]);
 
   const { staff: staffName = '' } = props.match.params;
   const theStaff = findStaff(staffName);
   if (theStaff  === undefined) 
     return (<Redirect to="/404" />)
   return (
-    <main className="about__container" style={{minHeight}}>
-      <aside
-        ref={navRef}
+    <main className="about__container">
+      <aside        
         className="about__aside"
         style={{transform: `translate(${offsetX}px,${offsetY}px)`}}
       >
-        <nav className="about__nav">
+        <nav className="about__nav" ref={navRef}>
           <img src="https://via.placeholder.com/205x150" className="about__logo--large" />
           <ul className="nav__list">
             {

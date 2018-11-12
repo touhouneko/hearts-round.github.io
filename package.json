@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --config=configs/webpack.dev.config.js",
+    "dev": "webpack-dev-server --config=configs/webpack.dev.config.js --host 0.0.0.0",
     "build": "webpack -p --config=configs/webpack.prod.config.js",
     "build:stats": "webpack --env production --config=configs/webpack.prod.config.js --json > stats.json"
   },

@@ -1,6 +1,7 @@
 .about__container {
   display: flex;
   position: relative;
+  /* min-height: 100vh; */
   /* height: calc(100vh - 75px - 220px); */
   /* min-height:  */
   /* overflow: hidden; */
@@ -10,12 +11,13 @@
 .about__container .about__aside {
   /* flex: 28; */
   display: flex;
+  /* top: 75px; */
   position: fixed;
   width: 28%;
   justify-content: flex-end;
   background: white;
   border-right: 2px solid #95C7D3;
-  min-height: 100vh;
+  min-height: calc(100vh - 75px);
 }
 .about__container .about__nav {
   display: flex;

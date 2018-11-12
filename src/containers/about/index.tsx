@@ -118,6 +118,7 @@ export default function About(props: RouteComponentProps<IProps>) {
     const contentHeight = contentRef.current.clientHeight;
     const { scrollTop, clientHeight } = document.documentElement;
     const offset = contentHeight - scrollTop - clientHeight + headerHeight;
+    console.log(contentHeight, scrollTo, clientHeight, headerHeight);
     // if the nav is shorter than viewport
     const heightDiff = Math.max(-scrollTop,
       Math.min(clientHeight - minHeight, 0)

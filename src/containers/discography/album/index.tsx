@@ -1,9 +1,49 @@
 import React from 'react';
-
-import popupPurchaseModal from './purchase-modal';
-import albums from '@/data/albums';
 import { RouteComponentProps, Redirect } from 'react-router';
+
+import { ITrack } from '@/models/track';
+import albums from '@/data/albums';
+import popupPurchaseModal from './purchase-modal';
 import './style.css';
+
+const TrackInfo = ({ code, info, idx }: { code: string, info: ITrack, idx: number }) => (
+  <li className="track-info__item">
+    <p className="track-info__row track-info__row--idx">
+      {('0' + (idx + 1)).slice(-2)}
+    </p>
+    <p className="track-info__row track-info__row--title">
+      {info.title}
+    </p>
+    <p className="track-info__row track-info__row--links">
+      <a
+        className={`
+          track-info__link
+          ${info.hasLyrics? 'track-info__link--lyrics': 'track-info__link--lyrics--disabled'}
+        `}
+        href={
+          info.hasLyrics ?
+          `/discography/lyrics/${code}/${('0' + (idx + 1)).slice(-2)}`:
+          undefined
+        }
+        target="_blank"
+      />
+      <a
+        className={`
+          track-info__link
+          ${info.links.music===''? 'track-info__link--music--disabled': 'track-info__link--music'}
+        `}
+        href={info.links.music===''? undefined: info.links.music}
+        target="_blank"
+      />
+    </p>
+    <p className="track-info__row track-info__row--vocal">
+      {info.author.vocal}
+    </p>
+    <p className="track-info__row track-info__row--length">
+      {info.length}
+    </p>
+  </li>
+);
 
 const AuthorField = ({ field, value }: { field: string, value: string}) => (
   value === undefined || value === '' ?
@@ -62,7 +102,11 @@ export default function Album(props: RouteComponentProps<IMatchProps>) {
       </section>
       <section className="track-info__container">
         <ul className="track-info__list">
-
+        {
+          theAlbum.tracks.map((t, idx) => (
+            <TrackInfo code={theAlbum.code} info={t} idx={idx} />
+          ))
+        }
         </ul>
       </section>
     </main>

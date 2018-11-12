@@ -1,0 +1,214 @@
+.album__container {
+  display: inline-flex;
+  margin: 50px 0 150px;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* album info */
+.album__container .album-info__container {
+  display: flex;
+}
+  /* left column */
+.album__container .album-info__cover {
+  display: block;
+  width: 290px;
+  height: 290px;
+}
+.album__container .album-info__code {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: #777777;
+}
+  /* right column */
+    /* header */
+.album__container .album-info__column--right {
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+}
+.album__container .album-info__header {
+  position: relative;
+  display: flex;
+  padding-bottom: 10px;
+}
+.album__container .album-info__header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(67, 162, 180, 0),
+    rgba(67, 162, 180, 1) 20%,
+    rgba(67, 162, 180, 1) 80%,
+    rgba(67, 162, 180, 0)
+  );
+}
+.album__container .album-info__title {
+  position: relative;
+  left: -0.6em;
+  margin: 0;
+  font-weight: normal;
+  font-size: 32px;
+}
+.album__container .album-info__time {
+  display: block;
+  font-size: 12px;
+  color: #777777;
+}
+.album__container .album-info__buy {
+  width: 46px;
+  height: 46px;
+  margin-left: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+    /* content */
+.album__container .album-info__author-list {
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+.album__container .album-info__author-item {
+  display: block;
+}
+.album__container .album-info__author {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+.album__container .album-info__author--field {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1;
+  font-weight: 600;
+}
+.album__container .album-info__author--field > .underlined {
+  position: relative;
+  padding-right: 2em;
+  z-index: 1;
+}
+.album__container .album-info__author--field::after {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 2px;
+  background: #43a2b4;
+}
+.album__container .album-info__author--value {
+  margin-top: -0.2em;
+}
+
+.album__container .track-info__container {
+  margin-top: 40px;
+  width: 100%;
+}
+.album__container .track-info__item {
+  display: flex;
+  padding: 0 10px;
+  border-bottom: 1px solid #777777;
+}
+.album__container .track-info__item:first-child {
+  border-top: 1px solid #777777;
+}
+.album__container .track-info__row {
+  line-height: 44px;
+  margin: 0;
+}
+.album__container .track-info__link {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+.album__container .track-info__link--music--disabled {
+  border-color: #777777;
+}
+.album__container .track-info__link--lyrics--disabled {
+  border-color: #777777;
+}
+.album__container .track-info__row--idx {
+  flex: 1
+}
+.album__container .track-info__row--title {
+  flex: 10;
+}
+.album__container .track-info__row--links {
+  flex: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.album__container .track-info__row--vocal {
+  flex: 4;
+  color: #777777;
+  text-align: right;
+}
+.album__container .track-info__row--length {
+  flex: 2;
+  color: #777777;
+  text-align: right;
+}
+
+/* purchase modal */
+.purchase-modal__container {
+  display: flex;
+  flex-direction: row;
+  width: 340px;
+  height: 260px;
+  border-radius: 8px;
+}
+.purchase-modal__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 170px;
+  height: 100%;
+}
+.purchase-modal__item:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(67, 162, 180, 0),
+    rgba(67, 162, 180, 1) 20%,
+    rgba(67, 162, 180, 1) 80%,
+    rgba(67, 162, 180, 0)
+  );
+}
+.purchase-modal__icon {
+  display: block;
+  height: 60px;
+}
+.purchase-modal__icon--taobao {
+  width: 60px;
+  background-size: cover;
+  background-image: url("~@/assets/images/taobao.svg");
+}
+.purchase-modal__link {
+  text-decoration: none;
+}
+.purchase-modal__link:hover {
+  text-decoration: underline;
+}
+.purchase-modal__region {
+  color: #777777;
+  margin-top: 30px;
+}

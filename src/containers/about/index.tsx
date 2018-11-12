@@ -114,20 +114,23 @@ export default function About(props: RouteComponentProps<IProps>) {
   }, [])
 
   useOnScroll(() => {
-    const footerHeight = 220;
     const headerHeight = 75;
     const contentHeight = contentRef.current.clientHeight;
     const { scrollTop, clientHeight } = document.documentElement;
-    const offset = contentHeight - scrollTop - clientHeight - footerHeight;
-    if (offset < -footerHeight - headerHeight)
-      setOffsetY(offset + footerHeight + headerHeight)
+    const offset = contentHeight - scrollTop - clientHeight + headerHeight;
+    // if the nav is shorter than viewport
+    const heightDiff = Math.max(-scrollTop,
+      Math.min(clientHeight - minHeight, 0)
+    );
+    // console.log(heightDiff);
+    if (offset < 0)
+      setOffsetY(offset + heightDiff)
     else
-      setOffsetY(0);
+      setOffsetY(heightDiff);
   }, [minHeight]);
 
   const { staff: staffName = '' } = props.match.params;
   const theStaff = findStaff(staffName);
-  console.log(`translateY (${offsetY}px)`);
   if (theStaff  === undefined) 
     return (<Redirect to="/404" />)
   return (

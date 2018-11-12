@@ -7,13 +7,6 @@ import ModalWithNav from '@/components/modal/modal-nav';
 import useClickOutside from '@/hooks/click-outside';
 import './modal-style.css';
 
-// interface IGalleryModalContext {
-//   infos: ReadonlyArray<IIllustration>;
-// }
-// const GalleryModalContext = createContext<IGalleryModalContext>(null);
-
-
-
 function GalleryModalWindow({
   initialIdx,
   container
@@ -49,12 +42,16 @@ function GalleryModalWindow({
               Link
             </p>
             <p className="section__text">
-              <a href={illustration.url.origin} target="_blank">
+              <a href={illustration.url.origin} target="_blank" className="modal__link">
                 下载原图
               </a>
             </p>
             <p className="section__text">
-              <a href={illustration.author.page} target="_blank">
+              <a
+                href={illustration.author.page === '' ? undefined: illustration.author.page}
+                target="_blank"
+                className={illustration.author.page===''? 'modal__link--disabled':'modal__link'}
+              >
                 画师主页
               </a>
             </p>

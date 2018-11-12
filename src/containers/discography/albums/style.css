@@ -8,11 +8,20 @@
   display: block;
   text-decoration: none;
 }
+.album__list .album__link:hover {
+  text-decoration: underline;
+}
+.album__list .album__link:active {
+  color: white;
+}
 .album__list .item__cover {
   border-radius: 12px;
   width: 250px;
   height: 250px;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.album__list .album__link:hover .item__cover {
+  opacity: 0.75;
 }
 .album__list .album__item {
   margin-bottom: 60px;

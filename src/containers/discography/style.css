@@ -23,6 +23,9 @@
   background: white;
   color: black;
 }
+.discography__navigation > .navigation__button:not(.active):hover {
+  opacity: 0.5;
+}
 .discography__navigation > .navigation__button.active {
   background: #43a2b4;
   color: white;

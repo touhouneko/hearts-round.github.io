@@ -3,9 +3,16 @@
   padding: 20px 60px 26px 20px;
 }
 
+.gallery__modal .modal__image--gallery {
+  max-width: 800px;
+  max-height: 450px;
+}
 .gallery__modal .modal__description--gallery {
   margin: 15px 0 0 34px;
 }
 .gallery__modal .description__section {
   margin: 15px 0;
+}
+.gallery__modal .description__section--link .section__text:not(:first-child) {
+  line-height: 1.4;
 }

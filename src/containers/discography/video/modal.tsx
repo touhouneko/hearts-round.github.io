@@ -15,7 +15,6 @@ function VideoModal({ initialIdx, container}: IVideoModalProps) {
   const [idx, setIdx] = useState(initialIdx);
   const windowRef = React.useRef(null);
   useClickOutside(windowRef, modalFactory.closeModal.bind(modalFactory, container), container);
-  console.log(videos, idx);
   return (
     <ModalWithNav
       prevLabel={idx > 0 ? videos[idx-1].track.title : ''}
@@ -31,7 +30,9 @@ function VideoModal({ initialIdx, container}: IVideoModalProps) {
         site: 'bilibili',
         linkUrl: `/discography/album/${videos[idx].albumCode}`,
         linkLabel: `『${videos[idx].albumName}』`,
-        lyricsUrl: `/discography/lyrics/${videos[idx].albumCode}/${videos[idx].trackIdx + 1}}`,
+        lyricsUrl: videos[idx].track.hasLyrics ?
+          `/discography/lyrics/${videos[idx].albumCode}/${videos[idx].trackIdx + 1}}` :
+          '',
         externalUrl: videos[idx].track.links.music
       }}>
         <VideoModalWindow />

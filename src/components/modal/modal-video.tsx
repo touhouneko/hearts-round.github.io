@@ -75,29 +75,72 @@ const AuthorField = ({ field, value }: { field: string, value: string}) => (
     </p>
   )
 );
+const ModalLink = ({ videoId, site }: {videoId: string, site: VideoSiteType }) => {
+  let href: string = '#';
+  if (videoId !== '') {
+    switch(site) {
+      case 'bilibili':
+        href = 'https://www.bilibili.com/video/' + videoId;
+        break;
+      case 'youtube':
+        href = 'https://www.youtube.com/watch?v=' + videoId;
+        break;
+      case 'niconico':
+        href = 'https://www.nicovideo.jp/watch/' + videoId;
+        break;
+    }
+  }
+  return (
+    <p className="section__text">
+      <a
+        target="_blank"
+        className={`${videoId===''?'modal__link--disabled':'modal__link'}`}
+        href={videoId===''?undefined:href}
+      >
+        {site}
+      </a>
+    </p>
+  )
+}
 
 export function VideoModalWindow() {
   const info = useContext(VideoContext);
   const iFrameRef = useRef<HTMLIFrameElement>(null);
   return (
-    <main className='video-modal__window'>
-      <div className="video-modal__column--video">
-        <div className="video-modal__title-container">
-          <h2 className="video-modal__title modal__title">
+    <main className='v-modal__window'>
+      <div className="v-modal__column--video">
+        <header className="v-modal__title-container">
+          <h2 className="v-modal__title modal__title">
             {info.title}
           </h2>
-        </div>
+          <a
+            target="_blank"
+            href={info.lyricsUrl===''?undefined:info.lyricsUrl}
+            className={`v-modal__header-link v-modal__header-link--lyrics
+              ${info.lyricsUrl===''?
+              'disabled':''
+            }`}
+          />
+          <a
+            target="_blank"
+            href={info.externalUrl===''?undefined:info.externalUrl}
+            className={`v-modal__header-link v-modal__header-link--music
+              ${info.externalUrl===''?
+              'disabled':
+            ''}`}
+          />
+        </header>
         <EmbeddedVideo height={300} width={530} key={info.title} ref={iFrameRef}/>
       </div>
-      <article className="video-modal__column--description">
-        <section className="video-modal-description__section with-v-bar">
+      <article className="v-modal__column--description">
+        <section className="v-modal-description__section with-v-bar">
           <p className="section__text">
-            <a href={info.linkUrl} target="_blank">
+            <a href={info.linkUrl} target="_blank" className="modal__link">
               {info.linkLabel}
             </a>
           </p>
         </section>
-        <section className="video-modal-description__section with-v-bar">
+        <section className="v-modal-description__section with-v-bar">
           <AuthorField field="Original" value={info.author.original} />
           <AuthorField field="Compose" value={info.author.composer} />
           <AuthorField field="Arrange" value={info.author.arrange} />
@@ -105,32 +148,11 @@ export function VideoModalWindow() {
           <AuthorField field="Vocal" value={info.author.vocal} />
           <AuthorField field="PV" value={info.author.pv} />
         </section>
-        <section className="video-modal-description__section description__section--link with-v-bar">
+        <section className="v-modal-description__section description__section--link with-v-bar">
           <p className="section__text section__text--gap">Link</p>
-          <p className="section__text">
-            <a
-              target="_blank"
-              href={`https://www.bilibili.com/video/${info.videoId.bilibili}`}
-            >
-              Bilibili
-            </a>
-          </p>
-          <p className="section__text">
-            <a
-              target="_blank"
-              href={`https://www.nicovideo.jp/watch/${info.videoId.niconico}`}
-            >
-              Niconico
-            </a>
-          </p>
-          <p className="section__text">
-            <a
-              target="_blank"
-              href={`https://www.youtube.com/watch?v=${info.videoId.youtube}`}
-            >
-              Youtube
-            </a>
-          </p>
+          <ModalLink site="bilibili" videoId={info.videoId.bilibili}/>
+          <ModalLink site="youtube" videoId={info.videoId.youtube}/>
+          <ModalLink site="niconico" videoId={info.videoId.niconico}/>
         </section>
       </article>
     </main>

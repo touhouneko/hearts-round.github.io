@@ -19,7 +19,9 @@
   transform: rotate(45deg);
   background: black;
 }
-
+.work__container .work__header .principle__link:not(:hover) {
+  text-decoration: none;
+}
 .work__container .work__content {
   overflow: hidden;
 }
@@ -27,6 +29,10 @@
   display: block;
   float: left;
   padding-right: 34px;
+  max-height: 150px;
+}
+.work__container .work__cover:hover{
+  opacity: 0.75;
 }
 .work__container .info__item {
   margin: 0;

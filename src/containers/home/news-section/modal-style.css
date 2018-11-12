@@ -17,4 +17,6 @@
 .news-modal__content {
   text-indent: 1em;
   padding: 0 38px 76px;
+  word-wrap: break-word;
+  line-height: 1.5;
 }

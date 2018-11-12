@@ -99,12 +99,13 @@
   margin-top: 20px;
 }
 .home__container .controller__jumper {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   box-shadow: 0px 0px 10px 0 black;
   margin: 0 20px;
 }
+.home__container .controller__jumper:hover,
 .home__container .controller__jumper.selected {
   background: #343434;
 }

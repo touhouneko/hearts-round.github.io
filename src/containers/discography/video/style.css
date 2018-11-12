@@ -17,6 +17,9 @@
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
+.video__container .video__cover:hover {
+  opacity: 0.75;
+}
 .video__container .video__cover > img {
   width: 100%;
   height: 100%;
@@ -73,10 +76,6 @@
   transform: rotate(48deg) scale(1.8);
   background-size: cover;
   background-image:url("~@/assets/images/arrow.svg");
-
-  /* content: 'a'; */
-  /* display: inline-block; */
-  /* width: 40px; */
 }
 .video__container .info__urls {
   flex: 0 0 auto;

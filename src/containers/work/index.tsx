@@ -24,7 +24,17 @@ const WorkItem = ({ work, idx }: { work: IWork, idx: number }) => (
   <li className="work__item">
     <article className="work__article">
       <h3 className="work__header">
-        {work.principle.name}
+      {
+        work.principle.link === '' ?
+        <span>{work.principle.name}</span>:
+        <a
+          target="_blank"
+          href={work.principle.link}
+          className="principle__link"
+        >
+          {work.principle.name}
+        </a>
+      }
       </h3>
       <div className="work__content">
         <img

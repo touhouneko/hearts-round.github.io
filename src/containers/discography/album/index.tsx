@@ -22,7 +22,7 @@ const TrackInfo = ({ code, info, idx }: { code: string, info: ITrack, idx: numbe
         `}
         href={
           info.hasLyrics ?
-          `/discography/lyrics/${code}/${('0' + (idx + 1)).slice(-2)}`:
+          `/discography/lyrics/${code.toLowerCase()}/${('0' + (idx + 1)).slice(-2)}`:
           undefined
         }
         target="_blank"

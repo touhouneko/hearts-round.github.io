@@ -64,12 +64,12 @@ declare module '@/data/gallery.csv' {
   export default illustrations;
 }
 
-declare module '@/data/work.csv' {
+declare module '@/data/works.csv' {
   export interface IRawWork {
     principle: string;
     principle_url?: string;
     title: string;
-    cover: string;
+    cover?: string;
     info_1: string;
     info_2?: string;
     video_bilibili: string;

@@ -1,4 +1,4 @@
-import rawWorks from '@/data/work.csv';
+import rawWorks from '@/data/works.csv';
 import { IWork, WorkModel } from '@/models/work';
 import TrackAuthorModel from '@/models/author';
 

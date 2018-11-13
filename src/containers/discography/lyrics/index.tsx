@@ -4,7 +4,7 @@ import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { IHasExternalLinks } from '@/models/external-links';
 import { IHasAuthor } from '@/models/author';
 import albums from '@/data/albums';
-import works from '@/data/work';
+import works from '@/data/works';
 import loadLyrics from '@/apis/lyrics-loader';
 import './style.css';
 

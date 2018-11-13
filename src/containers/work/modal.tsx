@@ -5,7 +5,7 @@ import useClickOutside from '@/hooks/click-outside';
 import { VideoContext, VideoModalWindow } from '@/components/modal/modal-video';
 import ModalWithNav from '@/components/modal/modal-nav';
 import modalFactory from '@/components/modal/factory';
-import works from '@/data/work';
+import works from '@/data/works';
 import { IWork } from '@/models/work';
 
 const worksWithVideo: ReadonlyArray<IWork> = works.filter(w => w.cover !== '');

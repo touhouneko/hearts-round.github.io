@@ -37,9 +37,9 @@
 |tracks[].lyrics (optional)||
 |tracks[].pv(optional)||
 |tracks[].illustrator(optional)||
-|tracks[].length|时长，例：4:32|
+|tracks[].length|时长，例：`4:32`|
 |tracks[].link (optional)|外链站点，以 https:// 或是 http:// 开头|
-|tracks[].has_lyrics|是否有歌词, true=有，false=没有，**不允许其他值**|
+|tracks[].has_lyrics|是否有歌词, `true`=有，`false`=没有，**不允许其他值**|
 
 
 ## banner.csv
@@ -51,7 +51,7 @@
 |title|轮播图下放的文字描述|
 |album_code|相对应的专辑编号，比如HATO001|
 
-## work.csv
+## works.csv
 用于 work 页面
 
 |变量名|描述|
@@ -59,7 +59,7 @@
 |principle|委托方名称 |
 |principle_url(optional)|委托方链接|
 |title|作品标题|
-|cover|作品封面|
+|cover(optional)|作品封面(高度上限150px)|
 |info_1|上半部分文字描述,分段用";"(英文分号)分开|
 |info_2(optional)|下半部分文字描述|
 |video_youtube(optional)|youtube 的视频 ID，网址中的粗体部分 [https://www.youtube.com/watch?v=**SCQgE4mTnjU**](/#)|

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import works from '@/data/work';
+import works from '@/data/works';
 import { IWork } from '@/models/work';
 import { popupWorkModal } from './modal';
 import './style.css';

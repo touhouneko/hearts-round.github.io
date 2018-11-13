@@ -63,8 +63,7 @@
 |info_1|上半部分文字描述,分段用";"(英文分号)分开|
 |info_2(optional)|下半部分文字描述|
 |video_youtube(optional)|youtube 的视频 ID，网址中的粗体部分 [https://www.youtube.com/watch?v=**SCQgE4mTnjU**](/#)|
-|video_bilibili|bilibili 的视频 ID 以及分p号码，网址中的粗体部分 [https://www.bilibili.com/video/**av2739129/?p=3**](/#)
-如果没有分p号，例如[https://www.bilibili.com/video/**av2739129**](/#)，则输入`av2739129/?p=1`|
+|video_bilibili|bilibili 的视频 ID 以及分p号码，网址中的粗体部分[https://www.bilibili.com/video/**av2739129/?p=3**](/#) 如果没有分p号，例如[https://www.bilibili.com/video/**av2739129**](/#)，则输入`av2739129/?p=1`|
 |video_niconico(optional)|niconico 的视频ID，网址中的粗体部分 [https://www.nicovideo.jp/watch/**sm7706816**](/#)|
 |original(optional)||
 |compose(optional)||

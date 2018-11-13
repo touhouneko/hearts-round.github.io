@@ -78,10 +78,11 @@ const StaffIntroduction = ({ intro }: { intro: IStaffIntroduction }) => (
     </article>
     {/* sns icon groups */}
     <div className="about__content about__content--avatar">
-      <img
-        src={intro.avatar === '' ? defaultAvatar : intro.avatar}
-        className="about__avatar"
-      />
+    {
+      intro.avatar === '' ?
+      <i className="about__avatar default-avatar" />:
+      <img className="about__avatar" src={intro.avatar} />
+    }
       <div className="about__link-container">
         <SNSLogo link = {intro.social.twitter} site='twitter'/>
         <SNSLogo link = {intro.social.bilibili} site='bilibili'/>

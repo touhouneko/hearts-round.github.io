@@ -143,6 +143,11 @@
   height: 230px;
   vertical-align: top;
 }
+.about__container .about__avatar.default-avatar {
+  display: block;
+  background-image: url("~@/assets/images/avatar.svg");
+  background-size: 230px 230px;
+}
 
 /* sns logos */
 .about__container .about__link-container {

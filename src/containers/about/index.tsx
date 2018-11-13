@@ -5,6 +5,7 @@ import staffs, { IStaffIntroduction } from '@/data/staff';
 import defaultAvatar from '@/assets/images/avatar.svg';
 import useOnScroll from '@/hooks/scroll';
 import './style.css';
+import useResize from '@/hooks/resize';
 
 const html = document.getElementsByTagName('html')[0];
 interface INavProps {
@@ -107,15 +108,23 @@ interface IProps {
 export default function About(props: RouteComponentProps<IProps>) {
   const [offsetY, setOffsetY] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
-  const navRef = useRef<HTMLElement>(null);
+  const [navHeight, setNavHeight] = useState(0);
+  const navRef = useRef<HTMLUListElement>(null);
   const contentRef = useRef<HTMLUListElement>(null);
 
+  useResize(() => {
+    const pageHeight = html.offsetHeight;
+    const viewHeight = window.innerHeight;
+    console.log(pageHeight, viewHeight);
+    setNavHeight(pageHeight > viewHeight ? pageHeight : pageHeight - 75);
+  }, [props.location.pathname]);
+  
   useOnScroll(() => {
     const scrollX = window.scrollX | document.documentElement.scrollLeft;
     const scrollY = window.scrollY | document.documentElement.scrollTop;
     setOffsetX(-scrollX);
-
-    const bottomPos = navRef.current.getBoundingClientRect().bottom - offsetY + scrollY;
+    // 170 = margin-bottom
+    const bottomPos = navRef.current.getBoundingClientRect().bottom - offsetY + scrollY + 170;
     const pageBottomPos = html.offsetHeight;
     let offset = Math.min(0, pageBottomPos - bottomPos - 220);
     offset = Math.max(-scrollY, offset);
@@ -130,11 +139,14 @@ export default function About(props: RouteComponentProps<IProps>) {
     <main className="about__container">
       <aside        
         className="about__aside"
-        style={{transform: `translate(${offsetX}px,${offsetY}px)`}}
+        style={{
+          transform: `translate(${offsetX}px,${offsetY}px)`,
+          minHeight: navHeight
+        }}
       >
-        <nav className="about__nav" ref={navRef}>
+        <nav className="about__nav">
           <img src="https://via.placeholder.com/205x150" className="about__logo--large" />
-          <ul className="nav__list">
+          <ul className="nav__list" ref={navRef}>
             {
               staffs.map(s => (
                 <NavItem name={s.name} role={s.role} to={s.path} key={s.path} />

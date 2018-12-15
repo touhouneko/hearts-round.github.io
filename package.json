@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --no-cache",
-    "test-watch": "jest --watchAll",
+    "test:watch": "jest --watchAll",
     "dev": "webpack-dev-server --config=configs/webpack.dev.config.js --host 0.0.0.0",
     "build": "webpack -p --config=configs/webpack.prod.config.js",
     "build:stats": "webpack --env production --config=configs/webpack.prod.config.js --json > stats.json"
@@ -64,6 +64,11 @@
   ],
   "dependencies": {},
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    },
     "transform": {
       ".(ts|tsx)$": "ts-jest",
       ".csv$": "<rootDir>/jest/transform-csv"

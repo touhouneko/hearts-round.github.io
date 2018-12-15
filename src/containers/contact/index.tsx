@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SiteLogo from '@/assets/images/logo_cyan.svg';
+
 import './style.css';
 
 const Contact = () => (
@@ -29,6 +31,7 @@ const Contact = () => (
       </aside>
     </article>
     <div className="logo__container">
+      <img src={SiteLogo} className="logo"/>
     </div>
   </main>
 );

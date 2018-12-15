@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Redirect, NavLink, RouteComponentProps } from 'react-router-dom';
 
 import staffs, { IStaffIntroduction } from '@/data/staff';
-import defaultAvatar from '@/assets/images/avatar.svg';
+import SiteLogo from '@/assets/images/logo_cyan.svg';
 import useOnScroll from '@/hooks/scroll';
 import './style.css';
 import useResize from '@/hooks/resize';
@@ -116,7 +116,7 @@ export default function About(props: RouteComponentProps<IProps>) {
   useResize(() => {
     const pageHeight = html.offsetHeight;
     const viewHeight = window.innerHeight;
-    console.log(pageHeight, viewHeight);
+    // console.log(pageHeight, viewHeight);
     setNavHeight(pageHeight > viewHeight ? pageHeight : pageHeight - 75);
   }, [props.location.pathname]);
   
@@ -146,7 +146,7 @@ export default function About(props: RouteComponentProps<IProps>) {
         }}
       >
         <nav className="about__nav">
-          <img src="https://via.placeholder.com/205x150" className="about__logo--large" />
+          <img src={SiteLogo} className="about__logo--large" />
           <ul className="nav__list" ref={navRef}>
             {
               staffs.map(s => (

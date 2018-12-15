@@ -1,5 +1,6 @@
 .contact__container {
   padding: 170px 0 210px;
+  display: flex;
 }
 
 /* article */
@@ -58,3 +59,8 @@
   font-size: 12px;
 }
 
+/* logo */
+.contact__container .logo {
+  width: 400px;
+  /* height: 100px; */
+}

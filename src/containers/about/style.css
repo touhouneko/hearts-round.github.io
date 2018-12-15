@@ -39,6 +39,8 @@
   position: relative;
   display: block;
   height: 38px;
+  background: url('~@/assets/images/logo_cyan.svg') no-repeat 180% 20%;
+  background-size: 150px;
 }
 .about__container .nav__item:not(:last-child) {
   overflow: hidden;

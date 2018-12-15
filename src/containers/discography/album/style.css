@@ -67,8 +67,11 @@
   width: 46px;
   height: 46px;
   margin-left: 20px;
-  border-radius: 50%;
-  border: 1px solid black;
+  background: url('~@/assets/images/sprite.svg') no-repeat;
+  background-size: 225%;
+}
+.album__container .album-info__buy:hover {
+  background-position: 0 -46px;
 }
     /* content */
 .album__container .album-info__author-list {
@@ -131,13 +134,26 @@
 .album__container .track-info__link {
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  background: url('~@/assets/images/sprite.svg') no-repeat;
+  background-size: 600%;
+}
+.album__container .track-info__link--music {
+  background-position: 100% -32px;
+}
+.album__container .track-info__link--music:hover {
+  background-position: 100% -62px;
 }
 .album__container .track-info__link--music--disabled {
-  border-color: #777777;
+  background-position: 100% -1px;
+}
+.album__container .track-info__link--lyrics {
+  background-position: 67% -32px;
+}
+.album__container .track-info__link--lyrics:hover {
+  background-position: 67% -64px;
 }
 .album__container .track-info__link--lyrics--disabled {
-  border-color: #777777;
+  background-position: 67% 0;
 }
 .album__container .track-info__row--idx {
   flex: 1
@@ -165,10 +181,25 @@
 /* purchase modal */
 .purchase-modal__container {
   display: flex;
+  position: relative;
   flex-direction: row;
   width: 340px;
   height: 260px;
   border-radius: 8px;
+  /* background: url('~@/assets/images/logo_cyan.svg'); */
+}
+.purchase-modal__container::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.125;
+  background: url('~@/assets/images/logo_cyan.svg') no-repeat -10% 35%;
+  background-size: 250%;
+  /* z-index: 10; */
 }
 .purchase-modal__item {
   display: flex;
@@ -202,6 +233,11 @@
   background-size: cover;
   background-image: url("~@/assets/images/taobao.svg");
 }
+.purchase-modal__icon--tora {
+  width: 120px;
+  background: url("~@/assets/images/shop_tora.png") no-repeat center;
+  background-size: contain;
+}
 .purchase-modal__link {
   text-decoration: none;
 }
@@ -211,4 +247,5 @@
 .purchase-modal__region {
   color: #777777;
   margin-top: 30px;
+  text-align: center;
 }

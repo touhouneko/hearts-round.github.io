@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import { Carousel, FrameItem } from '@/components/carousel';
+import SiteLogo from '@/assets/images/logo_cyan.svg';
 import banners from '@/data/banner.csv';
-import albums from '@/data/albums';
+// import albums from '@/data/albums';
 // import popupAlbumModal from '../discography/album/album-modal';
 import NewsSection from './news-section';
 import './style.css';
@@ -71,7 +72,7 @@ export default function Home() {
         />
       </div>
       <div className="home__logo">
-        <img className="logo__image" />
+        <img className="logo__image" src={SiteLogo}/>
         <section className="logo__slogan">
           <p className="slogan__line slogan__line--0">少女见见见</p>
           <p className="slogan__line slogan__line--1">雨雨雨上∙ ∙ ∙</p>

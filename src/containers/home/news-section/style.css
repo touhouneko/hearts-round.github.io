@@ -11,7 +11,7 @@
 }
 .home__container .news__item {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   height: 26px;
   line-height: 26px;
   font-size: 18px;

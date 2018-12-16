@@ -150,10 +150,10 @@
   background-position: 67% -32px;
 }
 .album__container .track-info__link--lyrics:hover {
-  background-position: 67% -64px;
+  background-position: 67% -62px;
 }
 .album__container .track-info__link--lyrics--disabled {
-  background-position: 67% 0;
+  background-position: 67% -2px;
 }
 .album__container .track-info__row--idx {
   flex: 1

@@ -1,9 +1,25 @@
 .lyrics__container {
   background: white;
-  padding: 50px 50px 80px;
   box-shadow: 0 0 30px 0 rgba(0,0,0,0.25);
   min-height: 100vh;
   z-index: -1;
+}
+.lyrics__container > .background {
+  position: relative;
+  padding: 50px 50px 80px;
+}
+.lyrics__container > .background::before {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url('~@/assets/images/logo_cyan.svg') no-repeat;
+  background-position: 400px 150px;
+  background-size: 175%;
+  opacity: 0.125;
 }
 /* track info */
 .lyrics__container .track-info__header {
@@ -34,11 +50,23 @@
 }
 .lyrics__container .track-info__link {
   display: block;
-  height: 22px;
+  height: 26px;
   width: 38px;
-  border: 1px solid black;
-  border-radius: 4px;
+  /* border: 1px solid black; */
+  /* border-radius: 4px; */
   margin-right: 10px;
+}
+.lyrics__container .track-info__link--music {
+  background: url('~@/assets/images/music.png') no-repeat;
+  background-size: 100%;
+}
+.lyrics__container .track-info__link--video {
+  background: url('~@/assets/images/video.png') no-repeat;
+  background-size: 100%;
+}
+.lyrics__container .track-info__link--cover {
+  background: url('~@/assets/images/cover.png') no-repeat;
+  background-size: 100%;
 }
 .lyrics__container .track-info__author {
   padding-left: 40px;
@@ -65,8 +93,8 @@
 .lyrics__container .lyrics__line {
   margin: 0;
   font-size: 18px;
-  line-height: 24px;
-  height: 24px;
+  line-height: 30px;
+  height: 30px;
 }
 
 /* loading-failed */

@@ -9,6 +9,9 @@ a {
 main, section, article, aside, nav, header, footer {
   display: block;
 }
+html {
+  font-family: "Open Sans";
+}
 /* a:active {
   border: none;
 }

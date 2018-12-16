@@ -25,17 +25,34 @@ function TrackInfo ({ info }: { info: ITrackInfoProps }) {
           {info.title}
         </h2>
         <div className="track-info__links">
-          <a
-            href={info.links.music}
-            target="_blank"
-            className="track-info__link track-info__link--music"
-          />
-          {/* <a
-            className="track-info__link track-info__link--video"
-          />
-          <a
-            className="track-info__link track-info__link--cover"
-          /> */}
+        {
+          info.links.music !== undefined &&
+          (
+            <a
+              href={info.links.music}
+              target="_blank"
+              className="track-info__link track-info__link--music"
+            />
+          )
+        }
+        {
+          info.links.videoId !== undefined &&
+          (
+            <a
+              href={`https://www.bilibili.com/video/${info.links.videoId.bilibili}`}
+              target="_blank"
+              className="track-info__link track-info__link--video"
+            />
+          )
+        }
+        {
+          info.links.image !== undefined && 
+          (
+            <a
+              className="track-info__link track-info__link--cover"
+            />
+          )
+        }
         </div>
       </header>
       <section className="track-info__author">
@@ -160,8 +177,10 @@ export default function LyricsPage(props: RouteComponentProps<IMatchProps>) {
     return (<Redirect to="/404" />)
   return (
     <main className="lyrics__container">
-      <TrackInfo info={trackInfo}/>
-      <LyricsSection lyrics={lyrics} />
+      <div className="background">
+        <TrackInfo info={trackInfo}/>
+        <LyricsSection lyrics={lyrics} />
+      </div>
     </main>
   );
 }

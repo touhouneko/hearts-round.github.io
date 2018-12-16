@@ -96,7 +96,26 @@ body.modal-open {
   margin-left: 10px;
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  background: url('~@/assets/images/sprite.svg') no-repeat;
+  background-size: 600%;
+}
+.v-modal__header-link--music {
+  background-position: 100% -32px;
+}
+.v-modal__header-link--music:hover {
+  background-position: 100% -62px;
+}
+.v-modal__header-link--music.disabled {
+  background-position: 100% -1px;
+}
+.v-modal__header-link--lyrics {
+  background-position: 67% -32px;
+}
+.v-modal__header-link--lyrics:hover {
+  background-position: 67% -62px;
+}
+.v-modal__header-link--lyrics.disabled {
+  background-position: 67% -2px;
 }
 .v-modal__header-link.disabled {
   border-color: #777777;

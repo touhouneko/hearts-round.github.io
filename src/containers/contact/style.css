@@ -6,6 +6,7 @@
 /* article */
 .contact__container .contact__article {
   width: 430px;
+  margin-right: 60px;
 }
 
 /* header */

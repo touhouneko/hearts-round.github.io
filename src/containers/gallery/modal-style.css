@@ -4,6 +4,8 @@
 }
 
 .gallery__modal .modal__image--gallery {
+  min-width: 400px;
+  min-height: 300px;
   max-width: 800px;
   max-height: 450px;
 }

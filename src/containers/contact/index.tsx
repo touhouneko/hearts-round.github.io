@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SiteLogo from '@/assets/images/logo_cyan.svg';
+import SiteLogo from '@/assets/images/logo_shadow.png';
 
 import './style.css';
 

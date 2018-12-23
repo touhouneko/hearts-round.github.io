@@ -98,6 +98,26 @@
   border-radius: 50%;
   background: white;
 }
+.video__container .urls__icon > .icon {
+  content: '';
+  display: block;
+  height: 100%;
+}
+.video__container .urls__icon:hover > .icon {
+  opacity: 0.5;
+}
+.video__container .urls__icon--bilibili > .icon {
+  background: url('~@/assets/images/bilibili_color.svg') no-repeat center;
+  background-size: 70%;
+}
+.video__container .urls__icon--niconico > .icon {
+  background: url('~@/assets/images/niconico.png') no-repeat 50% 40%;
+  background-size: 70%;
+}
+.video__container .urls__icon--youtube > .icon {
+  background: url('~@/assets/images/youtube.svg') no-repeat center;
+  background-size: 70%;
+}
 .video__container .urls__icon:not(:first-child) {
   margin-left: 8px;
 }

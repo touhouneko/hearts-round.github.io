@@ -5,6 +5,26 @@ import { IVideo } from '@/models/video';
 import { popupVideoModal } from './modal';
 import './style.css';
 
+function getFullUrl(type: string, link: string) {
+  switch(type) {
+    case 'bilibili':
+      return `https://www.bilibili.com/video/${link}`;
+    case 'niconico':
+      return `https://www.nicovideo.jp/watch/${link}`;
+    case 'youtube':
+      return `https://www.youtube.com/watch?v=${link}`;
+  }
+}
+
+const VideoLink = ({ type, link }: { type: string, link: string}) => (
+  link && <a
+    href={getFullUrl(type, link)}
+    target="_blank"
+    className={`urls__icon urls__icon--${type} clickable`}
+  >
+    <i className="icon"/>
+  </a>
+);
 const AuthorField = ({ field, value }: { field: string, value: string}) => (
   value === undefined || value === '' ?
   null :
@@ -45,9 +65,9 @@ const Item = ({ info, idx }: { info: IVideo, idx: number }) => (
         <AuthorField field="PV" value={info.track.author.pv} />
       </section>
       <div className="indent info__urls">
-        <i className="urls__icon urls__icon--bilibili clickable" />
-        <i className="urls__icon urls__icon--niconico clickable" />
-        <i className="urls__icon urls__icon--youtube clickable" />
+        <VideoLink type="bilibili" link={info.links.videoId!.bilibili} />
+        <VideoLink type="niconico" link={info.links.videoId!.niconico} />
+        <VideoLink type="youtube" link={info.links.videoId!.youtube} />
       </div>
     </article>
   </section>

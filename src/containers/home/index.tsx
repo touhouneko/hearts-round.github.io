@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import { Carousel, FrameItem } from '@/components/carousel';
-import SiteLogo from '@/assets/images/logo_cyan.svg';
+import SiteLogo from '@/assets/images/logo_shadow.png';
 import banners from '@/data/banner.csv';
-// import albums from '@/data/albums';
-// import popupAlbumModal from '../discography/album/album-modal';
 import NewsSection from './news-section';
 import './style.css';
-
-// function handleCarouselClicked(albumCode: string) {
-//   const idx = albums.findIndex(a => a.code === albumCode);
-//   if (idx < 0) {
-//     alert('album does not exist');
-//     return;
-//   }
-//   // popupAlbumModal(idx);
-// }
 
 function CarouselSection() {
   const [displayedIdx, setDisplayedIdx] = useState(0);

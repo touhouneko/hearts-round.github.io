@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Redirect, NavLink, RouteComponentProps } from 'react-router-dom';
 
 import staffs, { IStaffIntroduction } from '@/data/staff';
-import SiteLogo from '@/assets/images/logo_cyan.svg';
+import SiteLogo from '@/assets/images/logo_shadow.png';
 import useOnScroll from '@/hooks/scroll';
 import './style.css';
 import useResize from '@/hooks/resize';
